@@ -1,0 +1,42 @@
+@use '../../styles/colors.module';
+@use '../../styles/utils.module' as u;
+
+.base {
+  border: none;
+  border-radius: u.to-rem(8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: u.to-rem(8);
+  font-weight: 700;
+
+  &:hover {
+    cursor: pointer;
+    filter: brightness(1.1);
+  }
+}
+
+.sm {}
+
+.md {
+  padding: u.to-rem(8) u.to-rem(12);
+  font-size: u.to-rem(16);
+  line-height: u.to-rem(18);
+}
+
+.lg {}
+
+.primary {
+  background: colors.$primary-color;
+  color: colors.$white;
+}
+
+.secondary {}
+
+.accent {}
+
+.destructive {}
+
+.constructive {}
+
+.disabled {}
