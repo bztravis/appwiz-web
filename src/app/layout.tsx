@@ -1,6 +1,6 @@
-import type { Metadata } from 'next';
-import './globals.css';
-import localFont from 'next/font/local';
+import type { Metadata } from 'next'
+import localFont from 'next/font/local'
+import '../styles/global.scss'
 
 const Satoshi = localFont({
   src: [
@@ -15,20 +15,20 @@ const Satoshi = localFont({
       style: 'normal',
     },
   ],
-});
+})
 
 export const metadata: Metadata = {
   title: 'AppWiz',
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
-    <html lang='en'>
+    <html lang="en">
       <body className={Satoshi.className}>{children}</body>
     </html>
-  );
+  )
 }

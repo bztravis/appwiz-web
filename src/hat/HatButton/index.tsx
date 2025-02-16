@@ -1,30 +1,30 @@
-"use client"
+'use client'
 
-import styleBuilder from "@/utils/styleBuilder"
-import styles from "./HatButton.module.scss"
+import styleBuilder from '@/utils/styleBuilder'
+import styles from './HatButton.module.scss'
 
 type ButtonColor =
-  | "primary"
-  | "secondary"
-  | "accent"
-  | "destructive"
-  | "constructive"
+  | 'primary'
+  | 'secondary'
+  | 'accent'
+  | 'destructive'
+  | 'constructive'
 
 type ButtonProps = {
-  size?: "sm" | "md" | "lg"
+  size?: 'sm' | 'md' | 'lg'
   color?: ButtonColor
   icon?: React.ReactNode
-  iconSide?: "left" | "right"
+  iconSide?: 'left' | 'right'
   disabled?: boolean
   onClick: () => void
   children?: React.ReactNode
 }
 
 export default function Button({
-  size = "md",
-  color = "primary",
+  size = 'md',
+  color = 'primary',
   icon,
-  iconSide = "left",
+  iconSide = 'left',
   disabled = false,
   onClick,
   children,
@@ -37,12 +37,12 @@ export default function Button({
   ])
 
   return (
-    <button className={className} onClick={onClick}>
-      {icon && iconSide === "left" && icon}
+    <button className={className} onClick={onClick} /* type="button" */>
+      {icon && iconSide === 'left' && icon}
 
       {children}
 
-      {icon && iconSide === "right" && icon}
+      {icon && iconSide === 'right' && icon}
     </button>
   )
 }

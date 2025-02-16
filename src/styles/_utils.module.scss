@@ -1,5 +1,4 @@
 @function to-rem($value) {
-  $remValue: (
-    $value / 14) + rem;
+  $remValue: calc($value / 14) + rem;
   @return $remValue;
 }
