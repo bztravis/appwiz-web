@@ -6,6 +6,7 @@ import { HatText } from '@/hat/HatText'
 import { HatFlex } from '@/hat/HatFlex'
 import { Logo } from '@/components/Logo'
 import { HatPadding } from '@/hat/HatPadding'
+import { HatBreak } from '@/hat/HatBreak'
 
 export default function Home() {
   console.log(SpeedLine)
@@ -14,6 +15,7 @@ export default function Home() {
       <HatFlex.Col align="stretch" gap="xs">
         <HatButton onClick={() => console.log('clicked')}>New cycle</HatButton>
         <HatButton onClick={() => console.log('clicked')}>New cycle</HatButton>
+        <HatBreak paddingVertical="lg" />
         <HatButton onClick={() => console.log('clicked')}>New cycle</HatButton>
       </HatFlex.Col>
 

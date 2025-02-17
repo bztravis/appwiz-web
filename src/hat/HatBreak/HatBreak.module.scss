@@ -1,0 +1,5 @@
+@use '../../styles/colors.module';
+
+.base {
+  border: 0.5px solid colors.$border;
+}

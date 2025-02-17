@@ -1,33 +1,81 @@
 @use '../../styles/sizes.module';
 
-.none {
-  padding: 0;
+.padding-y-none {
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
-.xs {
-  padding: sizes.$space-xs;
+.padding-y-xs {
+  padding-top: sizes.$space-xs;
+  padding-bottom: sizes.$space-xs;
 }
 
-.sm {
-  padding: sizes.$space-sm;
+.padding-y-sm {
+  padding-top: sizes.$space-sm;
+  padding-bottom: sizes.$space-sm;
 }
 
-.md {
-  padding: sizes.$space-md;
+.padding-y-md {
+  padding-top: sizes.$space-md;
+  padding-bottom: sizes.$space-md;
 }
 
-.lg {
-  padding: sizes.$space-lg;
+.padding-y-lg {
+  padding-top: sizes.$space-lg;
+  padding-bottom: sizes.$space-lg;
 }
 
-.xl {
-  padding: sizes.$space-xl;
+.padding-y-xl {
+  padding-top: sizes.$space-xl;
+  padding-bottom: sizes.$space-xl;
 }
 
-.xxl {
-  padding: sizes.$space-xxl;
+.padding-y-xxl {
+  padding-top: sizes.$space-xxl;
+  padding-bottom: sizes.$space-xxl;
 }
 
-.xxxl {
-  padding: sizes.$space-xxxl;
+.padding-y-xxxl {
+  padding-top: sizes.$space-xxxl;
+  padding-bottom: sizes.$space-xxxl;
+}
+
+.padding-x-none {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.padding-x-xs {
+  padding-left: sizes.$space-xs;
+  padding-right: sizes.$space-xs;
+}
+
+.padding-x-sm {
+  padding-left: sizes.$space-sm;
+  padding-right: sizes.$space-sm;
+}
+
+.padding-x-md {
+  padding-left: sizes.$space-md;
+  padding-right: sizes.$space-md;
+}
+
+.padding-x-lg {
+  padding-left: sizes.$space-lg;
+  padding-right: sizes.$space-lg;
+}
+
+.padding-x-xl {
+  padding-left: sizes.$space-xl;
+  padding-right: sizes.$space-xl;
+}
+
+.padding-x-xxl {
+  padding-left: sizes.$space-xxl;
+  padding-right: sizes.$space-xxl;
+}
+
+.padding-x-xxxl {
+  padding-left: sizes.$space-xxxl;
+  padding-right: sizes.$space-xxxl;
 }
