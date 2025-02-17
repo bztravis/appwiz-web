@@ -3,7 +3,7 @@
 import styleBuilder from '@/utils/styleBuilder'
 import styles from './HatButton.module.scss'
 
-type ButtonColor =
+type HatButtonColor =
   | 'primary'
   | 'secondary'
   | 'accent'
@@ -12,7 +12,7 @@ type ButtonColor =
 
 type ButtonProps = {
   size?: 'md' | 'lg'
-  color?: ButtonColor
+  color?: HatButtonColor
   icon?: React.ReactNode
   iconSide?: 'left' | 'right'
   disabled?: boolean
@@ -20,7 +20,7 @@ type ButtonProps = {
   children?: React.ReactNode
 }
 
-export default function Button({
+export function HatButton({
   size = 'md',
   color = 'primary',
   icon,

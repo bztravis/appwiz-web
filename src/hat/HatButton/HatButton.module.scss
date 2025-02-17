@@ -19,7 +19,7 @@
 .md {
   padding: u.to-rem(8) u.to-rem(12);
   gap: u.to-rem(8);
-  font-size: u.to-rem(16);
+  font-size: u.to-rem(14);
   line-height: u.to-rem(18);
 }
 
@@ -31,8 +31,8 @@
 }
 
 .primary {
-  background: colors.$primary-color;
-  color: colors.$white;
+  background: colors.$primary;
+  color: colors.$background;
 
   &.disabled {
     opacity: 0.5
@@ -40,8 +40,8 @@
 }
 
 .secondary {
-  background: colors.$primary-color;
-  color: colors.$white;
+  background: colors.$background;
+  color: colors.$primary;
 
   &.disabled {
     opacity: 0.5
@@ -49,8 +49,8 @@
 }
 
 .accent {
-  background: colors.$primary-color;
-  color: colors.$white;
+  background: colors.$accent;
+  color: colors.$background;
 
   &.disabled {
     opacity: 0.5
@@ -58,8 +58,8 @@
 }
 
 .destructive {
-  background: colors.$primary-color;
-  color: colors.$white;
+  background: colors.$destructive;
+  color: colors.$background;
 
   &.disabled {
     opacity: 0.5
@@ -67,8 +67,8 @@
 }
 
 .constructive {
-  background: colors.$primary-color;
-  color: colors.$white;
+  background: colors.$constructive;
+  color: colors.$background;
 
   &.disabled {
     opacity: 0.5
