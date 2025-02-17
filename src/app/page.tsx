@@ -8,10 +8,13 @@ import { HatPadding } from '@/Hat/HatPadding'
 import { HatBreak } from '@/Hat/HatBreak'
 import { HatWidthClamp } from '@/Hat/HatWidthClamp'
 import { pxToRem } from '@/utils/pxToRem'
+import Link from 'next/link'
 
 export default function Home() {
   return (
     <div>
+      <Link href="/login">/login</Link>
+
       <HatWidthClamp sizeRem={pxToRem(280)}>
         <HatFlex.Col align="stretch" gap="xs">
           <HatButton onClick={() => console.log('clicked')}>

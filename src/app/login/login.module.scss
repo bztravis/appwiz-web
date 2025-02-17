@@ -1,0 +1,18 @@
+@use '../../styles/utils.module' as u;
+
+.LoginRoot {
+  min-height: 100vh;
+  padding: u.to-rem(32);
+  display: flex;
+  flex-direction: column;
+  gap: u.to-rem(64);
+
+  .FormContainer {
+    height: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
