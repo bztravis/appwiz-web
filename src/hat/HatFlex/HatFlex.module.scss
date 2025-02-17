@@ -1,0 +1,107 @@
+@use '../../styles/sizes.module';
+
+.base {
+  display: flex;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.col {
+  flex-direction: column;
+}
+
+// conditionals
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.gap-none {
+  gap: 0;
+}
+
+.gap-xs {
+  gap: sizes.$space-xs;
+}
+
+.gap-sm {
+  gap: sizes.$space-sm;
+}
+
+.gap-md {
+  gap: sizes.$space-md;
+}
+
+.gap-lg {
+  gap: sizes.$space-lg;
+}
+
+.gap-xl {
+  gap: sizes.$space-xl;
+}
+
+.gap-xxl {
+  gap: sizes.$space-xxl;
+}
+
+.gap-xxxl {
+  gap: sizes.$space-xxxl;
+}
+
+.padding-none {
+  padding: 0;
+}
+
+.padding-xs {
+  padding: sizes.$space-xs;
+}
+
+.padding-sm {
+  padding: sizes.$space-sm;
+}
+
+.padding-md {
+  padding: sizes.$space-md;
+}
+
+.padding-lg {
+  padding: sizes.$space-lg;
+}
+
+.padding-xl {
+  padding: sizes.$space-xl;
+}
+
+.padding-xxl {
+  padding: sizes.$space-xxl;
+}
+
+.padding-xxxl {
+  padding: sizes.$space-xxxl;
+}
