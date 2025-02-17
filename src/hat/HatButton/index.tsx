@@ -11,7 +11,7 @@ type ButtonColor =
   | 'constructive'
 
 type ButtonProps = {
-  size?: 'sm' | 'md' | 'lg'
+  size?: 'md' | 'lg'
   color?: ButtonColor
   icon?: React.ReactNode
   iconSide?: 'left' | 'right'
@@ -37,7 +37,7 @@ export default function Button({
   ])
 
   return (
-    <button className={className} onClick={onClick} /* type="button" */>
+    <button className={className} onClick={onClick}>
       {icon && iconSide === 'left' && icon}
 
       {children}

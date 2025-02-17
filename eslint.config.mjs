@@ -18,6 +18,7 @@ const eslintConfig = [
 eslintConfig.push({
   "rules": {
     "@typescript-eslint/no-unused-vars": "warn",
+    "@eslint-react/dom/no-missing-button-type": "off",
   }
 })
 
