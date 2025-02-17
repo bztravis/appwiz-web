@@ -4,13 +4,14 @@ import type { SpaceSize } from '../HatFlex'
 import { HatPadding } from '../HatPadding'
 
 type HatBreakProps = {
+  hr?: boolean
   paddingVertical?: SpaceSize
 }
 
-export function HatBreak({ paddingVertical = 'md' }: HatBreakProps) {
+export function HatBreak({ hr = true, paddingVertical = 'md' }: HatBreakProps) {
   return (
     <HatPadding sizeVertical={paddingVertical}>
-      <hr className={styleBuilder([styles.base])} />
+      {hr ? <hr className={styleBuilder([styles.base])} /> : null}
     </HatPadding>
   )
 }
