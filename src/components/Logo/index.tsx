@@ -1,4 +1,4 @@
-import type { HatTextColor } from '@/hat/HatText'
+import type { HatTextColor } from '@/Hat/HatText'
 import LogoBlack from '@/assets/icons/LogoBlack.svg'
 
 type LogoProps = {

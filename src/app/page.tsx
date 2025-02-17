@@ -1,25 +1,51 @@
 'use client'
 
-import { HatButton } from '@/hat/HatButton'
-import SpeedLine from './SpeedLine.svg'
-import { HatText } from '@/hat/HatText'
-import { HatFlex } from '@/hat/HatFlex'
+import { HatButton } from '@/Hat/HatButton'
+import { HatText } from '@/Hat/HatText'
+import { HatFlex } from '@/Hat/HatFlex'
 import { Logo } from '@/components/Logo'
-import { HatPadding } from '@/hat/HatPadding'
-import { HatBreak } from '@/hat/HatBreak'
+import { HatPadding } from '@/Hat/HatPadding'
+import { HatBreak } from '@/Hat/HatBreak'
+import { HatWidthClamp } from '@/Hat/HatWidthClamp'
+import { pxToRem } from '@/utils/pxToRem'
 
 export default function Home() {
-  console.log(SpeedLine)
   return (
     <div>
-      <HatFlex.Col align="stretch" gap="xs">
-        <HatButton onClick={() => console.log('clicked')}>New cycle</HatButton>
-        <HatButton onClick={() => console.log('clicked')}>New cycle</HatButton>
-        <HatBreak paddingVertical="lg" />
-        <HatButton onClick={() => console.log('clicked')}>New cycle</HatButton>
-      </HatFlex.Col>
+      <HatWidthClamp sizeRem={pxToRem(280)}>
+        <HatFlex.Col align="stretch" gap="xs">
+          <HatButton onClick={() => console.log('clicked')}>
+            New cycle
+          </HatButton>
 
-      <HatPadding>
+          <HatButton color="secondary" onClick={() => console.log('clicked')}>
+            New cycle
+          </HatButton>
+
+          <HatButton color="accent" onClick={() => console.log('clicked')}>
+            New cycle
+          </HatButton>
+
+          <HatButton color="destructive" onClick={() => console.log('clicked')}>
+            New cycle
+          </HatButton>
+
+          <HatButton
+            color="constructive"
+            onClick={() => console.log('clicked')}
+          >
+            New cycle
+          </HatButton>
+
+          <HatBreak paddingVertical="lg" />
+
+          <HatButton size="lg" onClick={() => console.log('clicked')}>
+            New cycle
+          </HatButton>
+        </HatFlex.Col>
+      </HatWidthClamp>
+
+      <HatPadding size="md">
         <Logo />
       </HatPadding>
 

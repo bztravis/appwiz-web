@@ -5,14 +5,16 @@
 
 .base {
   @include HatText.header;
-  border: none;
+  border-width: u.to-rem(1);
   border-radius: u.to-rem(8);
+  border-style: solid;
   display: flex;
   justify-content: center;
   align-items: center;
 
   &:hover {
     cursor: pointer;
+    filter: brightness(0.95);
   }
 }
 
@@ -33,6 +35,7 @@
 }
 
 .primary {
+  border-color: colors.$primary;
   background: colors.$primary;
   color: colors.$background;
 
@@ -42,6 +45,7 @@
 }
 
 .secondary {
+  border-color: colors.$input-border;
   background: colors.$background;
   color: colors.$primary;
 
@@ -51,6 +55,7 @@
 }
 
 .accent {
+  border-color: colors.$accent;
   background: colors.$accent;
   color: colors.$background;
 
@@ -60,6 +65,7 @@
 }
 
 .destructive {
+  border-color: colors.$destructive;
   background: colors.$destructive;
   color: colors.$background;
 
@@ -69,6 +75,7 @@
 }
 
 .constructive {
+  border-color: colors.$constructive;
   background: colors.$constructive;
   color: colors.$background;
 

@@ -1,5 +1,9 @@
 @use '../../styles/sizes.module';
 
+.base {
+  width: 100%;
+}
+
 .padding-y-none {
   padding-top: 0;
   padding-bottom: 0;

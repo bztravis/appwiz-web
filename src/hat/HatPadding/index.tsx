@@ -24,6 +24,7 @@ export function HatPadding({
   console.log({ size, sizeVertical, sizeHorizontal })
 
   const className = styleBuilder([
+    styles.base,
     ...(size ? [styles['padding-y-' + size], styles['padding-x-' + size]] : []),
     ...(sizeVertical ? [styles['padding-y-' + sizeVertical]] : []),
     ...(sizeHorizontal ? [styles['padding-x-' + sizeHorizontal]] : []),

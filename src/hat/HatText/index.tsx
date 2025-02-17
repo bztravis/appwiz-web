@@ -10,8 +10,10 @@ export type HatTextColor =
   | 'constructive'
   | 'destructive'
 
+type HatTextSize = 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'billboard'
+
 type HatTextProps = {
-  size?: 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'billboard'
+  size?: HatTextSize
   color?: HatTextColor
   children?: React.ReactNode
 }
