@@ -3,7 +3,7 @@
 import styleBuilder from '@/utils/styleBuilder'
 import styles from './HatText.module.scss'
 
-type HatTextColor =
+export type HatTextColor =
   | 'primary'
   | 'hushed'
   | 'faint'

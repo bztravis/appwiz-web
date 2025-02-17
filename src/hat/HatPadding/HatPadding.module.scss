@@ -1,0 +1,33 @@
+@use '../../styles/sizes.module';
+
+.none {
+  padding: 0;
+}
+
+.xs {
+  padding: sizes.$space-xs;
+}
+
+.sm {
+  padding: sizes.$space-sm;
+}
+
+.md {
+  padding: sizes.$space-md;
+}
+
+.lg {
+  padding: sizes.$space-lg;
+}
+
+.xl {
+  padding: sizes.$space-xl;
+}
+
+.xxl {
+  padding: sizes.$space-xxl;
+}
+
+.xxxl {
+  padding: sizes.$space-xxxl;
+}

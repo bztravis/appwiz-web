@@ -1,11 +1,22 @@
 import styleBuilder from '@/utils/styleBuilder'
 import styles from './HatFlex.module.scss'
+import { HatPadding } from '../HatPadding'
+
+export type SpaceSize =
+  | 'none'
+  | 'xs'
+  | 'sm'
+  | 'md'
+  | 'lg'
+  | 'xl'
+  | 'xxl'
+  | 'xxxl'
 
 type HatFlexProps = {
   justify?: 'start' | 'end' | 'center' | 'between'
-  align?: 'start' | 'end' | 'center'
-  gap?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'xxxl'
-  padding?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'xxxl'
+  align?: 'start' | 'end' | 'center' | 'stretch'
+  gap?: SpaceSize
+  padding?: SpaceSize
   children?: React.ReactNode
 }
 
@@ -22,19 +33,22 @@ export const HatFlex = {
     padding = DEFAULT_PADDING,
     children,
   }: HatFlexProps) => (
-    <div
-      className={styleBuilder([
-        styles.base,
-        styles.row,
-        styles['justify-' + justify],
-        styles['align-' + align],
-        styles['gap-' + gap],
-        styles['padding-' + padding],
-      ])}
-    >
-      {children}
-    </div>
+    <HatPadding size={padding}>
+      <div
+        className={styleBuilder([
+          styles.base,
+          styles.row,
+          styles['justify-' + justify],
+          styles['align-' + align],
+          styles['gap-' + gap],
+          styles['padding-' + padding],
+        ])}
+      >
+        {children}
+      </div>
+    </HatPadding>
   ),
+
   Col: ({
     justify = DEFAULT_JUSTIFY,
     align = DEFAULT_ALIGN,
@@ -42,17 +56,19 @@ export const HatFlex = {
     padding = DEFAULT_PADDING,
     children,
   }: HatFlexProps) => (
-    <div
-      className={styleBuilder([
-        styles.base,
-        styles.col,
-        styles['justify-' + justify],
-        styles['align-' + align],
-        styles['gap-' + gap],
-        styles['padding-' + padding],
-      ])}
-    >
-      {children}
-    </div>
+    <HatPadding size={padding}>
+      <div
+        className={styleBuilder([
+          styles.base,
+          styles.col,
+          styles['justify-' + justify],
+          styles['align-' + align],
+          styles['gap-' + gap],
+          styles['padding-' + padding],
+        ])}
+      >
+        {children}
+      </div>
+    </HatPadding>
   ),
 }

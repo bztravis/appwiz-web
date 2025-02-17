@@ -4,12 +4,22 @@ import { HatButton } from '@/hat/HatButton'
 import SpeedLine from './SpeedLine.svg'
 import { HatText } from '@/hat/HatText'
 import { HatFlex } from '@/hat/HatFlex'
+import { Logo } from '@/components/Logo'
+import { HatPadding } from '@/hat/HatPadding'
 
 export default function Home() {
   console.log(SpeedLine)
   return (
     <div>
-      <HatButton onClick={() => console.log('clicked')}>New cycle</HatButton>
+      <HatFlex.Col align="stretch" gap="xs">
+        <HatButton onClick={() => console.log('clicked')}>New cycle</HatButton>
+        <HatButton onClick={() => console.log('clicked')}>New cycle</HatButton>
+        <HatButton onClick={() => console.log('clicked')}>New cycle</HatButton>
+      </HatFlex.Col>
+
+      <HatPadding>
+        <Logo />
+      </HatPadding>
 
       <HatFlex.Col gap="md">
         <HatText size="xxl">Text Hello World</HatText>
