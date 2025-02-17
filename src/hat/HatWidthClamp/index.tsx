@@ -1,5 +1,5 @@
 type HatWidthClampProps = {
-  sizeRem: number
+  sizeRem: string
   children?: React.ReactNode
 }
 

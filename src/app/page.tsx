@@ -46,7 +46,7 @@ export default function Home() {
       </HatWidthClamp>
 
       <HatPadding size="md">
-        <Logo />
+        <Logo size="md" />
       </HatPadding>
 
       <HatFlex.Col gap="md">

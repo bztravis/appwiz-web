@@ -1,0 +1,25 @@
+@use '../../styles/colors.module';
+
+.md {
+  width: 200px;
+}
+
+.primary {
+  color: colors.$primary;
+}
+
+.hushed {
+  color: colors.$hushed;
+}
+
+.faint {
+  color: colors.$faint;
+}
+
+.constructive {
+  color: colors.$constructive;
+}
+
+.destructive {
+  color: colors.$destructive;
+}

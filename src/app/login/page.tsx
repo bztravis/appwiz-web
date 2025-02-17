@@ -15,7 +15,7 @@ export default function Page() {
   return (
     <HatPadding size="xl">
       <HatFlex.Col gap="xxxl">
-        <Logo />
+        <Logo size="md" />
 
         {/* <HatWidthClamp sizeRem={pxToRem(280)}> */}
 
@@ -31,7 +31,7 @@ export default function Page() {
             Continue with Google
           </HatButton>
 
-          <HatBreak />
+          <HatBreak paddingVertical="none" />
 
           <HatFlex.Col gap="md">
             <HatText.h2 size="md">Email</HatText.h2>

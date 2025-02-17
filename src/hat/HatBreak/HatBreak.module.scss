@@ -1,5 +1,6 @@
 @use '../../styles/colors.module';
+@use '../../styles/utils.module' as u;
 
 .base {
-  border: 0.5px solid colors.$border;
+  border: u.to-rem(2) solid colors.$border;
 }
