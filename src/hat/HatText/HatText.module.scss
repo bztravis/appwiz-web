@@ -1,0 +1,66 @@
+@use '../../styles/colors.module';
+@use '../../styles/sizes.module';
+
+.base {
+  margin: 0;
+}
+
+@mixin header {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.header {
+  @include header;
+}
+
+.sm {
+  font-size: sizes.$font-sm;
+  line-height: sizes.$line-height-sm;
+}
+
+.md {
+  font-size: sizes.$font-md;
+  line-height: sizes.$line-height-md;
+}
+
+.lg {
+  font-size: sizes.$font-lg;
+  line-height: sizes.$line-height-lg;
+}
+
+.xl {
+  font-size: sizes.$font-xl;
+  line-height: sizes.$line-height-xl;
+}
+
+.xxl {
+  font-size: sizes.$font-xxl;
+  line-height: sizes.$line-height-xxl;
+}
+
+.billboard {
+  @include header;
+  font-size: sizes.$font-billboard;
+  line-height: sizes.$line-height-billboard;
+}
+
+.primary {
+  color: colors.$primary;
+}
+
+.hushed {
+  color: colors.$hushed;
+}
+
+.faint {
+  color: colors.$faint;
+}
+
+.constructive {
+  color: colors.$constructive;
+}
+
+.destructive {
+  color: colors.$destructive;
+}

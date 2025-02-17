@@ -1,0 +1,15 @@
+@use './utils.module' as u;
+
+$font-sm: u.to-rem(14);
+$font-md: u.to-rem(16);
+$font-lg: u.to-rem(18);
+$font-xl: u.to-rem(24);
+$font-xxl: u.to-rem(32);
+$font-billboard: u.to-rem(48);
+
+$line-height-sm: u.to-rem(18);
+$line-height-md: u.to-rem(20);
+$line-height-lg: u.to-rem(24);
+$line-height-xl: u.to-rem(32);
+$line-height-xxl: u.to-rem(48);
+$line-height-billboard: u.to-rem(56);

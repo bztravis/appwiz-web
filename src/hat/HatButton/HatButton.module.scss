@@ -1,32 +1,32 @@
 @use '../../styles/colors.module';
+@use '../../styles/sizes.module';
 @use '../../styles/utils.module' as u;
+@use '../HatText/HatText.module.scss';
 
 .base {
+  @include HatText.header;
   border: none;
   border-radius: u.to-rem(8);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: 700;
-  letter-spacing: -0.02em;
 
   &:hover {
     cursor: pointer;
-    // filter: brightness(1.2);
   }
 }
 
 .md {
   padding: u.to-rem(8) u.to-rem(12);
   gap: u.to-rem(8);
-  font-size: u.to-rem(14);
+  font-size: sizes.$font-sm;
   line-height: u.to-rem(18);
 }
 
 .lg {
   padding: u.to-rem(12) u.to-rem(16);
   gap: u.to-rem(8);
-  font-size: u.to-rem(16);
+  font-size: sizes.$font-md;
   line-height: u.to-rem(24);
 }
 
