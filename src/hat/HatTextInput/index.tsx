@@ -19,7 +19,7 @@ export function HatTextInput({
   size = 'md',
   label,
   placeholder,
-  type,
+  type = 'text',
   disabled = false,
   required = false,
 }: HatTextInputProps) {
