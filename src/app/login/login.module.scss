@@ -27,7 +27,7 @@
       flex-grow: 1;
 
       .widthClamp {
-        max-width: 300px;
+        max-width: u.to-rem(300);
       }
     }
   }
