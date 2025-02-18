@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import '../styles/global.scss'
 
-const Satoshi = localFont({
+const AppWizSatoshi = localFont({
   src: [
     {
       path: '../../public/fonts/Satoshi-Medium.otf',
@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={Satoshi.className}>{children}</body>
+      <body className={AppWizSatoshi.className}>{children}</body>
     </html>
   )
 }

@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use '../../styles/colors.module';
 @use '../../styles/sizes.module';
 @use '../../styles/utils.module' as u;
@@ -11,6 +12,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &:focus {
+    outline: none;
+    transition: box-shadow 0.1s;
+  }
 
   &:hover {
     cursor: pointer;
@@ -42,6 +48,10 @@
   background: colors.$primary;
   color: colors.$background;
 
+  &:focus {
+    box-shadow: 0px 0px 0px 4px color.mix(colors.$accent, transparent, 30%);
+  }
+
   &:hover {
     filter: brightness(1.2);
   }
@@ -51,6 +61,11 @@
   border-color: colors.$input-border;
   background: colors.$background;
   color: colors.$primary;
+
+  &:focus {
+    border-color: colors.$accent;
+    box-shadow: 0px 0px 0px 4px color.mix(colors.$accent, transparent, 30%);
+  }
 
   &:hover {
     filter: brightness(0.98);
@@ -62,6 +77,10 @@
   background: colors.$accent;
   color: colors.$background;
 
+  &:focus {
+    box-shadow: 0px 0px 0px 4px color.mix(colors.$accent, transparent, 30%);
+  }
+
   &:hover {
     filter: brightness(0.95);
   }
@@ -72,6 +91,10 @@
   background: colors.$destructive;
   color: colors.$background;
 
+  &:focus {
+    box-shadow: 0px 0px 0px 4px color.mix(colors.$destructive, transparent, 30%);
+  }
+
   &:hover {
     filter: brightness(0.95);
   }
@@ -81,6 +104,10 @@
   border-color: colors.$constructive;
   background: colors.$constructive;
   color: colors.$background;
+
+  &:focus {
+    box-shadow: 0px 0px 0px 4px color.mix(colors.$constructive, transparent, 30%);
+  }
 
   &:hover {
     filter: brightness(0.95);
