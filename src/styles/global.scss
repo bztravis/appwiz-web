@@ -30,6 +30,7 @@ body {
   margin: 0;
   font-size: 1rem;
   font-family: unset;
+  outline-color: colors.$accent;
 
   &::selection {
     background: color.mix(colors.$accent, transparent, 40%);
