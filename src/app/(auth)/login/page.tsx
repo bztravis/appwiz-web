@@ -53,7 +53,7 @@ export default function Page() {
 
           <HatFlex.Col gap="xs">
             <HatText.p>
-              Forgot your password? <Link href="/login">Reset password</Link>
+              Forgot your password? <Link href="/reset">Reset password</Link>
             </HatText.p>
 
             <HatText.p>
