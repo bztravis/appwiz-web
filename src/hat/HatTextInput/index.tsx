@@ -12,6 +12,7 @@ type HatTextInputProps = {
   placeholder?: string
   type?: 'text' | 'password' | 'email' | 'number'
   disabled?: boolean
+  required?: boolean
 }
 
 export function HatTextInput({
@@ -20,6 +21,7 @@ export function HatTextInput({
   placeholder,
   type,
   disabled = false,
+  required = false,
 }: HatTextInputProps) {
   const inputId = useId()
 
@@ -36,6 +38,7 @@ export function HatTextInput({
           type={type}
           placeholder={placeholder}
           disabled={disabled}
+          required={required}
           id={inputId}
         />
       </HatFlex.Col>

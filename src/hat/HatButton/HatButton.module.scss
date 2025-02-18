@@ -14,7 +14,10 @@
 
   &:hover {
     cursor: pointer;
-    filter: brightness(0.95);
+  }
+
+  &.disabled {
+    opacity: 0.5
   }
 }
 
@@ -39,8 +42,8 @@
   background: colors.$primary;
   color: colors.$background;
 
-  &.disabled {
-    opacity: 0.5
+  &:hover {
+    filter: brightness(1.2);
   }
 }
 
@@ -49,8 +52,8 @@
   background: colors.$background;
   color: colors.$primary;
 
-  &.disabled {
-    opacity: 0.5
+  &:hover {
+    filter: brightness(0.98);
   }
 }
 
@@ -59,8 +62,8 @@
   background: colors.$accent;
   color: colors.$background;
 
-  &.disabled {
-    opacity: 0.5
+  &:hover {
+    filter: brightness(0.95);
   }
 }
 
@@ -69,8 +72,8 @@
   background: colors.$destructive;
   color: colors.$background;
 
-  &.disabled {
-    opacity: 0.5
+  &:hover {
+    filter: brightness(0.95);
   }
 }
 
@@ -79,7 +82,7 @@
   background: colors.$constructive;
   color: colors.$background;
 
-  &.disabled {
-    opacity: 0.5
+  &:hover {
+    filter: brightness(0.95);
   }
 }

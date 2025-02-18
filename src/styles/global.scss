@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use './colors.module';
 @use './utils.module' as u;
 
@@ -28,7 +29,7 @@ body {
   font-family: unset;
 
   &::selection {
-    background: mix(colors.$accent, transparent, 40%);
+    background: color.mix(colors.$accent, transparent, 40%);
   }
 }
 

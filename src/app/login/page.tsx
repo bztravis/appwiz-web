@@ -4,10 +4,7 @@ import { Logo } from '@/components/Logo'
 import { HatBreak } from '@/Hat/HatBreak'
 import { HatButton } from '@/Hat/HatButton'
 import { HatFlex } from '@/Hat/HatFlex'
-import { HatPadding } from '@/Hat/HatPadding'
 import { HatText } from '@/Hat/HatText'
-import { HatWidthClamp } from '@/Hat/HatWidthClamp'
-import { pxToRem } from '@/utils/pxToRem'
 import Google from '../../assets/icons/Google.svg'
 import Link from 'next/link'
 import { HatTextInput } from '@/Hat/HatTextInput'
@@ -23,8 +20,9 @@ export default function Page() {
         <Logo size="md" />
 
         <div className={styles.FormContainer}>
-          <HatWidthClamp sizeRem={pxToRem(280)}>
-            <HatFlex.Col justify="center" align="stretch" gap="lg">
+          <div className={styles.widthClamp}>
+            {/* <HatWidthClamp sizeRem={pxToRem(280)}> */}
+            <HatFlex.Col align="stretch" gap="lg">
               <HatText.h1 size="xl">Welcome back!</HatText.h1>
 
               <HatButton
@@ -39,12 +37,18 @@ export default function Page() {
               <HatBreak paddingVertical="none" />
 
               <HatFlex.Col gap="md">
-                <HatTextInput label="Email" placeholder="Email" type="email" />
+                <HatTextInput
+                  label="Email"
+                  placeholder="Email"
+                  type="email"
+                  // required
+                />
 
                 <HatTextInput
                   label="Password"
                   placeholder="Password"
                   type="password"
+                  // required
                 />
               </HatFlex.Col>
 
@@ -63,7 +67,8 @@ export default function Page() {
                 </HatText.p>
               </HatFlex.Col>
             </HatFlex.Col>
-          </HatWidthClamp>
+            {/* </HatWidthClamp> */}
+          </div>
         </div>
 
         <HatBreak hr={false} />

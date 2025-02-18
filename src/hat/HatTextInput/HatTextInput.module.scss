@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use '../../styles/colors.module';
 @use '../../styles/sizes.module';
 @use '../../styles/utils.module' as u;
@@ -21,7 +22,7 @@
     border-color: colors.$input-border;
     background: colors.$background;
     color: colors.$primary;
-    box-shadow: 0px 1px 2px 0px mix(colors.$primary, transparent, 10%);
+    box-shadow: 0px 1px 2px 0px color.mix(colors.$primary, transparent, 10%);
 
     &::placeholder {
       color: colors.$hushed;
@@ -30,7 +31,7 @@
     &:focus {
       outline: none;
       border-color: colors.$accent;
-      box-shadow: 0px 0px 0px 4px mix(colors.$accent, transparent, 30%);
+      box-shadow: 0px 0px 0px 4px color.mix(colors.$accent, transparent, 30%);
       transition: box-shadow 0.1s;
     }
 

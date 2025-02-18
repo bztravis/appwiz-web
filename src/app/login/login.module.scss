@@ -1,11 +1,13 @@
 @use '../../styles/utils.module' as u;
+@use '../../styles/sizes.module';
 
 .LoginRoot {
   min-height: 100vh;
-  padding: u.to-rem(32);
+  padding: sizes.$space-xl;
   display: flex;
   flex-direction: column;
-  gap: u.to-rem(64);
+  align-items: stretch;
+  gap: sizes.$space-xxl;
 
   .FormContainer {
     height: 100%;
@@ -14,5 +16,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    .widthClamp {
+      width: 100%;
+
+      @media screen and (min-width: sizes.$breakpoint-sm) {
+        max-width: 300px;
+      }
+    }
   }
 }
