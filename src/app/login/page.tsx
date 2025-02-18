@@ -37,7 +37,15 @@ export default function Page() {
                   Continue with Google
                 </HatButton>
 
-                <HatBreak paddingVertical="none" />
+                <HatFlex.Row align="center" gap="sm">
+                  <HatBreak paddingVertical="none" />
+
+                  <HatText.p size="xs" color="faint">
+                    OR
+                  </HatText.p>
+
+                  <HatBreak paddingVertical="none" />
+                </HatFlex.Row>
 
                 <HatFlex.Col gap="md">
                   <HatTextInput

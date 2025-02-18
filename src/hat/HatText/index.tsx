@@ -10,7 +10,7 @@ export type HatTextColor =
   | 'constructive'
   | 'destructive'
 
-type HatTextSize = 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'billboard'
+type HatTextSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'billboard'
 
 type HatTextProps = {
   size?: HatTextSize

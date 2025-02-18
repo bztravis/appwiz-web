@@ -30,6 +30,11 @@ h6 {
 
 // conditionals
 
+.xs {
+  font-size: sizes.$font-xs;
+  line-height: sizes.$line-height-xs;
+}
+
 .sm {
   font-size: sizes.$font-sm;
   line-height: sizes.$line-height-sm;
