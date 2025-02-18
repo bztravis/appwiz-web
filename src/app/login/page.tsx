@@ -71,7 +71,8 @@ export default function Page() {
           </div>
         </div>
 
-        <HatBreak hr={false} />
+        {/* Here to center login form vertically */}
+        <HatBreak hr={false} paddingVertical="none" />
       </div>
     </>
   )

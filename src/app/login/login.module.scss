@@ -2,16 +2,13 @@
 @use '../../styles/sizes.module';
 
 .LoginRoot {
-  min-height: 100vh;
-  padding: sizes.$space-xl;
+  min-height: 100dvh;
+  padding: sizes.$space-md;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
   gap: sizes.$space-xxl;
 
   .FormContainer {
-    height: 100%;
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,8 +16,16 @@
 
     .widthClamp {
       width: 100%;
+    }
+  }
 
-      @media screen and (min-width: sizes.$breakpoint-sm) {
+  @media screen and (min-width: sizes.$breakpoint-xs) {
+    padding: sizes.$space-xl;
+
+    .FormContainer {
+      flex-grow: 1;
+
+      .widthClamp {
         max-width: 300px;
       }
     }
