@@ -31,79 +31,37 @@ export function HatText({
 }
 
 HatText.h1 = ({ size = 'sm', color = 'primary', children }: HatTextProps) => (
-  <h1
-    className={styleBuilder([
-      styles.base,
-      styles.header,
-      styles[size],
-      styles[color],
-    ])}
-  >
+  <h1 className={styleBuilder([styles.base, styles[size], styles[color]])}>
     {children}
   </h1>
 )
 
 HatText.h2 = ({ size = 'sm', color = 'primary', children }: HatTextProps) => (
-  <h2
-    className={styleBuilder([
-      styles.base,
-      styles.header,
-      styles[size],
-      styles[color],
-    ])}
-  >
+  <h2 className={styleBuilder([styles.base, styles[size], styles[color]])}>
     {children}
   </h2>
 )
 
 HatText.h3 = ({ size = 'sm', color = 'primary', children }: HatTextProps) => (
-  <h3
-    className={styleBuilder([
-      styles.base,
-      styles.header,
-      styles[size],
-      styles[color],
-    ])}
-  >
+  <h3 className={styleBuilder([styles.base, styles[size], styles[color]])}>
     {children}
   </h3>
 )
 
 HatText.h4 = ({ size = 'sm', color = 'primary', children }: HatTextProps) => (
-  <h4
-    className={styleBuilder([
-      styles.base,
-      styles.header,
-      styles[size],
-      styles[color],
-    ])}
-  >
+  <h4 className={styleBuilder([styles.base, styles[size], styles[color]])}>
     {children}
   </h4>
 )
 
 HatText.h5 = ({ size = 'sm', color = 'primary', children }: HatTextProps) => (
-  <h5
-    className={styleBuilder([
-      styles.base,
-      styles.header,
-      styles[size],
-      styles[color],
-    ])}
-  >
+  <h5 className={styleBuilder([styles.base, styles[size], styles[color]])}>
     {children}
   </h5>
 )
 
 HatText.h6 = ({ size = 'sm', color = 'primary', children }: HatTextProps) => (
-  <h6
-    className={styleBuilder([
-      styles.base,
-      styles.header,
-      styles[size],
-      styles[color],
-    ])}
-  >
+  <h6 className={styleBuilder([styles.base, styles[size], styles[color]])}>
     {children}
   </h6>
 )

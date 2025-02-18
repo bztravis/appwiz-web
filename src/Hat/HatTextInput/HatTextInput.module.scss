@@ -8,8 +8,8 @@
   width: 100%;
 
   label {
+    @include HatText.condensed;
     width: 100%;
-    font-weight: 700;
   }
 
   input {

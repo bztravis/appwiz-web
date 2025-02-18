@@ -5,13 +5,27 @@
   margin: 0;
 }
 
-@mixin header {
+@mixin condensed {
   font-weight: 700;
   letter-spacing: -0.02em;
 }
 
-.header {
-  @include header;
+.condensed {
+  @include condensed;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+  &.lg,
+  &.xl,
+  &.xxl {
+    @include condensed;
+  }
 }
 
 // conditionals
@@ -42,7 +56,7 @@
 }
 
 .billboard {
-  @include header;
+  @include condensed;
   font-size: sizes.$font-billboard;
   line-height: sizes.$line-height-billboard;
 }

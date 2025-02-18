@@ -4,7 +4,7 @@
 @use '../HatText/HatText.module.scss';
 
 .base {
-  @include HatText.header;
+  @include HatText.condensed;
   border-width: u.to-rem(1);
   border-radius: u.to-rem(8);
   border-style: solid;
