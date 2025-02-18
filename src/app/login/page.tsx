@@ -70,9 +70,6 @@ export default function Page() {
             {/* </HatWidthClamp> */}
           </div>
         </div>
-
-        {/* Here to center login form vertically */}
-        <HatBreak hr={false} paddingVertical="none" />
       </div>
     </>
   )
