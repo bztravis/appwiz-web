@@ -2,6 +2,7 @@
 
 import styleBuilder from '@/utils/styleBuilder'
 import styles from './HatButton.module.scss'
+import Link from 'next/link'
 
 type HatButtonColor =
   | 'primary'
@@ -16,10 +17,19 @@ type ButtonProps = {
   icon?: React.ReactNode
   iconSide?: 'left' | 'right'
   disabled?: boolean
-  type?: 'button' | 'submit' | 'reset'
-  onClick?: () => void
   children?: React.ReactNode
-}
+} & (
+  | {
+      to?: string
+      type?: never
+      onClick?: never
+    }
+  | {
+      to?: never
+      type?: 'button' | 'submit' | 'reset'
+      onClick?: () => void
+    }
+)
 
 export function HatButton({
   size = 'md',
@@ -28,6 +38,7 @@ export function HatButton({
   iconSide = 'left',
   disabled = false,
   type = 'button',
+  to,
   onClick,
   children,
 }: ButtonProps) {
@@ -37,6 +48,18 @@ export function HatButton({
     styles[color],
     [styles.disabled, disabled],
   ])
+
+  if (to) {
+    return (
+      <Link className={className} href={to}>
+        {icon && iconSide === 'left' && icon}
+
+        {children}
+
+        {icon && iconSide === 'right' && icon}
+      </Link>
+    )
+  }
 
   return (
     <button className={className} onClick={onClick} type={type}>
