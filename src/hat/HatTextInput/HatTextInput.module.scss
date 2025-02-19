@@ -55,7 +55,7 @@ $space-sm-md: u.average(sizes.$space-sm, sizes.$space-md);
 
 .lg {
   input {
-    padding: $space-sm-md sizes.$space-md;
+    padding: $space-sm-md $space-sm-md;
     font-size: sizes.$font-md;
     line-height: sizes.$line-height-lg;
   }

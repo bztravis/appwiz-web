@@ -63,11 +63,11 @@ export default function Page() {
           <HatButton size="lg" onClick={() => console.log('clicked')}>
             Sign Up
           </HatButton>
-
-          <HatText.p>
-            Already have an account? <Link href="/login">Login</Link>
-          </HatText.p>
         </HatFlex.Col>
+
+        <HatText.p>
+          Already have an account? <Link href="/login">Login</Link>
+        </HatText.p>
       </HatFlex.Col>
     </>
   )

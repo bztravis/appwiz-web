@@ -39,7 +39,7 @@ $space-sm-md: u.average(sizes.$space-sm, sizes.$space-md);
 }
 
 .lg {
-  padding: $space-sm-md sizes.$space-md;
+  padding: $space-sm-md $space-sm-md;
   gap: sizes.$space-sm;
   font-size: sizes.$font-md;
   line-height: sizes.$line-height-lg;

@@ -22,22 +22,17 @@ export default function Page() {
           </HatText.p>
         </HatFlex.Col>
 
-        <HatFlex.Col align="stretch" gap="lg">
-          <HatTextInput
-            size="lg"
-            label="Email"
-            placeholder="Email"
-            type="email"
-          />
+        <HatFlex.Col align="stretch" gap="md">
+          <HatTextInput size="lg" placeholder="Email" type="email" />
 
           <HatButton size="lg" onClick={() => console.log('clicked')}>
             Continue
           </HatButton>
-
-          <HatText.p>
-            <Link href="/login">Back to login</Link>
-          </HatText.p>
         </HatFlex.Col>
+
+        <HatText.p>
+          <Link href="/login">Back to login</Link>
+        </HatText.p>
       </HatFlex.Col>
     </>
   )

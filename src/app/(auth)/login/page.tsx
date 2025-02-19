@@ -38,34 +38,24 @@ export default function Page() {
           </HatFlex.Row>
 
           <HatFlex.Col gap="md">
-            <HatTextInput
-              size="lg"
-              label="Email"
-              placeholder="Email"
-              type="email"
-            />
+            <HatTextInput size="lg" placeholder="Email" type="email" />
 
-            <HatTextInput
-              size="lg"
-              label="Password"
-              placeholder="Password"
-              type="password"
-            />
+            <HatTextInput size="lg" placeholder="Password" type="password" />
           </HatFlex.Col>
 
           <HatButton size="lg" onClick={() => console.log('clicked')}>
             Login
           </HatButton>
+        </HatFlex.Col>
 
-          <HatFlex.Col gap="xs">
-            <HatText.p>
-              Forgot your password? <Link href="/reset">Reset password</Link>
-            </HatText.p>
+        <HatFlex.Col gap="xs">
+          <HatText.p>
+            Forgot your password? <Link href="/reset">Reset password</Link>
+          </HatText.p>
 
-            <HatText.p>
-              Don’t have an account? <Link href="/sign-up">Sign up</Link>
-            </HatText.p>
-          </HatFlex.Col>
+          <HatText.p>
+            Don’t have an account? <Link href="/sign-up">Sign up</Link>
+          </HatText.p>
         </HatFlex.Col>
       </HatFlex.Col>
     </>
