@@ -37,15 +37,27 @@ export default function Page() {
             <HatBreak paddingVertical="none" />
           </HatFlex.Row>
 
-          <HatFlex.Col gap="md">
-            <HatTextInput size="lg" placeholder="Email" type="email" />
+          <form>
+            <HatFlex.Col align="stretch" gap="lg">
+              <HatFlex.Col gap="md">
+                <HatTextInput size="lg" placeholder="Email" type="email" />
 
-            <HatTextInput size="lg" placeholder="Password" type="password" />
-          </HatFlex.Col>
+                <HatTextInput
+                  size="lg"
+                  placeholder="Password"
+                  type="password"
+                />
+              </HatFlex.Col>
 
-          <HatButton size="lg" onClick={() => console.log('clicked')}>
-            Login
-          </HatButton>
+              <HatButton
+                size="lg"
+                type="submit"
+                onClick={() => console.log('clicked')}
+              >
+                Login
+              </HatButton>
+            </HatFlex.Col>
+          </form>
         </HatFlex.Col>
 
         <HatFlex.Col gap="xs">

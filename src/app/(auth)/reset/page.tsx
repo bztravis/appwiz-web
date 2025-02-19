@@ -22,13 +22,15 @@ export default function Page() {
           </HatText.p>
         </HatFlex.Col>
 
-        <HatFlex.Col align="stretch" gap="md">
-          <HatTextInput size="lg" placeholder="Email" type="email" />
+        <form>
+          <HatFlex.Col align="stretch" gap="md">
+            <HatTextInput size="lg" placeholder="Email" type="email" />
 
-          <HatButton size="lg" onClick={() => console.log('clicked')}>
-            Continue
-          </HatButton>
-        </HatFlex.Col>
+            <HatButton size="lg" type="submit" color="accent">
+              Send reset link
+            </HatButton>
+          </HatFlex.Col>
+        </form>
 
         <HatText.p>
           <Link href="/login">Back to login</Link>

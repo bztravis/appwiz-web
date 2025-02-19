@@ -16,7 +16,8 @@ type ButtonProps = {
   icon?: React.ReactNode
   iconSide?: 'left' | 'right'
   disabled?: boolean
-  onClick: () => void
+  type?: 'button' | 'submit' | 'reset'
+  onClick?: () => void
   children?: React.ReactNode
 }
 
@@ -26,6 +27,7 @@ export function HatButton({
   icon,
   iconSide = 'left',
   disabled = false,
+  type = 'button',
   onClick,
   children,
 }: ButtonProps) {
@@ -37,7 +39,7 @@ export function HatButton({
   ])
 
   return (
-    <button className={className} onClick={onClick}>
+    <button className={className} onClick={onClick} type={type}>
       {icon && iconSide === 'left' && icon}
 
       {children}
