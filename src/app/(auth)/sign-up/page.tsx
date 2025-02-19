@@ -40,24 +40,13 @@ export default function Page() {
           <form>
             <HatFlex.Col align="stretch" gap="lg">
               <HatFlex.Col gap="md">
-                <HatTextInput
-                  size="lg"
-                  label="Email"
-                  placeholder="Email"
-                  type="email"
-                />
+                <HatTextInput size="lg" label="Email" type="email" />
 
-                <HatTextInput
-                  size="lg"
-                  label="Password"
-                  placeholder="Password"
-                  type="password"
-                />
+                <HatTextInput size="lg" label="Password" type="password" />
 
                 <HatTextInput
                   size="lg"
                   label="Confirm password"
-                  placeholder="Confirm password"
                   type="password"
                 />
               </HatFlex.Col>

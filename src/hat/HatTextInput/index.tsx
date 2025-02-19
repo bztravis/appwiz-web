@@ -40,6 +40,7 @@ export function HatTextInput({
           disabled={disabled}
           required={required}
           id={inputId}
+          // todo: add name field
         />
       </HatFlex.Col>
     </div>
