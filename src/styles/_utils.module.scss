@@ -1,8 +1,15 @@
 // Convert from Figma pixels to production rem
 $figma-pixels: 14;
-$root-font-px: 16;
+$root-font-px: 14;
 
 @function to-rem($value) {
-  $remValue: calc($value / $figma-pixels) + rem;
-  @return $remValue;
+  @return calc($value / $figma-pixels)+rem;
+}
+
+@function maintain-px($value) {
+  @return calc($value / $root-font-px)+rem;
+}
+
+@function average($a, $b) {
+  @return calc(($a + $b) / 2);
 }

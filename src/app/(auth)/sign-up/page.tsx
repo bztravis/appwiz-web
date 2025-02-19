@@ -38,15 +38,22 @@ export default function Page() {
           </HatFlex.Row>
 
           <HatFlex.Col gap="md">
-            <HatTextInput label="Email" placeholder="Email" type="email" />
+            <HatTextInput
+              size="lg"
+              label="Email"
+              placeholder="Email"
+              type="email"
+            />
 
             <HatTextInput
+              size="lg"
               label="Password"
               placeholder="Password"
               type="password"
             />
 
             <HatTextInput
+              size="lg"
               label="Confirm password"
               placeholder="Confirm password"
               type="password"

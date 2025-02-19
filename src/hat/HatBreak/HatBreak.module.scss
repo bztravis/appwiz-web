@@ -2,5 +2,5 @@
 @use '../../styles/utils.module' as u;
 
 .base {
-  border: u.to-rem(0.5) solid colors.$border;
+  border: u.maintain-px(0.5) solid colors.$border;
 }

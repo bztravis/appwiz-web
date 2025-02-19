@@ -7,7 +7,7 @@ import styles from './HatTextInput.module.scss'
 import { useId } from 'react'
 
 type HatTextInputProps = {
-  size?: 'md'
+  size?: 'md' | 'lg'
   label?: string | React.ReactNode
   placeholder?: string
   type?: 'text' | 'password' | 'email' | 'number'

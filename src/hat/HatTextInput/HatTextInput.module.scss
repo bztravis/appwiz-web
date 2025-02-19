@@ -4,6 +4,8 @@
 @use '../../styles/utils.module' as u;
 @use '../HatText/HatText.module.scss';
 
+$space-sm-md: u.average(sizes.$space-sm, sizes.$space-md);
+
 .base {
   width: 100%;
 
@@ -15,8 +17,8 @@
   input {
     width: 100%;
 
-    border-width: u.to-rem(1);
-    border-radius: u.to-rem(8);
+    border-width: u.maintain-px(1);
+    border-radius: sizes.$space-sm;
     border-style: solid;
 
     border-color: colors.$input-border;
@@ -41,10 +43,20 @@
   }
 }
 
+// conditionals
+
 .md {
   input {
-    padding: u.to-rem(8) u.to-rem(12);
+    padding: sizes.$space-sm $space-sm-md;
     font-size: sizes.$font-sm;
-    line-height: u.to-rem(18);
+    line-height: sizes.$line-height-sm;
+  }
+}
+
+.lg {
+  input {
+    padding: $space-sm-md sizes.$space-md;
+    font-size: sizes.$font-md;
+    line-height: sizes.$line-height-lg;
   }
 }

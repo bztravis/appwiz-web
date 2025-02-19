@@ -23,7 +23,12 @@ export default function Page() {
         </HatFlex.Col>
 
         <HatFlex.Col align="stretch" gap="lg">
-          <HatTextInput label="Email" placeholder="Email" type="email" />
+          <HatTextInput
+            size="lg"
+            label="Email"
+            placeholder="Email"
+            type="email"
+          />
 
           <HatButton size="lg" onClick={() => console.log('clicked')}>
             Continue

@@ -4,10 +4,12 @@
 @use '../../styles/utils.module' as u;
 @use '../HatText/HatText.module.scss';
 
+$space-sm-md: u.average(sizes.$space-sm, sizes.$space-md);
+
 .base {
   @include HatText.condensed;
-  border-width: u.to-rem(1);
-  border-radius: u.to-rem(8);
+  border-width: u.maintain-px(1);
+  border-radius: sizes.$space-sm;
   border-style: solid;
   display: flex;
   justify-content: center;
@@ -30,17 +32,17 @@
 // conditionals
 
 .md {
-  padding: u.to-rem(8) u.to-rem(12);
-  gap: u.to-rem(8);
+  padding: sizes.$space-sm $space-sm-md;
+  gap: sizes.$space-sm;
   font-size: sizes.$font-sm;
-  line-height: u.to-rem(18);
+  line-height: sizes.$line-height-sm;
 }
 
 .lg {
-  padding: u.to-rem(12) u.to-rem(16);
-  gap: u.to-rem(8);
+  padding: $space-sm-md sizes.$space-md;
+  gap: sizes.$space-sm;
   font-size: sizes.$font-md;
-  line-height: u.to-rem(24);
+  line-height: sizes.$line-height-lg;
 }
 
 .primary {
