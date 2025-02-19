@@ -21,16 +21,12 @@ export function HatPadding({
   sizeHorizontal,
   children,
 }: HatPaddingBaseProps) {
-  console.log({ size, sizeVertical, sizeHorizontal })
-
   const className = styleBuilder([
     styles.base,
     ...(size ? [styles['padding-y-' + size], styles['padding-x-' + size]] : []),
     ...(sizeVertical ? [styles['padding-y-' + sizeVertical]] : []),
     ...(sizeHorizontal ? [styles['padding-x-' + sizeHorizontal]] : []),
   ])
-
-  console.log({ className })
 
   return <div className={className}>{children}</div>
 }

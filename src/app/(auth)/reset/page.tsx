@@ -3,9 +3,9 @@
 import { HatButton } from '@/Hat/HatButton'
 import { HatFlex } from '@/Hat/HatFlex'
 import { HatText } from '@/Hat/HatText'
-import Link from 'next/link'
 import { HatTextInput } from '@/Hat/HatTextInput'
 import { getPageTitle } from '@/utils/getPageTitle'
+import { HatLink } from '@/Hat/HatLink'
 
 export default function Page() {
   return (
@@ -32,9 +32,9 @@ export default function Page() {
           </HatFlex.Col>
         </form>
 
-        <HatText.p>
-          <Link href="/login">Back to login</Link>
-        </HatText.p>
+        <HatLink to="/login" color="primary">
+          Back to login
+        </HatLink>
       </HatFlex.Col>
     </>
   )

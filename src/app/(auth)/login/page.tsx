@@ -8,6 +8,7 @@ import Google from '../../../assets/icons/Google.svg'
 import Link from 'next/link'
 import { HatTextInput } from '@/Hat/HatTextInput'
 import { getPageTitle } from '@/utils/getPageTitle'
+import { HatLink } from '@/Hat/HatLink'
 
 export default function Page() {
   return (
@@ -61,12 +62,18 @@ export default function Page() {
         </HatFlex.Col>
 
         <HatFlex.Col gap="xs">
-          <HatText.p>
-            Forgot your password? <Link href="/reset">Reset password</Link>
+          <HatText.p color="hushed">
+            Forgot your password?{' '}
+            <HatLink to="/reset" color="primary">
+              Reset password
+            </HatLink>
           </HatText.p>
 
-          <HatText.p>
-            Don’t have an account? <Link href="/sign-up">Sign up</Link>
+          <HatText.p color="hushed">
+            Don’t have an account?{' '}
+            <HatLink to="/sign-up" color="primary">
+              Sign up
+            </HatLink>
           </HatText.p>
         </HatFlex.Col>
       </HatFlex.Col>

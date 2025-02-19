@@ -5,9 +5,9 @@ import { HatButton } from '@/Hat/HatButton'
 import { HatFlex } from '@/Hat/HatFlex'
 import { HatText } from '@/Hat/HatText'
 import Google from '../../../assets/icons/Google.svg'
-import Link from 'next/link'
 import { HatTextInput } from '@/Hat/HatTextInput'
 import { getPageTitle } from '@/utils/getPageTitle'
+import { HatLink } from '@/Hat/HatLink'
 
 export default function Page() {
   return (
@@ -62,8 +62,11 @@ export default function Page() {
           </form>
         </HatFlex.Col>
 
-        <HatText.p>
-          Already have an account? <Link href="/login">Login</Link>
+        <HatText.p color="hushed">
+          Already have an account?{' '}
+          <HatLink to="/login" color="primary">
+            Login
+          </HatLink>
         </HatText.p>
       </HatFlex.Col>
     </>
