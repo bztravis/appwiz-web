@@ -13,7 +13,7 @@ export default function Page() {
       <title>{getPageTitle('Reset password')}</title>
 
       <HatFlex.Col gap="xl">
-        <HatFlex.Col gap="sm">
+        <HatFlex.Col gap="md">
           <HatText.h1 size="xl">Reset your password</HatText.h1>
 
           <HatText.p color="hushed">

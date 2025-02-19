@@ -9,7 +9,7 @@ export default function AuthLayout({
 }) {
   return (
     <div className={styles.LoginRoot}>
-      <Link href="/">
+      <Link href="/" aria-label="Home">
         <Logo size="md" />
       </Link>
 
