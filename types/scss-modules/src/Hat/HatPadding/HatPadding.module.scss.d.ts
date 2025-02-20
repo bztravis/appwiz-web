@@ -1,0 +1,17 @@
+export declare const base: string;
+export declare const paddingXLg: string;
+export declare const paddingXMd: string;
+export declare const paddingXNone: string;
+export declare const paddingXSm: string;
+export declare const paddingXXl: string;
+export declare const paddingXXs: string;
+export declare const paddingXXxl: string;
+export declare const paddingXXxxl: string;
+export declare const paddingYLg: string;
+export declare const paddingYMd: string;
+export declare const paddingYNone: string;
+export declare const paddingYSm: string;
+export declare const paddingYXl: string;
+export declare const paddingYXs: string;
+export declare const paddingYXxl: string;
+export declare const paddingYXxxl: string;
