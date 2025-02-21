@@ -8,12 +8,12 @@ export default function AuthLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className={styles.LoginRoot}>
+    <div className={styles.loginRoot}>
       <HatLink to="/" aria-label="Home">
         <Logo size="md" />
       </HatLink>
 
-      <div className={styles.FormContainer}>
+      <div className={styles.formContainer}>
         <div className={styles.widthClamp}>{children}</div>
       </div>
     </div>
