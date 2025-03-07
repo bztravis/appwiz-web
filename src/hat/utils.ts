@@ -1,6 +1,15 @@
+import { AriaRole } from 'react'
+
+export type HatAccessibilityProps = {
+  ariaLabel?: string
+  ariaLabelledBy?: string
+  ariaDescribedBy?: string
+  ariaRole?: AriaRole
+}
+
 export type HatBaseProps = {
   id?: string
-}
+} & HatAccessibilityProps
 
 export const JUSTIFY = {
   start: 'justifyStart',

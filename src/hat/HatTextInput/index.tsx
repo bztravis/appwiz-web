@@ -66,17 +66,22 @@ export function HatTextInput({
 
           {error && (
             <HatPadding sizeHorizontal="sm">
-              <HatText.p size="xs" color="destructive" id={hintId}>
+              <HatText
+                size="xs"
+                color="destructive"
+                id={hintId}
+                ariaRole="alert"
+              >
                 {error.message as string} {/* fixme: type */}
-              </HatText.p>
+              </HatText>
             </HatPadding>
           )}
 
           {hint && (
             <HatPadding sizeHorizontal="sm">
-              <HatText.p size="xs" color="hushed" id={hintId}>
+              <HatText size="xs" color="hushed" id={errorId}>
                 {hint}
-              </HatText.p>
+              </HatText>
             </HatPadding>
           )}
         </HatFlex.Col>
