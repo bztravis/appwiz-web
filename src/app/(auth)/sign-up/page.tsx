@@ -75,6 +75,7 @@ export default function Page() {
                   size="lg"
                   label="Email"
                   type="email"
+                  required={true}
                   error={errors['email']}
                   registerProps={register('email')}
                 />
@@ -83,6 +84,7 @@ export default function Page() {
                   size="lg"
                   label="Password"
                   type="password"
+                  required={true}
                   error={errors['password']}
                   registerProps={register('password')}
                 />
@@ -91,6 +93,7 @@ export default function Page() {
                   size="lg"
                   label="Confirm password"
                   type="password"
+                  required={true}
                   error={errors['confirmPassword']}
                   registerProps={register('confirmPassword')}
                 />

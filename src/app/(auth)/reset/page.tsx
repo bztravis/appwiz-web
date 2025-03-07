@@ -45,6 +45,7 @@ export default function Page() {
               size="lg"
               placeholder="Email"
               type="email"
+              required={true}
               error={errors['email']}
               registerProps={register('email')}
             />
