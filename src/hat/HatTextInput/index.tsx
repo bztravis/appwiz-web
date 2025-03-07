@@ -38,8 +38,6 @@ export function HatTextInput({
   const errorId = useId()
   const hintId = useId()
 
-  console.log({ error })
-
   return (
     <div
       className={styleBuilder([

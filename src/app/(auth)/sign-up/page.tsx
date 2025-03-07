@@ -8,8 +8,39 @@ import Google from '../../../assets/icons/Google.svg'
 import { HatTextInput } from '@/Hat/HatTextInput'
 import { getPageTitle } from '@/utils/getPageTitle'
 import { HatLink } from '@/Hat/HatLink'
+import { z } from 'zod'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+
+const SignUpFormSchema = z
+  .object({
+    email: z.string().email(),
+    password: z
+      .string()
+      .min(8, { message: 'Password must be at least 8 characters' }),
+    confirmPassword: z.string(),
+  })
+  .superRefine((val, ctx) => {
+    if (val.password !== val.confirmPassword) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['confirmPassword'],
+        message: `Passwords do not match`,
+      })
+    }
+  })
+
+type SignUpFormFields = z.infer<typeof SignUpFormSchema>
 
 export default function Page() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<SignUpFormFields>({
+    resolver: zodResolver(SignUpFormSchema),
+  })
+
   return (
     <>
       <title>{getPageTitle('Sign Up')}</title>
@@ -37,17 +68,31 @@ export default function Page() {
             <HatBreak paddingVertical="none" />
           </HatFlex.Row>
 
-          <form>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <HatFlex.Col align="stretch" gap="lg">
               <HatFlex.Col gap="md">
-                <HatTextInput size="lg" label="Email" type="email" />
+                <HatTextInput
+                  size="lg"
+                  label="Email"
+                  type="email"
+                  error={errors['email']}
+                  registerProps={register('email')}
+                />
 
-                <HatTextInput size="lg" label="Password" type="password" />
+                <HatTextInput
+                  size="lg"
+                  label="Password"
+                  type="password"
+                  error={errors['password']}
+                  registerProps={register('password')}
+                />
 
                 <HatTextInput
                   size="lg"
                   label="Confirm password"
                   type="password"
+                  error={errors['confirmPassword']}
+                  registerProps={register('confirmPassword')}
                 />
               </HatFlex.Col>
 
@@ -71,4 +116,8 @@ export default function Page() {
       </HatFlex.Col>
     </>
   )
+
+  function onSubmit(data: SignUpFormFields) {
+    console.log(data)
+  }
 }

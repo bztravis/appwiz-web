@@ -6,8 +6,25 @@ import { HatText } from '@/Hat/HatText'
 import { HatTextInput } from '@/Hat/HatTextInput'
 import { getPageTitle } from '@/utils/getPageTitle'
 import { HatLink } from '@/Hat/HatLink'
+import { z } from 'zod'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+
+const ResetPasswordFormSchema = z.object({
+  email: z.string().email(),
+})
+
+type ResetPasswordFormFields = z.infer<typeof ResetPasswordFormSchema>
 
 export default function Page() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ResetPasswordFormFields>({
+    resolver: zodResolver(ResetPasswordFormSchema),
+  })
+
   return (
     <>
       <title>{getPageTitle('Reset password')}</title>
@@ -22,9 +39,15 @@ export default function Page() {
           </HatText.p>
         </HatFlex.Col>
 
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <HatFlex.Col align="stretch" gap="md">
-            <HatTextInput size="lg" placeholder="Email" type="email" />
+            <HatTextInput
+              size="lg"
+              placeholder="Email"
+              type="email"
+              error={errors['email']}
+              registerProps={register('email')}
+            />
 
             <HatButton size="lg" type="submit" color="accent">
               Send reset link
@@ -38,4 +61,8 @@ export default function Page() {
       </HatFlex.Col>
     </>
   )
+
+  function onSubmit(data: ResetPasswordFormFields) {
+    console.log(data)
+  }
 }

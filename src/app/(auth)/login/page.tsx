@@ -19,7 +19,7 @@ const LoginFormSchema = z.object({
     .min(8, { message: 'Password must be at least 8 characters' }),
 })
 
-export type LoginFormFields = z.infer<typeof LoginFormSchema>
+type LoginFormFields = z.infer<typeof LoginFormSchema>
 
 export default function Page() {
   const {
@@ -29,8 +29,6 @@ export default function Page() {
   } = useForm<LoginFormFields>({
     resolver: zodResolver(LoginFormSchema),
   })
-
-  console.log(errors.email)
 
   return (
     <>
