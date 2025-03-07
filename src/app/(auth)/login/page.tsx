@@ -14,7 +14,9 @@ import { zodResolver } from '@hookform/resolvers/zod'
 
 const LoginFormSchema = z.object({
   email: z.string().email(),
-  password: z.string().min(1, { message: 'Password is required' }),
+  password: z
+    .string()
+    .min(8, { message: 'Password must be at least 8 characters' }),
 })
 
 export type LoginFormFields = z.infer<typeof LoginFormSchema>
@@ -60,6 +62,7 @@ export default function Page() {
                   size="lg"
                   placeholder="Email"
                   type="email"
+                  required={true}
                   registerProps={register('email')}
                   error={errors['email']}
                 />
@@ -68,6 +71,7 @@ export default function Page() {
                   size="lg"
                   placeholder="Password"
                   type="password"
+                  required={true}
                   registerProps={register('password')}
                   error={errors['password']}
                 />

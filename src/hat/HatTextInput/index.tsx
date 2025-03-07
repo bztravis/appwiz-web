@@ -35,7 +35,10 @@ export function HatTextInput({
   registerProps,
 }: HatTextInputProps) {
   const inputId = useId()
+  const errorId = useId()
   const hintId = useId()
+
+  console.log({ error })
 
   return (
     <div
@@ -59,7 +62,7 @@ export function HatTextInput({
             disabled={disabled}
             required={required}
             id={inputId}
-            aria-describedby={hintId}
+            aria-describedby={`${hintId} ${errorId}`}
             {...registerProps}
           />
 
