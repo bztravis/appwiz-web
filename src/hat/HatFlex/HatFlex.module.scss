@@ -14,98 +14,98 @@
 
 // conditionals
 
-.justify-start {
+.justifyStart {
   justify-content: flex-start;
 }
 
-.justify-end {
+.justifyEnd {
   justify-content: flex-end;
 }
 
-.justify-center {
+.justifyCenter {
   justify-content: center;
 }
 
-.justify-space-between {
+.justifySpaceBetween {
   justify-content: space-between;
 }
 
-.align-start {
+.alignStart {
   align-items: flex-start;
 }
 
-.align-end {
+.alignEnd {
   align-items: flex-end;
 }
 
-.align-center {
+.alignCenter {
   align-items: center;
 }
 
-.align-stretch {
+.alignStretch {
   align-items: stretch;
 }
 
-.gap-none {
+.gapNone {
   gap: 0;
 }
 
-.gap-xs {
+.gapXs {
   gap: sizes.$space-xs;
 }
 
-.gap-sm {
+.gapSm {
   gap: sizes.$space-sm;
 }
 
-.gap-md {
+.gapMd {
   gap: sizes.$space-md;
 }
 
-.gap-lg {
+.gapLg {
   gap: sizes.$space-lg;
 }
 
-.gap-xl {
+.gapXl {
   gap: sizes.$space-xl;
 }
 
-.gap-xxl {
+.gapXxl {
   gap: sizes.$space-xxl;
 }
 
-.gap-xxxl {
+.gapXxxl {
   gap: sizes.$space-xxxl;
 }
 
-.padding-none {
+.paddingNone {
   padding: 0;
 }
 
-.padding-xs {
+.paddingXs {
   padding: sizes.$space-xs;
 }
 
-.padding-sm {
+.paddingSm {
   padding: sizes.$space-sm;
 }
 
-.padding-md {
+.paddingMd {
   padding: sizes.$space-md;
 }
 
-.padding-lg {
+.paddingLg {
   padding: sizes.$space-lg;
 }
 
-.padding-xl {
+.paddingXl {
   padding: sizes.$space-xl;
 }
 
-.padding-xxl {
+.paddingXxl {
   padding: sizes.$space-xxl;
 }
 
-.padding-xxxl {
+.paddingXxxl {
   padding: sizes.$space-xxxl;
 }

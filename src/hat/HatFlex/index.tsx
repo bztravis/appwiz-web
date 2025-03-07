@@ -1,7 +1,7 @@
 import styleBuilder from '@/utils/styleBuilder'
 import styles from './HatFlex.module.scss'
 import { HatPadding } from '../HatPadding'
-import { HatBaseProps } from '../utils'
+import { ALIGN, GAP, HatBaseProps, JUSTIFY, PADDING } from '../utils'
 
 export type SpaceSize =
   | 'none'
@@ -39,10 +39,10 @@ export const HatFlex = {
         className={styleBuilder([
           styles.base,
           styles.row,
-          styles['justify-' + justify],
-          styles['align-' + align],
-          styles['gap-' + gap],
-          styles['padding-' + padding],
+          styles[JUSTIFY[justify]],
+          styles[ALIGN[align]],
+          styles[GAP[gap]],
+          styles[PADDING[padding]],
         ])}
       >
         {children}
@@ -62,10 +62,10 @@ export const HatFlex = {
         className={styleBuilder([
           styles.base,
           styles.col,
-          styles['justify-' + justify],
-          styles['align-' + align],
-          styles['gap-' + gap],
-          styles['padding-' + padding],
+          styles[JUSTIFY[justify]],
+          styles[ALIGN[align]],
+          styles[GAP[gap]],
+          styles[PADDING[padding]],
         ])}
       >
         {children}
