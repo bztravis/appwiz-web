@@ -11,6 +11,8 @@ import { HatLink } from '@/Hat/HatLink'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { login } from '../actions'
+import { objToFormData } from '@/utils/objToFormData'
 
 const LoginFormSchema = z.object({
   email: z.string().email(),
@@ -101,7 +103,9 @@ export default function Page() {
     </>
   )
 
-  function onSubmit(data: LoginFormFields) {
-    console.log(data)
+  async function onSubmit(data: LoginFormFields) {
+    console.log({ data })
+    const res = await login(objToFormData(data))
+    console.log('done', res)
   }
 }

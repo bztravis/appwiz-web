@@ -11,6 +11,8 @@ import { HatLink } from '@/Hat/HatLink'
 import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { signUp } from '../actions'
+import { objToFormData } from '@/utils/objToFormData'
 
 const SignUpFormSchema = z
   .object({
@@ -120,7 +122,9 @@ export default function Page() {
     </>
   )
 
-  function onSubmit(data: SignUpFormFields) {
-    console.log(data)
+  async function onSubmit(data: SignUpFormFields) {
+    console.log({ data })
+    const res = await signUp(objToFormData(data))
+    console.log('done', res)
   }
 }
