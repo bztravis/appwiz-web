@@ -1,6 +1,6 @@
 @use './utils.module' as u;
 
-$font-xs: u.to-rem(10);
+$font-xs: u.to-rem(12);
 $font-sm: u.to-rem(14);
 $font-md: u.to-rem(16);
 $font-lg: u.to-rem(18);
@@ -8,7 +8,7 @@ $font-xl: u.to-rem(24);
 $font-xxl: u.to-rem(32);
 $font-billboard: u.to-rem(48);
 
-$line-height-xs: u.to-rem(14);
+$line-height-xs: u.to-rem(16);
 $line-height-sm: u.to-rem(18);
 $line-height-md: u.to-rem(20);
 $line-height-lg: u.to-rem(24);

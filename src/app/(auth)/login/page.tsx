@@ -8,8 +8,28 @@ import Google from '../../../assets/icons/Google.svg'
 import { HatTextInput } from '@/Hat/HatTextInput'
 import { getPageTitle } from '@/utils/getPageTitle'
 import { HatLink } from '@/Hat/HatLink'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
+
+const LoginFormSchema = z.object({
+  email: z.string().email(),
+  password: z.string().min(1, { message: 'Password is required' }),
+})
+
+export type LoginFormFields = z.infer<typeof LoginFormSchema>
 
 export default function Page() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginFormFields>({
+    resolver: zodResolver(LoginFormSchema),
+  })
+
+  console.log(errors.email)
+
   return (
     <>
       <title>{getPageTitle('Login')}</title>
@@ -18,11 +38,7 @@ export default function Page() {
         <HatText.h1 size="xl">Welcome back!</HatText.h1>
 
         <HatFlex.Col align="stretch" gap="lg">
-          <HatButton
-            size="lg"
-            color="secondary"
-            onClick={() => console.log('clicked')}
-          >
+          <HatButton size="lg" color="secondary">
             <Google />
             Continue with Google
           </HatButton>
@@ -37,23 +53,27 @@ export default function Page() {
             <HatBreak paddingVertical="none" />
           </HatFlex.Row>
 
-          <form>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <HatFlex.Col align="stretch" gap="lg">
               <HatFlex.Col gap="md">
-                <HatTextInput size="lg" placeholder="Email" type="email" />
+                <HatTextInput
+                  size="lg"
+                  placeholder="Email"
+                  type="email"
+                  registerProps={register('email')}
+                  error={errors['email']}
+                />
 
                 <HatTextInput
                   size="lg"
                   placeholder="Password"
                   type="password"
+                  registerProps={register('password')}
+                  error={errors['password']}
                 />
               </HatFlex.Col>
 
-              <HatButton
-                size="lg"
-                type="submit"
-                onClick={() => console.log('clicked')}
-              >
+              <HatButton size="lg" type="submit">
                 Login
               </HatButton>
             </HatFlex.Col>
@@ -78,4 +98,8 @@ export default function Page() {
       </HatFlex.Col>
     </>
   )
+
+  function onSubmit(data: LoginFormFields) {
+    console.log(data)
+  }
 }

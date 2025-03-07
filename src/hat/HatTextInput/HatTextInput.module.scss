@@ -41,6 +41,14 @@ $space-sm-md: u.average(sizes.$space-sm, sizes.$space-md);
       opacity: 0.5
     }
   }
+
+  &.hasError input {
+    border-color: colors.$destructive;
+
+    &:focus {
+      box-shadow: 0px 0px 0px 4px color.mix(colors.$destructive, transparent, 30%);
+    }
+  }
 }
 
 // conditionals
