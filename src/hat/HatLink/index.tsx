@@ -9,6 +9,7 @@ import {
   type HatTextProps,
 } from '../HatText'
 import ArrowRightUpLine from '../../assets/icons/ArrowRightUpLine.svg'
+import { HatBaseProps } from '../utils'
 
 type HatLinkProps = {
   size?: Extract<HatTextSize, 'sm' | 'md'>
@@ -23,7 +24,8 @@ type HatLinkProps = {
       to?: never
       href: string
     }
-)
+) &
+  HatBaseProps
 
 const DEFAULT_HAT_LINK_COLOR: HatTextProps['color'] = 'hushed'
 
@@ -34,7 +36,7 @@ export function HatLink({
   color = DEFAULT_HAT_LINK_COLOR,
   children,
 }: HatLinkProps) {
-  if (to && to[0] === '/') {
+  if (href && href[0] === '/') {
     console.warn('HatLink: `href` used for internal link. Use `to` instead.')
   }
 

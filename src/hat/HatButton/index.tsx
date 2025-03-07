@@ -3,6 +3,7 @@
 import styleBuilder from '@/utils/styleBuilder'
 import styles from './HatButton.module.scss'
 import Link from 'next/link'
+import { HatBaseProps } from '../utils'
 
 type HatButtonColor =
   | 'primary'
@@ -11,7 +12,7 @@ type HatButtonColor =
   | 'destructive'
   | 'constructive'
 
-type ButtonProps = {
+type HatButtonProps = {
   size?: 'md' | 'lg'
   color?: HatButtonColor
   icon?: React.ReactNode
@@ -29,7 +30,8 @@ type ButtonProps = {
       type?: 'button' | 'submit' | 'reset'
       onClick?: () => void
     }
-)
+) &
+  HatBaseProps
 
 export function HatButton({
   size = 'md',
@@ -41,7 +43,7 @@ export function HatButton({
   to,
   onClick,
   children,
-}: ButtonProps) {
+}: HatButtonProps) {
   const className = styleBuilder([
     styles.base,
     styles[size],

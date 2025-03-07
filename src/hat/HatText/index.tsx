@@ -2,6 +2,7 @@
 
 import styleBuilder from '@/utils/styleBuilder'
 import styles from './HatText.module.scss'
+import { HatBaseProps } from '../utils'
 
 export type HatTextColor =
   | 'primary'
@@ -16,7 +17,7 @@ export type HatTextProps = {
   size?: HatTextSize
   color?: HatTextColor
   children?: React.ReactNode
-}
+} & HatBaseProps
 
 export const DEFAULT_HAT_TEXT_SIZE = 'sm'
 const DEFAULT_HAT_TEXT_COLOR = 'primary'

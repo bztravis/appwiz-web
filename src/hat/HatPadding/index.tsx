@@ -1,6 +1,7 @@
 import styleBuilder from '@/utils/styleBuilder'
 import type { SpaceSize } from '../HatFlex'
 import styles from './HatPadding.module.scss'
+import { HatBaseProps } from '../utils'
 
 type HatPaddingBaseProps = { children?: React.ReactNode } & (
   | {
@@ -13,7 +14,8 @@ type HatPaddingBaseProps = { children?: React.ReactNode } & (
       sizeHorizontal?: SpaceSize
       size?: never
     }
-)
+) &
+  HatBaseProps
 
 export function HatPadding({
   size,

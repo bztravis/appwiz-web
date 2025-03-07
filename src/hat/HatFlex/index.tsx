@@ -1,6 +1,7 @@
 import styleBuilder from '@/utils/styleBuilder'
 import styles from './HatFlex.module.scss'
 import { HatPadding } from '../HatPadding'
+import { HatBaseProps } from '../utils'
 
 export type SpaceSize =
   | 'none'
@@ -18,7 +19,7 @@ type HatFlexProps = {
   gap?: SpaceSize
   padding?: SpaceSize
   children?: React.ReactNode
-}
+} & HatBaseProps
 
 const DEFAULT_JUSTIFY: HatFlexProps['justify'] = 'start'
 const DEFAULT_ALIGN: HatFlexProps['align'] = 'start'
