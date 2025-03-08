@@ -13,6 +13,7 @@ import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { login } from '../actions'
 import { objToFormData } from '@/utils/objToFormData'
+import { HatForm } from '@/Hat/HatForm'
 
 const LoginFormSchema = z.object({
   email: z.string().email(),
@@ -24,11 +25,7 @@ const LoginFormSchema = z.object({
 type LoginFormFields = z.infer<typeof LoginFormSchema>
 
 export default function Page() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<LoginFormFields>({
+  const form = useForm<LoginFormFields>({
     resolver: zodResolver(LoginFormSchema),
   })
 
@@ -55,25 +52,23 @@ export default function Page() {
             <HatBreak paddingVertical="none" />
           </HatFlex.Row>
 
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <HatForm<LoginFormFields> form={form} onSubmit={onSubmit}>
             <HatFlex.Col align="stretch" gap="lg">
               <HatFlex.Col gap="md">
                 <HatTextInput
                   size="lg"
+                  name="email"
                   placeholder="Email"
                   type="email"
                   required={true}
-                  registerProps={register('email')}
-                  error={errors['email']}
                 />
 
                 <HatTextInput
                   size="lg"
+                  name="password"
                   placeholder="Password"
                   type="password"
                   required={true}
-                  registerProps={register('password')}
-                  error={errors['password']}
                 />
               </HatFlex.Col>
 
@@ -81,7 +76,7 @@ export default function Page() {
                 Login
               </HatButton>
             </HatFlex.Col>
-          </form>
+          </HatForm>
         </HatFlex.Col>
 
         <HatFlex.Col gap="xs">
@@ -104,8 +99,6 @@ export default function Page() {
   )
 
   async function onSubmit(data: LoginFormFields) {
-    console.log({ data })
     const res = await login(objToFormData(data))
-    console.log('done', res)
   }
 }

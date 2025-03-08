@@ -5,38 +5,43 @@ import { HatFlex } from '../HatFlex'
 import { HatText } from '../HatText'
 import styles from './HatTextInput.module.scss'
 import { useId } from 'react'
-import { FieldErrors, UseFormRegister } from 'react-hook-form'
+import { useFormContext } from 'react-hook-form'
 import { HatPadding } from '../HatPadding'
 import { HatBaseProps } from '../utils'
-
-type FormFields = Record<string, unknown>
 
 type HatTextInputProps = {
   type?: 'text' | 'password' | 'email' | 'number'
   size?: 'md' | 'lg'
+  name: string
   label?: string | React.ReactNode
   placeholder?: string
   hint?: string
-  disabled?: boolean
   required?: boolean
-  error?: FieldErrors<FormFields>
-  registerProps?: ReturnType<UseFormRegister<FormFields>>
+  disabled?: boolean
+  // error?: string | FieldErrors<FormFields>
 } & HatBaseProps
 
 export function HatTextInput({
   size = 'md',
+  name,
   label,
   placeholder,
   hint,
   type = 'text',
   disabled = false,
   required = false,
-  error,
-  registerProps,
-}: HatTextInputProps) {
+}: // error,
+HatTextInputProps) {
   const inputId = useId()
   const errorId = useId()
   const hintId = useId()
+
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext()
+
+  const error = errors[name]
 
   return (
     <div
@@ -61,7 +66,7 @@ export function HatTextInput({
             required={required}
             id={inputId}
             aria-describedby={`${hintId} ${errorId}`}
-            {...registerProps}
+            {...register(name)}
           />
 
           {error && (
@@ -72,7 +77,8 @@ export function HatTextInput({
                 id={hintId}
                 ariaRole="alert"
               >
-                {error.message as string} {/* fixme: type */}
+                {typeof error === 'string' ? error : (error.message as string)}
+                {/* fixme: type */}
               </HatText>
             </HatPadding>
           )}

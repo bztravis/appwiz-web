@@ -9,6 +9,8 @@ import { HatLink } from '@/Hat/HatLink'
 import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { supabase } from '@/utils/supabase/client'
+import { HatForm } from '@/Hat/HatForm'
 
 const ResetPasswordFormSchema = z.object({
   email: z.string().email(),
@@ -17,11 +19,7 @@ const ResetPasswordFormSchema = z.object({
 type ResetPasswordFormFields = z.infer<typeof ResetPasswordFormSchema>
 
 export default function Page() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<ResetPasswordFormFields>({
+  const form = useForm<ResetPasswordFormFields>({
     resolver: zodResolver(ResetPasswordFormSchema),
   })
 
@@ -39,22 +37,26 @@ export default function Page() {
           </HatText.p>
         </HatFlex.Col>
 
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <HatForm<ResetPasswordFormFields> form={form} onSubmit={onSubmit}>
           <HatFlex.Col align="stretch" gap="md">
             <HatTextInput
               size="lg"
               placeholder="Email"
+              name="email"
               type="email"
               required={true}
-              error={errors['email']}
-              registerProps={register('email')}
             />
 
-            <HatButton size="lg" type="submit" color="accent">
+            <HatButton
+              size="lg"
+              color="accent"
+              type="submit"
+              disabled={form.formState.isSubmitSuccessful}
+            >
               Send reset link
             </HatButton>
           </HatFlex.Col>
-        </form>
+        </HatForm>
 
         <HatLink to="/login" color="primary">
           Back to login
@@ -63,7 +65,11 @@ export default function Page() {
     </>
   )
 
-  function onSubmit(data: ResetPasswordFormFields) {
+  async function onSubmit(data: ResetPasswordFormFields) {
     console.log(data)
+
+    // const { error } = await supabase.auth.resetPasswordForEmail(data.email, {
+    //   redirectTo: 'https://google.com',
+    // })
   }
 }

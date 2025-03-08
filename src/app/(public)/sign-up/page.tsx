@@ -13,6 +13,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { signUp } from '../actions'
 import { objToFormData } from '@/utils/objToFormData'
+import { HatForm } from '@/Hat/HatForm'
 
 const SignUpFormSchema = z
   .object({
@@ -35,11 +36,7 @@ const SignUpFormSchema = z
 type SignUpFormFields = z.infer<typeof SignUpFormSchema>
 
 export default function Page() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<SignUpFormFields>({
+  const form = useForm<SignUpFormFields>({
     resolver: zodResolver(SignUpFormSchema),
   })
 
@@ -70,46 +67,39 @@ export default function Page() {
             <HatBreak paddingVertical="none" />
           </HatFlex.Row>
 
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <HatForm<SignUpFormFields> form={form} onSubmit={onSubmit}>
             <HatFlex.Col align="stretch" gap="lg">
               <HatFlex.Col gap="md">
                 <HatTextInput
                   size="lg"
+                  name="email"
                   label="Email"
                   type="email"
                   required={true}
-                  error={errors['email']}
-                  registerProps={register('email')}
                 />
 
                 <HatTextInput
                   size="lg"
+                  name="password"
                   label="Password"
                   type="password"
                   required={true}
-                  error={errors['password']}
-                  registerProps={register('password')}
                 />
 
                 <HatTextInput
                   size="lg"
+                  name="confirmPassword"
                   label="Confirm password"
                   type="password"
                   required={true}
-                  error={errors['confirmPassword']}
-                  registerProps={register('confirmPassword')}
                 />
               </HatFlex.Col>
 
-              <HatButton
-                size="lg"
-                type="submit"
-                onClick={() => console.log('clicked')}
-              >
+              <HatButton size="lg" type="submit">
                 Sign Up
               </HatButton>
             </HatFlex.Col>
-          </form>
+          </HatForm>
         </HatFlex.Col>
 
         <HatText.p color="hushed">
@@ -123,8 +113,6 @@ export default function Page() {
   )
 
   async function onSubmit(data: SignUpFormFields) {
-    console.log({ data })
     const res = await signUp(objToFormData(data))
-    console.log('done', res)
   }
 }

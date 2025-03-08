@@ -4,6 +4,9 @@ import styleBuilder from '@/utils/styleBuilder'
 import styles from './HatButton.module.scss'
 import Link from 'next/link'
 import { HatBaseProps } from '../utils'
+import { useState } from 'react'
+import { useFormContext } from 'react-hook-form'
+import { HatLoading } from '../HatLoading'
 
 type HatButtonColor =
   | 'primary'
@@ -38,12 +41,28 @@ export function HatButton({
   color = 'primary',
   icon,
   iconSide = 'left',
-  disabled = false,
   type = 'button',
+  disabled = false,
   to,
   onClick,
   children,
 }: HatButtonProps) {
+  console.log('still fine')
+  const formContext = useFormContext()
+
+  const formSubmitting = formContext?.formState?.isSubmitting
+  const formLoading = formContext?.formState?.isLoading
+  const formDisabled = formContext?.formState?.disabled
+
+  const [onClickPending, setOnClickPending] = useState<boolean>(false)
+
+  const loading =
+    (formSubmitting && type === 'submit') ||
+    formLoading ||
+    formDisabled ||
+    onClickPending
+  disabled = disabled || loading
+
   const className = styleBuilder([
     styles.base,
     styles[size],
@@ -64,12 +83,25 @@ export function HatButton({
   }
 
   return (
-    <button className={className} onClick={onClick} type={type}>
-      {icon && iconSide === 'left' && icon}
+    <button
+      className={className}
+      onClick={onClickWrapper}
+      type={type}
+      disabled={disabled}
+    >
+      {iconSide === 'left' && (loading ? <HatLoading /> : icon ?? null)}
 
       {children}
 
-      {icon && iconSide === 'right' && icon}
+      {iconSide === 'right' && (loading ? <HatLoading /> : icon ?? null)}
     </button>
   )
+
+  async function onClickWrapper() {
+    if (!onClick) return
+
+    setOnClickPending(true)
+    await onClick()
+    setOnClickPending(false)
+  }
 }

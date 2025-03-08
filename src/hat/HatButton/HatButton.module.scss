@@ -26,7 +26,12 @@ $space-sm-md: u.average(sizes.$space-sm, sizes.$space-md);
   }
 
   &.disabled {
-    opacity: 0.5
+    opacity: 0.5;
+
+    &:hover {
+      cursor: not-allowed;
+      filter: none;
+    }
   }
 }
 
@@ -34,7 +39,7 @@ $space-sm-md: u.average(sizes.$space-sm, sizes.$space-md);
 
 .md {
   padding: sizes.$space-sm $space-sm-md;
-  gap: sizes.$space-sm;
+  gap: sizes.$space-xs;
   font-size: sizes.$font-sm;
   line-height: sizes.$line-height-sm;
 }
