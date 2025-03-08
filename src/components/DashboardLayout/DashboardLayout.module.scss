@@ -1,4 +1,10 @@
+@use '../../styles/utils.module' as u;
+
 .container {
   display: grid;
   grid-template-columns: 18rem 1fr;
+
+  main {
+    padding: u.to-rem(16);
+  }
 }

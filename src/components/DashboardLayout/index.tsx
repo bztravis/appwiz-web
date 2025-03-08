@@ -7,7 +7,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
     <div className={styles.container}>
       <SideBar />
 
-      {children}
+      <main>{children}</main>
     </div>
   )
 }

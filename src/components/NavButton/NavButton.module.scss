@@ -1,0 +1,42 @@
+@use '../../styles/colors.module';
+@use '../../styles/utils.module' as u;
+
+.container {
+  border-radius: u.to-rem(6);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: u.to-rem(8);
+  padding: u.to-rem(6) u.to-rem(8);
+  color: colors.$faint;
+  text-decoration: none;
+  overflow: hidden;
+
+  &:hover {
+    background: colors.$spotlight;
+  }
+
+  .block {
+    width: u.to-rem(4);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: colors.$accent;
+    visibility: hidden;
+  }
+
+  &.active {
+    color: colors.$primary;
+    background: colors.$accent-background;
+
+    &:hover {
+      color: colors.$primary;
+      background: colors.$accent-background;
+    }
+
+    .block {
+      visibility: visible;
+    }
+  }
+}

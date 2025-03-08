@@ -4,8 +4,10 @@ import { HatPadding } from '@/Hat/HatPadding'
 import { Logo } from '../Logo'
 import styles from './SideBar.module.scss'
 import { HatFlex } from '@/Hat/HatFlex'
-import { HatText } from '@/Hat/HatText'
-import Link from 'next/link'
+import { NavButton } from '../NavButton'
+import InboxLine from '../../assets/icons/InboxLine.svg'
+import OrganizationChartLine from '../../assets/icons/OrganizationChartLine.svg'
+import ToggleLine from '../../assets/icons/ToggleLine.svg'
 
 export function SideBar() {
   return (
@@ -16,22 +18,24 @@ export function SideBar() {
             <Logo size="md" />
           </HatPadding>
 
-          <HatFlex.Col>
-            <Link href="/dashboard" className={styles.navLink}>
-              <HatText size="md">My Tasks</HatText>
-            </Link>
+          <HatFlex.Col align="stretch">
+            <NavButton label="My Tasks" icon={<InboxLine />} path="/" />
 
-            <Link href="/dashboard" className={styles.navLink}>
-              <HatText size="md">My Tasks</HatText>
-            </Link>
+            <NavButton
+              label="Organizations"
+              icon={<OrganizationChartLine />}
+              path="/organizations"
+            />
 
-            <Link href="/dashboard" className={styles.navLink}>
-              <HatText size="md">My Tasks</HatText>
-            </Link>
+            <NavButton
+              label="Preferences"
+              icon={<ToggleLine />}
+              path="/preferences"
+            />
           </HatFlex.Col>
         </HatFlex.Col>
 
-        <HatFlex.Col gap="sm">
+        {/* <HatFlex.Col gap="sm">
           <HatText size="sm">MHacks Hackathon</HatText>
           <HatFlex.Col>
             <Link href="/dashboard" className={styles.navLink}>
@@ -50,7 +54,7 @@ export function SideBar() {
           <HatText size="sm">MDST</HatText>
 
           <HatText size="sm">New Organization</HatText>
-        </HatFlex.Col>
+        </HatFlex.Col> */}
       </HatFlex.Col>
     </nav>
   )
