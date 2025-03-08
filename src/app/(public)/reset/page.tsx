@@ -11,8 +11,6 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { supabase } from '@/utils/supabase/client'
 import { HatForm } from '@/Hat/HatForm'
 import { FormSubmitButton } from '@/components/FormSubmitButton'
-import { GENERIC_ERROR_MESSAGE } from '@/utils/errorMessages'
-import { useState } from 'react'
 import { getAppUrl } from '@/utils/getAppUrl'
 
 const ResetPasswordFormSchema = z.object({

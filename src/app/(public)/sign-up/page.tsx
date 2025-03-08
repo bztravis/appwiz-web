@@ -15,6 +15,7 @@ import { signUp } from '../actions'
 import { objToFormData } from '@/utils/objToFormData'
 import { HatForm } from '@/Hat/HatForm'
 import { FormSubmitButton } from '@/components/FormSubmitButton'
+import { signInWithGoogle } from '@/utils/signInWithGoogle'
 
 const SignUpFormSchema = z
   .object({
@@ -49,7 +50,7 @@ export default function Page() {
         <HatText.h1 size="xl">Sign up for AppWiz</HatText.h1>
 
         <HatFlex.Col align="stretch" gap="lg">
-          <HatButton size="lg" color="secondary">
+          <HatButton size="lg" color="secondary" onClick={signInWithGoogle}>
             <Google />
             Continue with Google
           </HatButton>

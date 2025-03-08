@@ -2,7 +2,7 @@ import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
 const PUBLIC_ROUTES = ['/login', '/sign-up', '/reset']
-const EXCLUDED_ROUTES = ['/change-password']
+// const EXCLUDED_ROUTES = ['/change-password', '/']
 
 function isPublicRoute(request: NextRequest) {
   return PUBLIC_ROUTES.some((route) =>
@@ -50,11 +50,7 @@ export async function updateSession(request: NextRequest) {
   } = await supabase.auth.getUser()
 
   if (!user && !isPublicRoute(request)) {
-    if (
-      EXCLUDED_ROUTES.some((route) =>
-        request.nextUrl.pathname.startsWith(route)
-      )
-    ) {
+    if (request.nextUrl.searchParams.has('code')) {
       return supabaseResponse
     }
 
