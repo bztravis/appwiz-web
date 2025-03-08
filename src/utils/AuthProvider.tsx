@@ -4,6 +4,7 @@ import { createContext, useEffect, useState } from 'react'
 import type { Session, User } from '@supabase/supabase-js'
 import { supabase } from './supabase/client'
 import { LoadingLayout } from '@/components/LoadingLayout'
+import { useRouter } from 'next/navigation'
 
 export type AuthState = { session: Session | null; user: User | null }
 
@@ -13,12 +14,17 @@ export const AuthContext = createContext(initialState)
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true)
   const [authState, setAuthState] = useState<AuthState>(initialState)
+  const router = useRouter()
 
   useEffect(() => {
     ;(async () => {
       setLoading(true)
 
       const { data } = await supabase.auth.getSession()
+
+      if (!data?.session?.user) {
+        router.replace('/login')
+      }
 
       setAuthState({
         session: data.session,
@@ -37,9 +43,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return () => {
       subscription.unsubscribe()
     }
-  }, [])
+  }, [router])
 
-  return loading ? (
+  return loading || !authState.user ? (
     <LoadingLayout />
   ) : (
     <AuthContext value={authState}>{children}</AuthContext>
