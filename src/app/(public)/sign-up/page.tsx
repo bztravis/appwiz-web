@@ -73,6 +73,7 @@ export default function Page() {
                   label="Email"
                   type="email"
                   required={true}
+                  disabled={form.formState.isSubmitSuccessful}
                 />
 
                 <HatTextInput
@@ -81,6 +82,7 @@ export default function Page() {
                   label="Password"
                   type="password"
                   required={true}
+                  disabled={form.formState.isSubmitSuccessful}
                 />
 
                 <HatTextInput
@@ -89,12 +91,21 @@ export default function Page() {
                   label="Confirm password"
                   type="password"
                   required={true}
+                  disabled={form.formState.isSubmitSuccessful}
                 />
               </HatFlex.Col>
 
               <FormSubmitButton size="lg" color="primary">
                 Sign Up
               </FormSubmitButton>
+
+              {form.formState.isSubmitSuccessful && (
+                <HatText color="constructive" ariaRole="alert">
+                  If this is the first time you’re signing up for AppWiz, an
+                  email with a confirmation link will be sent to{' '}
+                  <b>{form.getValues().email}</b>.
+                </HatText>
+              )}
             </HatFlex.Col>
           </HatForm>
         </HatFlex.Col>

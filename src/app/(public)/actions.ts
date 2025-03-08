@@ -58,5 +58,4 @@ export async function signUp(formData: FormData): ServerActionResponse {
   }
 
   revalidatePath('/', 'layout')
-  redirect('/')
 }

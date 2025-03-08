@@ -60,7 +60,7 @@ export default function Page() {
             </FormSubmitButton>
 
             {form.formState.isSubmitSuccessful && (
-              <HatText color="constructive">
+              <HatText color="constructive" ariaRole="alert">
                 An email with a reset link was sent to{' '}
                 <b>{form.getValues().email}</b>. Follow the instructions there.
               </HatText>
