@@ -1,6 +1,5 @@
 'use client'
 
-import { LogoIcon } from '@/components/LogoIcon'
 import { HatButton } from '@/Hat/HatButton'
 import { HatFlex } from '@/Hat/HatFlex'
 import { useUser } from '@/hooks/useUser'
@@ -22,8 +21,6 @@ export default function Home() {
       >
         Sign out
       </HatButton>
-
-      <LogoIcon size="lg" />
     </HatFlex.Col>
   )
 }
