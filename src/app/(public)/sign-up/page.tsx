@@ -14,7 +14,6 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { signUp } from '../actions'
 import { objToFormData } from '@/utils/objToFormData'
 import { HatForm } from '@/Hat/HatForm'
-import { HatPadding } from '@/Hat/HatPadding'
 import { FormSubmitButton } from '@/components/FormSubmitButton'
 
 const SignUpFormSchema = z
@@ -50,11 +49,7 @@ export default function Page() {
         <HatText.h1 size="xl">Sign up for AppWiz</HatText.h1>
 
         <HatFlex.Col align="stretch" gap="lg">
-          <HatButton
-            size="lg"
-            color="secondary"
-            onClick={() => console.log('clicked')}
-          >
+          <HatButton size="lg" color="secondary">
             <Google />
             Continue with Google
           </HatButton>

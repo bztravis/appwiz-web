@@ -8,7 +8,7 @@ type LogoProps = {
   color?: HatTextColor
 }
 
-export function Logo({ size, color = 'primary' }: LogoProps) {
+export function Logo({ color = 'primary' }: LogoProps) {
   return (
     <span className={styleBuilder([styles[color]])}>
       <LogoBlack />

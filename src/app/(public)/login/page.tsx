@@ -14,7 +14,6 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { login } from '../actions'
 import { objToFormData } from '@/utils/objToFormData'
 import { HatForm } from '@/Hat/HatForm'
-import { HatPadding } from '@/Hat/HatPadding'
 import { FormSubmitButton } from '@/components/FormSubmitButton'
 
 const LoginFormSchema = z.object({
