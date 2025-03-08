@@ -13,6 +13,7 @@ import { HatForm } from '@/Hat/HatForm'
 import { FormSubmitButton } from '@/components/FormSubmitButton'
 import { GENERIC_ERROR_MESSAGE } from '@/utils/errorMessages'
 import { useState } from 'react'
+import { getAppUrl } from '@/utils/getAppUrl'
 
 const ResetPasswordFormSchema = z.object({
   email: z.string().email(),
@@ -76,7 +77,7 @@ export default function Page() {
 
   async function onSubmit(data: ResetPasswordFormFields) {
     const { error } = await supabase.auth.resetPasswordForEmail(data.email, {
-      redirectTo: process.env.NEXT_PUBLIC_APP_URL,
+      redirectTo: getAppUrl('/change-password'),
     })
 
     if (error) {

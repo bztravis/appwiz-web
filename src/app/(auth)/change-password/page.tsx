@@ -7,6 +7,7 @@ import { HatForm } from '@/Hat/HatForm'
 import { HatLink } from '@/Hat/HatLink'
 import { HatText } from '@/Hat/HatText'
 import { HatTextInput } from '@/Hat/HatTextInput'
+import { useUser } from '@/hooks/useUser'
 import { GENERIC_ERROR_MESSAGE } from '@/utils/errorMessages'
 import { getPageTitle } from '@/utils/getPageTitle'
 import { supabase } from '@/utils/supabase/client'
@@ -27,6 +28,8 @@ export default function Page() {
     resolver: zodResolver(ChangePasswordFormSchema),
   })
 
+  const user = useUser()
+
   return (
     <AuthLayout>
       <title>{getPageTitle('Change password')}</title>
@@ -36,7 +39,8 @@ export default function Page() {
           <HatText.h1 size="xl">Change your password</HatText.h1>
 
           <HatText.p color="hushed">
-            Enter a new password for your account.
+            Enter a new password for your account
+            {user.email ? ` (${user.email})` : ''}.
           </HatText.p>
         </HatFlex.Col>
 
@@ -65,7 +69,7 @@ export default function Page() {
           </HatFlex.Col>
         </HatForm>
 
-        <HatLink to="/login" color="primary">
+        <HatLink to="/" color="primary">
           Back to dashboard
         </HatLink>
       </HatFlex.Col>
