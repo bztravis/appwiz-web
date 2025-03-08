@@ -1,5 +1,6 @@
 'use client'
 
+import { toast } from '@/utils/toast'
 import { HatButton } from '@/Hat/HatButton'
 import { HatFlex } from '@/Hat/HatFlex'
 import { useUser } from '@/hooks/useUser'
@@ -21,6 +22,8 @@ export default function Home() {
       >
         Sign out
       </HatButton>
+
+      <HatButton onClick={() => toast.success('Yahoo!')}>Toast</HatButton>
     </HatFlex.Col>
   )
 }
