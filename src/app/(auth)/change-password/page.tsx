@@ -69,7 +69,7 @@ export default function Page() {
         </HatForm>
 
         <HatLink to="/" color="primary">
-          Back to dashboard
+          Go home
         </HatLink>
       </HatFlex.Col>
     </AuthLayout>
