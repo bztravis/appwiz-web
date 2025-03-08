@@ -66,7 +66,9 @@ export default function Page() {
   )
 
   async function onSubmit(data: ResetPasswordFormFields) {
-    const { error } = await supabase.auth.resetPasswordForEmail(data.email)
+    const { error } = await supabase.auth.resetPasswordForEmail(data.email, {
+      redirectTo: process.env.NEXT_PUBLIC_APP_URL,
+    })
 
     if (error) {
       form.setError('root', {
