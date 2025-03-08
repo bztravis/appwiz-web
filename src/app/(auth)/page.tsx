@@ -1,13 +1,17 @@
 'use client'
 
+import { LogoIcon } from '@/components/LogoIcon'
 import { HatButton } from '@/Hat/HatButton'
-import Link from 'next/link'
+import { HatFlex } from '@/Hat/HatFlex'
+import { useUser } from '@/hooks/useUser'
 import { supabase } from '@/utils/supabase/client'
 
 export default function Home() {
+  const user = useUser()
+
   return (
-    <div>
-      <Link href="/login">/login</Link>
+    <HatFlex.Col gap="sm">
+      {user.email}
 
       <HatButton
         onClick={async () => {
@@ -18,6 +22,8 @@ export default function Home() {
       >
         Sign out
       </HatButton>
-    </div>
+
+      <LogoIcon size="lg" />
+    </HatFlex.Col>
   )
 }

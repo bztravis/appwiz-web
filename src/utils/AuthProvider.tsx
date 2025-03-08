@@ -3,6 +3,7 @@
 import { createContext, useEffect, useState } from 'react'
 import type { Session, User } from '@supabase/supabase-js'
 import { supabase } from './supabase/client'
+import { LoadingLayout } from '@/components/LoadingLayout'
 
 export type AuthState = { session: Session | null; user: User | null }
 
@@ -19,7 +20,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
       const { data } = await supabase.auth.getSession()
 
-      setAuthState({ session: data.session, user: data.session?.user ?? null })
+      setAuthState({
+        session: data.session,
+        user: data.session?.user ?? null,
+      })
 
       setLoading(false)
     })()
@@ -36,7 +40,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, [])
 
   return loading ? (
-    <p>Loading...</p>
+    <LoadingLayout />
   ) : (
     <AuthContext value={authState}>{children}</AuthContext>
   )
