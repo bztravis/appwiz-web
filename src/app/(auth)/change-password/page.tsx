@@ -48,6 +48,7 @@ export default function Page() {
               name="password"
               type="password"
               required={true}
+              disabled={form.formState.isSubmitSuccessful}
             />
 
             <FormSubmitButton
@@ -57,6 +58,10 @@ export default function Page() {
             >
               Change password
             </FormSubmitButton>
+
+            {form.formState.isSubmitSuccessful && (
+              <HatText color="constructive">Password changed</HatText>
+            )}
           </HatFlex.Col>
         </HatForm>
 
@@ -74,12 +79,8 @@ export default function Page() {
 
     if (error) {
       form.setError('root', {
-        message: GENERIC_ERROR_MESSAGE,
+        message: error.message,
       })
-
-      return
     }
-
-    // todo: toast success
   }
 }

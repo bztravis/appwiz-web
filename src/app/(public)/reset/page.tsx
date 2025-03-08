@@ -12,6 +12,7 @@ import { supabase } from '@/utils/supabase/client'
 import { HatForm } from '@/Hat/HatForm'
 import { FormSubmitButton } from '@/components/FormSubmitButton'
 import { GENERIC_ERROR_MESSAGE } from '@/utils/errorMessages'
+import { useState } from 'react'
 
 const ResetPasswordFormSchema = z.object({
   email: z.string().email(),
@@ -46,6 +47,7 @@ export default function Page() {
               name="email"
               type="email"
               required={true}
+              disabled={form.formState.isSubmitSuccessful}
             />
 
             <FormSubmitButton
@@ -55,6 +57,13 @@ export default function Page() {
             >
               Send reset link
             </FormSubmitButton>
+
+            {form.formState.isSubmitSuccessful && (
+              <HatText color="constructive">
+                An email with a reset link was sent to{' '}
+                <b>{form.getValues().email}</b>. Follow the instructions there.
+              </HatText>
+            )}
           </HatFlex.Col>
         </HatForm>
 
@@ -72,12 +81,8 @@ export default function Page() {
 
     if (error) {
       form.setError('root', {
-        message: GENERIC_ERROR_MESSAGE,
+        message: error.message,
       })
-
-      return
     }
-
-    // todo: toast success
   }
 }
