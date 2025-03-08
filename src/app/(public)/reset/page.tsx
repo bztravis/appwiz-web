@@ -1,6 +1,5 @@
 'use client'
 
-import { HatButton } from '@/Hat/HatButton'
 import { HatFlex } from '@/Hat/HatFlex'
 import { HatText } from '@/Hat/HatText'
 import { HatTextInput } from '@/Hat/HatTextInput'
@@ -12,6 +11,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { supabase } from '@/utils/supabase/client'
 import { HatForm } from '@/Hat/HatForm'
 import { FormSubmitButton } from '@/components/FormSubmitButton'
+import { GENERIC_ERROR_MESSAGE } from '@/utils/errorMessages'
 
 const ResetPasswordFormSchema = z.object({
   email: z.string().email(),
@@ -66,8 +66,16 @@ export default function Page() {
   )
 
   async function onSubmit(data: ResetPasswordFormFields) {
-    // const { error } = await supabase.auth.resetPasswordForEmail(data.email, {
-    //   redirectTo: 'https://google.com',
-    // })
+    const { error } = await supabase.auth.resetPasswordForEmail(data.email)
+
+    if (error) {
+      form.setError('root', {
+        message: GENERIC_ERROR_MESSAGE,
+      })
+
+      return
+    }
+
+    // todo: toast success
   }
 }

@@ -1,3 +1,4 @@
+import { GENERIC_ERROR_MESSAGE } from '@/utils/errorMessages'
 import { HatBaseProps } from '../utils'
 import { FieldValues, FormProvider, UseFormReturn } from 'react-hook-form'
 
@@ -28,7 +29,7 @@ export function HatForm<FormFields extends FieldValues>({
 
       form.setError('root', {
         type: 'manual',
-        message: 'Something went wrong',
+        message: GENERIC_ERROR_MESSAGE,
       })
     }
   }

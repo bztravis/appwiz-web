@@ -4,6 +4,7 @@ import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 
 import { createClient } from '@/utils/supabase/server'
+import { GENERIC_ERROR_MESSAGE } from '@/utils/errorMessages'
 
 export type ServerActionResponse = Promise<
   | {
@@ -54,7 +55,7 @@ export async function signUp(formData: FormData): ServerActionResponse {
   if (error) {
     return {
       success: false,
-      message: 'Something went wrong while signing up. Try again later.',
+      message: GENERIC_ERROR_MESSAGE,
     }
   }
 
