@@ -20,7 +20,10 @@ export async function login(formData: FormData) {
   console.log(data, error)
 
   if (error) {
-    redirect('/error') // fixme:
+    return {
+      success: false,
+      message: 'Email or password is incorrect',
+    }
   }
 
   revalidatePath('/', 'layout')
@@ -40,7 +43,10 @@ export async function signUp(formData: FormData) {
   const { error } = await supabase.auth.signUp(data)
 
   if (error) {
-    redirect('/error') // fixme:
+    return {
+      success: false,
+      message: 'Something went wrong while signing up. Try again later.',
+    }
   }
 
   revalidatePath('/', 'layout')

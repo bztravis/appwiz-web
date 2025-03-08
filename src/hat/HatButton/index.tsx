@@ -15,7 +15,7 @@ type HatButtonColor =
   | 'destructive'
   | 'constructive'
 
-type HatButtonProps = {
+export type HatButtonProps = {
   size?: 'md' | 'lg'
   color?: HatButtonColor
   icon?: React.ReactNode
@@ -47,7 +47,6 @@ export function HatButton({
   onClick,
   children,
 }: HatButtonProps) {
-  console.log('still fine')
   const formContext = useFormContext()
 
   const formSubmitting = formContext?.formState?.isSubmitting

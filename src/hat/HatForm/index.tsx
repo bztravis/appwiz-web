@@ -14,7 +14,18 @@ export function HatForm<FormFields extends FieldValues>({
 }: HatFormProps<FormFields>) {
   return (
     <FormProvider {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)}>{children}</form>
+      <form onSubmit={form.handleSubmit(onSubmitWrapper)}>{children}</form>
     </FormProvider>
   )
+
+  async function onSubmitWrapper(data: FormFields) {
+    try {
+      await onSubmit(data)
+    } catch {
+      form.setError('root', {
+        type: 'manual',
+        message: 'Something went wrong',
+      })
+    }
+  }
 }

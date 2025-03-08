@@ -11,6 +11,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { supabase } from '@/utils/supabase/client'
 import { HatForm } from '@/Hat/HatForm'
+import { FormSubmitButton } from '@/components/FormSubmitButton'
 
 const ResetPasswordFormSchema = z.object({
   email: z.string().email(),
@@ -47,14 +48,13 @@ export default function Page() {
               required={true}
             />
 
-            <HatButton
+            <FormSubmitButton
               size="lg"
               color="accent"
-              type="submit"
               disabled={form.formState.isSubmitSuccessful}
             >
               Send reset link
-            </HatButton>
+            </FormSubmitButton>
           </HatFlex.Col>
         </HatForm>
 
@@ -66,8 +66,6 @@ export default function Page() {
   )
 
   async function onSubmit(data: ResetPasswordFormFields) {
-    console.log(data)
-
     // const { error } = await supabase.auth.resetPasswordForEmail(data.email, {
     //   redirectTo: 'https://google.com',
     // })

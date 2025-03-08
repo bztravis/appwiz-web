@@ -14,6 +14,8 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { login } from '../actions'
 import { objToFormData } from '@/utils/objToFormData'
 import { HatForm } from '@/Hat/HatForm'
+import { HatPadding } from '@/Hat/HatPadding'
+import { FormSubmitButton } from '@/components/FormSubmitButton'
 
 const LoginFormSchema = z.object({
   email: z.string().email(),
@@ -72,9 +74,9 @@ export default function Page() {
                 />
               </HatFlex.Col>
 
-              <HatButton size="lg" type="submit">
+              <FormSubmitButton size="lg" color="primary">
                 Login
-              </HatButton>
+              </FormSubmitButton>
             </HatFlex.Col>
           </HatForm>
         </HatFlex.Col>
@@ -100,5 +102,12 @@ export default function Page() {
 
   async function onSubmit(data: LoginFormFields) {
     const res = await login(objToFormData(data))
+
+    if (!res.success) {
+      form.setError('root', {
+        type: 'manual',
+        message: res.message,
+      })
+    }
   }
 }
