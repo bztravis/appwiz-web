@@ -103,7 +103,7 @@ export default function Page() {
   async function onSubmit(data: LoginFormFields) {
     const res = await login(objToFormData(data))
 
-    if (!res.success) {
+    if (res && !res.success) {
       form.setError('root', {
         type: 'manual',
         message: res.message,

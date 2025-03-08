@@ -117,7 +117,7 @@ export default function Page() {
   async function onSubmit(data: SignUpFormFields) {
     const res = await signUp(objToFormData(data))
 
-    if (!res.success) {
+    if (res && !res.success) {
       form.setError('root', {
         type: 'manual',
         message: res.message,

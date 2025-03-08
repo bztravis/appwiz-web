@@ -5,7 +5,16 @@ import { redirect } from 'next/navigation'
 
 import { createClient } from '@/utils/supabase/server'
 
-export async function login(formData: FormData) {
+export type ServerActionResponse = Promise<
+  | {
+      success: true
+      message?: string
+    }
+  | { success: false; message: string }
+  | undefined
+>
+
+export async function login(formData: FormData): ServerActionResponse {
   const supabase = await createClient()
 
   // type-casting here for convenience
@@ -30,7 +39,7 @@ export async function login(formData: FormData) {
   redirect('/')
 }
 
-export async function signUp(formData: FormData) {
+export async function signUp(formData: FormData): ServerActionResponse {
   const supabase = await createClient()
 
   // type-casting here for convenience

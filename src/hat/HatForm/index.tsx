@@ -21,7 +21,11 @@ export function HatForm<FormFields extends FieldValues>({
   async function onSubmitWrapper(data: FormFields) {
     try {
       await onSubmit(data)
-    } catch {
+    } catch (error) {
+      if (error instanceof Error && error.message.includes('NEXT_REDIRECT')) {
+        return
+      }
+
       form.setError('root', {
         type: 'manual',
         message: 'Something went wrong',
