@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useEffect, useState } from 'react'
+import { createContext, useCallback, useEffect, useState } from 'react'
 import type { Session, User } from '@supabase/supabase-js'
 import { supabase } from './supabase/client'
 import { LoadingLayout } from '@/components/LoadingLayout'
@@ -16,6 +16,17 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [authState, setAuthState] = useState<AuthState>(initialState)
   const router = useRouter()
 
+  const updateAuthState = useCallback(
+    (state: AuthState) => {
+      if (!state.user) {
+        router.replace('/login')
+      }
+
+      setAuthState(state)
+    },
+    [router]
+  )
+
   useEffect(() => {
     ;(async () => {
       setLoading(true)
@@ -23,11 +34,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       try {
         const { data } = await supabase.auth.getSession()
 
-        if (!data?.session?.user) {
-          router.replace('/login')
-        }
-
-        setAuthState({
+        updateAuthState({
           session: data.session,
           user: data.session?.user ?? null,
         })
@@ -41,13 +48,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
-      setAuthState({ session, user: session?.user ?? null })
+      updateAuthState({ session, user: session?.user ?? null })
     })
 
     return () => {
       subscription.unsubscribe()
     }
-  }, [router])
+  }, [router, updateAuthState])
 
   return loading || !authState.user ? (
     <LoadingLayout />
