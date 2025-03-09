@@ -1,3 +1,4 @@
+@use '../../styles/sizes.module';
 @use '../../styles/utils.module' as u;
 
 .container {
@@ -6,5 +7,10 @@
 
   main {
     padding: u.to-rem(16);
+  }
+
+  @media (max-width: sizes.$breakpoint-sm) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
   }
 }

@@ -1,4 +1,5 @@
 @use '../../styles/colors.module';
+@use '../../styles/sizes.module';
 @use '../../styles/utils.module' as u;
 
 .container {
@@ -38,5 +39,9 @@
     .block {
       visibility: visible;
     }
+  }
+
+  @media (max-width: sizes.$breakpoint-sm) {
+    padding: u.to-rem(12) u.to-rem(8);
   }
 }

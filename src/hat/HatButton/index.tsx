@@ -16,7 +16,7 @@ type HatButtonColor =
   | 'constructive'
 
 export type HatButtonProps = {
-  size?: 'md' | 'lg'
+  size?: 'sm' | 'md' | 'lg'
   color?: HatButtonColor
   icon?: React.ReactNode
   iconSide?: 'left' | 'right'
@@ -46,6 +46,7 @@ export function HatButton({
   to,
   onClick,
   children,
+  id,
 }: HatButtonProps) {
   const formContext = useFormContext()
 
@@ -71,7 +72,7 @@ export function HatButton({
 
   if (to) {
     return (
-      <Link className={className} href={to}>
+      <Link className={className} href={to} id={id}>
         {icon && iconSide === 'left' && icon}
 
         {children}
@@ -87,6 +88,7 @@ export function HatButton({
       onClick={onClickWrapper}
       type={type}
       disabled={disabled}
+      id={id}
     >
       {iconSide === 'left' && (loading ? <HatLoading /> : icon ?? null)}
 

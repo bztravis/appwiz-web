@@ -37,6 +37,13 @@ $space-sm-md: u.average(sizes.$space-sm, sizes.$space-md);
 
 // conditionals
 
+.sm {
+  padding: sizes.$space-xs sizes.$space-xs;
+  gap: sizes.$space-xs;
+  font-size: sizes.$font-xs;
+  line-height: sizes.$line-height-xs;
+}
+
 .md {
   padding: sizes.$space-sm $space-sm-md;
   gap: sizes.$space-xs;

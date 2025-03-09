@@ -1,16 +1,17 @@
 @use '../../styles/utils.module' as u;
 @use '../../styles/colors.module';
+@use '../../styles/sizes.module';
 
 .container {
-  width: u.to-rem(24);
-  height: u.to-rem(24);
+  width: sizes.$space-xl;
+  height: sizes.$space-xl;
   padding: u.to-rem(8);
   border: u.to-rem(1) solid colors.$accent;
   border-radius: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: u.to-rem(10);
+  font-size: sizes.$font-xs;
   color: colors.$accent;
   background: colors.$accent-background;
 }

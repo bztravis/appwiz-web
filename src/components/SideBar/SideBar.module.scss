@@ -1,4 +1,5 @@
 @use '../../styles/utils.module' as u;
+@use '../../styles/sizes.module';
 @use '../../styles/colors.module';
 
 .container {
@@ -10,13 +11,41 @@
   position: sticky;
   top: 0px;
   display: flex;
+  gap: sizes.$space-md;
   flex-direction: column;
-  justify-content: space-between;
   align-items: stretch;
+  background: colors.$background;
 
-  .navLink {
-    padding: 0.375rem 0.5rem;
-    font-size: 1rem;
-    text-decoration: none;
+  .menuButton {
+    display: none;
+  }
+
+  .content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: scroll;
+
+    .navLink {
+      padding: 0.375rem 0.5rem;
+      font-size: 1rem;
+      text-decoration: none;
+    }
+  }
+
+  @media (max-width: sizes.$breakpoint-sm) {
+    height: unset;
+    border-width: 0 0 u.to-rem(1) 0;
+
+    .content {
+      &.closed {
+        display: none;
+      }
+    }
+
+    .menuButton {
+      display: block;
+    }
   }
 }
