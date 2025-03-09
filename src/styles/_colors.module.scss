@@ -11,3 +11,21 @@ $border: #DFE9F0;
 $spotlight: #F2F5F7;
 $banner-fill: #F9FBFC;
 $background: #FFFFFF;
+
+html {
+  @media (prefers-color-scheme: dark) {
+    $primary: #DFF2FF !global;
+    $accent: #2E9CE5 !global;
+    $accent-background: #1A3A5A !global;
+    $destructive: #D82B3D !global;
+    $constructive: #21A56E !global;
+
+    $hushed: #A1B2C3 !global;
+    $faint: #708090 !global;
+    $input-border: #38444D !global;
+    $border: #202A31 !global;
+    $spotlight: #0D1117 !global;
+    $banner-fill: #05080A !global;
+    $background: #0A0C0E !global;
+  }
+}
