@@ -5,7 +5,6 @@ import { HatFlex } from '@/Hat/HatFlex'
 import { HatText } from '@/Hat/HatText'
 import { useUser } from '@/hooks/useUser'
 import { getPageTitle } from '@/utils/getPageTitle'
-import { supabase } from '@/utils/supabase/client'
 import { toast } from 'sonner'
 
 export default function Page() {

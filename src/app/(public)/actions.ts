@@ -35,7 +35,7 @@ export async function login(formData: FormData): ServerActionResponse {
   }
 
   revalidatePath('/', 'layout')
-  redirect('/')
+  redirect(process.env.NEXT_PUBLIC_AUTHED_REDIRECT_URL!)
 }
 
 export async function signUp(formData: FormData): ServerActionResponse {

@@ -44,7 +44,7 @@ export function SideBar() {
             <NavButton
               label="My Tasks"
               icon={<InboxLine />}
-              path="/"
+              path="/tasks"
               onNavigate={onNavigate}
             />
 

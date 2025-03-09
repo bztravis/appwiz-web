@@ -49,6 +49,13 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser()
 
+  // custom redirects
+  if (user && request.nextUrl.pathname === '/') {
+    const url = request.nextUrl.clone()
+    url.pathname = '/tasks'
+    return NextResponse.redirect(url)
+  }
+
   if (!user && !isPublicRoute(request)) {
     if (request.nextUrl.searchParams.has('code')) {
       return supabaseResponse
@@ -63,7 +70,7 @@ export async function updateSession(request: NextRequest) {
   if (user && isPublicRoute(request)) {
     // user, respond by redirecting the user to the dashboard page
     const url = request.nextUrl.clone()
-    url.pathname = '/'
+    url.pathname = process.env.NEXT_PUBLIC_AUTHED_REDIRECT_URL!
     return NextResponse.redirect(url)
   }
 
