@@ -18,16 +18,6 @@ export default function Page() {
       <HatFlex.Col gap="sm">
         {user.email}
 
-        <HatButton
-          onClick={async () => {
-            const { error } = await supabase.auth.signOut()
-            if (error) console.error('Sign out error', error)
-            window.location.href = '/login'
-          }}
-        >
-          Sign out
-        </HatButton>
-
         <HatText.p>My Tasks</HatText.p>
 
         <HatButton onClick={() => toast.success('Yahoo!')}>Toast</HatButton>

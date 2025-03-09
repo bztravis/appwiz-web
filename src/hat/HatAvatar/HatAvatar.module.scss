@@ -1,0 +1,16 @@
+@use '../../styles/utils.module' as u;
+@use '../../styles/colors.module';
+
+.container {
+  width: u.to-rem(24);
+  height: u.to-rem(24);
+  padding: u.to-rem(8);
+  border: u.to-rem(1) solid colors.$accent;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: u.to-rem(10);
+  color: colors.$accent;
+  background: colors.$accent-background;
+}

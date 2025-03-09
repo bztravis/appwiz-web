@@ -8,8 +8,14 @@ import { NavButton } from '../NavButton'
 import InboxLine from '../../assets/icons/InboxLine.svg'
 import OrganizationChartLine from '../../assets/icons/OrganizationChartLine.svg'
 import ToggleLine from '../../assets/icons/ToggleLine.svg'
+import { HatAvatar } from '@/Hat/HatAvatar'
+import { useUser } from '@/hooks/useUser'
+import { HatButton } from '@/Hat/HatButton'
+import { supabase } from '@/utils/supabase/client'
 
 export function SideBar() {
+  const user = useUser()
+
   return (
     <nav className={styles.container}>
       <HatFlex.Col gap="xxxl">
@@ -56,6 +62,23 @@ export function SideBar() {
           <HatText size="sm">New Organization</HatText>
         </HatFlex.Col> */}
       </HatFlex.Col>
+
+      <HatFlex.Row justify="between" padding="sm">
+        <HatFlex.Row align="center" gap="sm">
+          <HatAvatar name="Brian Travis"></HatAvatar>
+
+          <HatButton
+            color="secondary"
+            onClick={async () => {
+              const { error } = await supabase.auth.signOut()
+              if (error) console.error('Sign out error', error) // fixme:
+              window.location.href = '/login'
+            }}
+          >
+            Sign out
+          </HatButton>
+        </HatFlex.Row>
+      </HatFlex.Row>
     </nav>
   )
 }
