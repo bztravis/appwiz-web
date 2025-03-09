@@ -25,6 +25,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: sizes.$space-md;
     overflow: scroll;
 
     .navLink {
@@ -35,8 +36,15 @@
   }
 
   @media (max-width: sizes.$breakpoint-sm) {
-    height: unset;
+    width: 100%;
+    height: 100dvh;
+    position: fixed;
     border-width: 0 0 u.to-rem(1) 0;
+
+    &:has(.closed) {
+      height: unset;
+      position: sticky;
+    }
 
     .content {
       &.closed {
@@ -45,7 +53,7 @@
     }
 
     .menuButton {
-      display: block;
+      display: contents;
     }
   }
 }

@@ -1,5 +1,9 @@
 @use '../../styles/colors.module';
 
+.base {
+  display: contents; // otherwise span around svg adds extra height
+}
+
 .md {
   width: 200px;
 }

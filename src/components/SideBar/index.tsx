@@ -41,18 +41,25 @@ export function SideBar() {
       <div className={styleBuilder([styles.content, [styles.closed, !open]])}>
         <HatFlex.Col gap="xxxl">
           <HatFlex.Col align="stretch">
-            <NavButton label="My Tasks" icon={<InboxLine />} path="/" />
+            <NavButton
+              label="My Tasks"
+              icon={<InboxLine />}
+              path="/"
+              onNavigate={onNavigate}
+            />
 
             <NavButton
               label="Organizations"
               icon={<OrganizationChartLine />}
               path="/organizations"
+              onNavigate={onNavigate}
             />
 
             <NavButton
               label="Preferences"
               icon={<ToggleLine />}
               path="/preferences"
+              onNavigate={onNavigate}
             />
           </HatFlex.Col>
 
@@ -97,4 +104,8 @@ export function SideBar() {
       </div>
     </nav>
   )
+
+  function onNavigate() {
+    setOpen(false)
+  }
 }

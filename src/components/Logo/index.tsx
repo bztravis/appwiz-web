@@ -1,5 +1,6 @@
 import type { HatTextColor } from '@/Hat/HatText'
 import AppWizLogo from '@/assets/icons/Logo.svg'
+import styleBuilder from '@/utils/styleBuilder'
 import styles from './Logo.module.scss'
 
 type LogoProps = {
@@ -9,8 +10,8 @@ type LogoProps = {
 
 export function Logo({ color = 'primary' }: LogoProps) {
   return (
-    <div className={styles[color]}>
+    <span className={styleBuilder([styles.base, styles[color]])}>
       <AppWizLogo />
-    </div>
+    </span>
   )
 }
