@@ -20,16 +20,20 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     ;(async () => {
       setLoading(true)
 
-      const { data } = await supabase.auth.getSession()
+      try {
+        const { data } = await supabase.auth.getSession()
 
-      if (!data?.session?.user) {
+        if (!data?.session?.user) {
+          router.replace('/login')
+        }
+
+        setAuthState({
+          session: data.session,
+          user: data.session?.user ?? null,
+        })
+      } catch {
         router.replace('/login')
       }
-
-      setAuthState({
-        session: data.session,
-        user: data.session?.user ?? null,
-      })
 
       setLoading(false)
     })()

@@ -20,6 +20,13 @@ export default function Page() {
         <HatText.p>My Tasks</HatText.p>
 
         <HatButton onClick={() => toast.success('Yahoo!')}>Toast</HatButton>
+
+        {Array(100)
+          .fill(null)
+          .map((_, i) => (
+            // eslint-disable-next-line @eslint-react/no-array-index-key
+            <HatText.p key={i}>My Tasks</HatText.p>
+          ))}
       </HatFlex.Col>
     </>
   )

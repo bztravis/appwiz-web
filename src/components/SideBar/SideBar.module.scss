@@ -4,7 +4,7 @@
 
 .container {
   height: 100dvh;
-  padding: 1rem 0.5rem;
+  padding: u.to-rem(16) u.to-rem(8) 0 u.to-rem(8);
   border-style: solid;
   border-width: 0 u.to-rem(1) 0 0;
   border-color: colors.$border;
@@ -35,14 +35,20 @@
     }
   }
 
+  .user {
+    padding: u.to-rem(16) 0;
+  }
+
   @media (max-width: sizes.$breakpoint-sm) {
     width: 100%;
     height: 100dvh;
-    position: fixed;
+    padding-bottom: u.to-rem(64);
     border-width: 0 0 u.to-rem(1) 0;
+    position: fixed;
 
     &:has(.closed) {
       height: unset;
+      padding: u.to-rem(16) u.to-rem(8);
       position: sticky;
     }
 
@@ -54,6 +60,20 @@
 
     .menuButton {
       display: contents;
+    }
+
+    .user {
+      width: 100%;
+      height: u.to-rem(64);
+      border-style: solid;
+      border-width: u.to-rem(1) 0 0 0;
+      border-color: colors.$border;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 0 u.to-rem(8);
+      display: flex;
+      align-items: center;
     }
   }
 }

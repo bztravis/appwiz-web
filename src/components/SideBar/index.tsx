@@ -13,6 +13,7 @@ import { useUser } from '@/hooks/useUser'
 import { HatButton } from '@/Hat/HatButton'
 import { supabase } from '@/utils/supabase/client'
 import MenuLine from '../../assets/icons/MenuLine.svg'
+import CloseLine from '../../assets/icons/CloseLine.svg'
 import { useState } from 'react'
 import styleBuilder from '@/utils/styleBuilder'
 
@@ -31,7 +32,7 @@ export function SideBar() {
             <HatButton
               size="sm"
               color="secondary"
-              icon={<MenuLine />}
+              icon={open ? <CloseLine /> : <MenuLine />}
               onClick={() => setOpen((prev) => !prev)}
             ></HatButton>
           </span>
@@ -52,6 +53,27 @@ export function SideBar() {
               label="Organizations"
               icon={<OrganizationChartLine />}
               path="/organizations"
+              onNavigate={onNavigate}
+            />
+
+            <NavButton
+              label="Preferences"
+              icon={<ToggleLine />}
+              path="/preferences"
+              onNavigate={onNavigate}
+            />
+
+            <NavButton
+              label="Preferences"
+              icon={<ToggleLine />}
+              path="/preferences"
+              onNavigate={onNavigate}
+            />
+
+            <NavButton
+              label="Preferences"
+              icon={<ToggleLine />}
+              path="/preferences"
               onNavigate={onNavigate}
             />
 
@@ -85,7 +107,7 @@ export function SideBar() {
         </HatFlex.Col> */}
         </HatFlex.Col>
 
-        <HatFlex.Row justify="between" padding="sm">
+        <div className={styles.user}>
           <HatFlex.Row align="center" gap="sm">
             <HatAvatar name={user.email ?? '' /* fixme: */}></HatAvatar>
 
@@ -100,7 +122,7 @@ export function SideBar() {
               Sign out
             </HatButton>
           </HatFlex.Row>
-        </HatFlex.Row>
+        </div>
       </div>
     </nav>
   )
