@@ -16,15 +16,18 @@ export type HatTextSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'billboard'
 export type HatTextProps = {
   size?: HatTextSize
   color?: HatTextColor
+  align?: 'left' | 'center' | 'right' | 'justify'
   children?: React.ReactNode
 } & HatBaseProps
 
 export const DEFAULT_HAT_TEXT_SIZE = 'sm'
 const DEFAULT_HAT_TEXT_COLOR = 'primary'
+const DEFAULT_HAT_TEXT_ALIGN = 'left'
 
 export function HatText({
   size = DEFAULT_HAT_TEXT_SIZE,
   color = DEFAULT_HAT_TEXT_COLOR,
+  align = DEFAULT_HAT_TEXT_ALIGN,
   children,
   id,
   ariaLabel,
@@ -34,7 +37,12 @@ export function HatText({
 }: HatTextProps) {
   return (
     <span
-      className={styleBuilder([styles.base, styles[size], styles[color]])}
+      className={styleBuilder([
+        styles.base,
+        styles[size],
+        styles[color],
+        styles[align],
+      ])}
       id={id}
       aria-label={ariaLabel}
       aria-labelledby={ariaLabelledBy}
@@ -49,6 +57,7 @@ export function HatText({
 HatText.h1 = ({
   size = DEFAULT_HAT_TEXT_SIZE,
   color = DEFAULT_HAT_TEXT_COLOR,
+  align = DEFAULT_HAT_TEXT_ALIGN,
   children,
   id,
   ariaLabel,
@@ -57,7 +66,12 @@ HatText.h1 = ({
   ariaRole,
 }: HatTextProps) => (
   <h1
-    className={styleBuilder([styles.base, styles[size], styles[color]])}
+    className={styleBuilder([
+      styles.base,
+      styles[size],
+      styles[color],
+      styles[align],
+    ])}
     id={id}
     aria-label={ariaLabel}
     aria-labelledby={ariaLabelledBy}
@@ -71,6 +85,7 @@ HatText.h1 = ({
 HatText.h2 = ({
   size = DEFAULT_HAT_TEXT_SIZE,
   color = DEFAULT_HAT_TEXT_COLOR,
+  align = DEFAULT_HAT_TEXT_ALIGN,
   children,
   id,
   ariaLabel,
@@ -79,7 +94,12 @@ HatText.h2 = ({
   ariaRole,
 }: HatTextProps) => (
   <h2
-    className={styleBuilder([styles.base, styles[size], styles[color]])}
+    className={styleBuilder([
+      styles.base,
+      styles[size],
+      styles[color],
+      styles[align],
+    ])}
     id={id}
     aria-label={ariaLabel}
     aria-labelledby={ariaLabelledBy}
@@ -93,6 +113,7 @@ HatText.h2 = ({
 HatText.h3 = ({
   size = DEFAULT_HAT_TEXT_SIZE,
   color = DEFAULT_HAT_TEXT_COLOR,
+  align = DEFAULT_HAT_TEXT_ALIGN,
   children,
   id,
   ariaLabel,
@@ -101,7 +122,12 @@ HatText.h3 = ({
   ariaRole,
 }: HatTextProps) => (
   <h3
-    className={styleBuilder([styles.base, styles[size], styles[color]])}
+    className={styleBuilder([
+      styles.base,
+      styles[size],
+      styles[color],
+      styles[align],
+    ])}
     id={id}
     aria-label={ariaLabel}
     aria-labelledby={ariaLabelledBy}
@@ -115,6 +141,7 @@ HatText.h3 = ({
 HatText.h4 = ({
   size = DEFAULT_HAT_TEXT_SIZE,
   color = DEFAULT_HAT_TEXT_COLOR,
+  align = DEFAULT_HAT_TEXT_ALIGN,
   children,
   id,
   ariaLabel,
@@ -123,7 +150,12 @@ HatText.h4 = ({
   ariaRole,
 }: HatTextProps) => (
   <h4
-    className={styleBuilder([styles.base, styles[size], styles[color]])}
+    className={styleBuilder([
+      styles.base,
+      styles[size],
+      styles[color],
+      styles[align],
+    ])}
     id={id}
     aria-label={ariaLabel}
     aria-labelledby={ariaLabelledBy}
@@ -137,6 +169,7 @@ HatText.h4 = ({
 HatText.h5 = ({
   size = DEFAULT_HAT_TEXT_SIZE,
   color = DEFAULT_HAT_TEXT_COLOR,
+  align = DEFAULT_HAT_TEXT_ALIGN,
   children,
   id,
   ariaLabel,
@@ -145,7 +178,12 @@ HatText.h5 = ({
   ariaRole,
 }: HatTextProps) => (
   <h5
-    className={styleBuilder([styles.base, styles[size], styles[color]])}
+    className={styleBuilder([
+      styles.base,
+      styles[size],
+      styles[color],
+      styles[align],
+    ])}
     id={id}
     aria-label={ariaLabel}
     aria-labelledby={ariaLabelledBy}
@@ -159,6 +197,7 @@ HatText.h5 = ({
 HatText.h6 = ({
   size = DEFAULT_HAT_TEXT_SIZE,
   color = DEFAULT_HAT_TEXT_COLOR,
+  align = DEFAULT_HAT_TEXT_ALIGN,
   children,
   id,
   ariaLabel,
@@ -167,7 +206,12 @@ HatText.h6 = ({
   ariaRole,
 }: HatTextProps) => (
   <h6
-    className={styleBuilder([styles.base, styles[size], styles[color]])}
+    className={styleBuilder([
+      styles.base,
+      styles[size],
+      styles[color],
+      styles[align],
+    ])}
     id={id}
     aria-label={ariaLabel}
     aria-labelledby={ariaLabelledBy}
@@ -181,6 +225,7 @@ HatText.h6 = ({
 HatText.p = ({
   size = DEFAULT_HAT_TEXT_SIZE,
   color = DEFAULT_HAT_TEXT_COLOR,
+  align = DEFAULT_HAT_TEXT_ALIGN,
   children,
   id,
   ariaLabel,
@@ -189,7 +234,12 @@ HatText.p = ({
   ariaRole,
 }: HatTextProps) => (
   <p
-    className={styleBuilder([styles.base, styles[size], styles[color]])}
+    className={styleBuilder([
+      styles.base,
+      styles[size],
+      styles[color],
+      styles[align],
+    ])}
     id={id}
     aria-label={ariaLabel}
     aria-labelledby={ariaLabelledBy}

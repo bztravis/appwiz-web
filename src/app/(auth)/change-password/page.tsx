@@ -1,6 +1,6 @@
 'use client'
 
-import AuthLayout from '@/app/(public)/layout'
+import FullPageLayout from '@/components/FullPageLayout'
 import { FormSubmitButton } from '@/components/FormSubmitButton'
 import { HatFlex } from '@/Hat/HatFlex'
 import { HatForm } from '@/Hat/HatForm'
@@ -30,7 +30,7 @@ export default function Page() {
   const user = useUser()
 
   return (
-    <AuthLayout>
+    <FullPageLayout>
       <title>{getPageTitle('Change password')}</title>
 
       <HatFlex.Col gap="xl">
@@ -72,7 +72,7 @@ export default function Page() {
           Go home
         </HatLink>
       </HatFlex.Col>
-    </AuthLayout>
+    </FullPageLayout>
   )
 
   async function onSubmit(data: ChangePasswordFormFields) {
