@@ -24,7 +24,7 @@ export function SideBar() {
   return (
     <nav className={styles.container}>
       <div className={styles.scroller}>
-        <HatFlex.Row justify="between" align="center" padding="md">
+        <div className={styles.top}>
           <Logo size="md" />
 
           <span className={styles.menuButton}>
@@ -35,7 +35,7 @@ export function SideBar() {
               onClick={() => setOpen((prev) => !prev)}
             ></HatButton>
           </span>
-        </HatFlex.Row>
+        </div>
 
         <div className={styleBuilder([styles.groups, [styles.closed, !open]])}>
           <HatFlex.Col align="stretch">

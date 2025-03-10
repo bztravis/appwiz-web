@@ -13,13 +13,21 @@
   grid-template-rows: 1fr auto;
   background: colors.$background;
 
-  .menuButton {
-    display: contents;
-    visibility: hidden;
-  }
-
   .scroller {
     overflow: scroll;
+
+    .top {
+      padding: sizes.$space-md;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: colors.$background;
+
+      .menuButton {
+        display: contents;
+        visibility: hidden;
+      }
+    }
 
     .groups {
       padding: sizes.$space-sm sizes.$space-sm sizes.$space-xl sizes.$space-sm;
@@ -40,15 +48,19 @@
     width: 100dvw;
     height: 100dvh;
     border-width: 0;
-    position: fixed;
 
     &:has(.closed) {
       height: unset;
       border-width: 0 0 u.to-rem(1) 0;
-      position: sticky;
 
-      .groups {
-        display: none;
+      .scroller {
+        .top {
+          border-width: 0;
+        }
+
+        .groups {
+          display: none;
+        }
       }
 
       .user {
@@ -56,8 +68,23 @@
       }
     }
 
-    .menuButton {
-      visibility: visible;
+    .scroller {
+      .top {
+        border-style: solid;
+        border-width: 0 0 u.to-rem(1) 0;
+        border-color: colors.$border;
+        position: sticky;
+        top: 0;
+        z-index: 1; // fixme: shouldn't be necessary
+
+        .menuButton {
+          visibility: visible;
+        }
+      }
+
+      .groups {
+        padding: sizes.$space-md sizes.$space-sm sizes.$space-xl sizes.$space-sm;
+      }
     }
 
     .user {
