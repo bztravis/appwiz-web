@@ -62,27 +62,6 @@ export function SideBar() {
               path="/preferences"
               onNavigate={onNavigate}
             />
-
-            <NavButton
-              label="Preferences"
-              icon={<ToggleLine />}
-              path="/preferences"
-              onNavigate={onNavigate}
-            />
-
-            <NavButton
-              label="Preferences"
-              icon={<ToggleLine />}
-              path="/preferences"
-              onNavigate={onNavigate}
-            />
-
-            <NavButton
-              label="Preferences"
-              icon={<ToggleLine />}
-              path="/preferences"
-              onNavigate={onNavigate}
-            />
           </HatFlex.Col>
 
           {/* <HatFlex.Col gap="sm">

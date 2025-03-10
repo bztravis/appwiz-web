@@ -21,6 +21,14 @@ export default function Page() {
 
         <HatButton onClick={() => toast.success('Yahoo!')}>Toast</HatButton>
 
+        <HatButton
+          onClick={() => {
+            throw new Error('uh oh')
+          }}
+        >
+          Error
+        </HatButton>
+
         {Array(100)
           .fill(null)
           .map((_, i) => (

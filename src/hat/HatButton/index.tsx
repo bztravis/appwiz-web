@@ -102,7 +102,10 @@ export function HatButton({
     if (!onClick) return
 
     setOnClickPending(true)
-    await onClick()
-    setOnClickPending(false)
+    try {
+      await onClick()
+    } finally {
+      setOnClickPending(false)
+    }
   }
 }
