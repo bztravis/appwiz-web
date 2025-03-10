@@ -20,9 +20,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 
 const LoginFormSchema = z.object({
   email: z.string().email(),
-  password: z
-    .string()
-    .min(8, { message: 'Password must be at least 8 characters' }),
+  password: z.string(),
 })
 
 type LoginFormFields = z.infer<typeof LoginFormSchema>
