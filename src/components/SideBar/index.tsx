@@ -1,6 +1,5 @@
 'use client'
 
-import { HatPadding } from '@/Hat/HatPadding'
 import { Logo } from '../Logo'
 import styles from './SideBar.module.scss'
 import { HatFlex } from '@/Hat/HatFlex'
@@ -24,8 +23,8 @@ export function SideBar() {
 
   return (
     <nav className={styles.container}>
-      <HatPadding sizeHorizontal="sm">
-        <HatFlex.Row justify="between" align="center">
+      <div className={styles.scroller}>
+        <HatFlex.Row justify="between" align="center" padding="md">
           <Logo size="md" />
 
           <span className={styles.menuButton}>
@@ -37,10 +36,8 @@ export function SideBar() {
             ></HatButton>
           </span>
         </HatFlex.Row>
-      </HatPadding>
 
-      <div className={styleBuilder([styles.content, [styles.closed, !open]])}>
-        <HatFlex.Col gap="xxxl">
+        <div className={styleBuilder([styles.groups, [styles.closed, !open]])}>
           <HatFlex.Col align="stretch">
             <NavButton
               label="My Tasks"
@@ -63,50 +60,29 @@ export function SideBar() {
               onNavigate={onNavigate}
             />
           </HatFlex.Col>
-
-          {/* <HatFlex.Col gap="sm">
-          <HatText size="sm">MHacks Hackathon</HatText>
-          <HatFlex.Col>
-            <Link href="/dashboard" className={styles.navLink}>
-              <HatText size="md">My Tasks</HatText>
-            </Link>
-
-            <Link href="/dashboard" className={styles.navLink}>
-              <HatText size="md">My Tasks</HatText>
-            </Link>
-
-            <Link href="/dashboard" className={styles.navLink}>
-              <HatText size="md">My Tasks</HatText>
-            </Link>
-          </HatFlex.Col>
-
-          <HatText size="sm">MDST</HatText>
-
-          <HatText size="sm">New Organization</HatText>
-        </HatFlex.Col> */}
-        </HatFlex.Col>
-
-        <div className={styles.user}>
-          <HatFlex.Row align="center" gap="sm">
-            <HatAvatar name={user.email ?? '' /* fixme: */}></HatAvatar>
-
-            <HatButton
-              color="secondary"
-              onClick={async () => {
-                const { error } = await supabase.auth.signOut()
-                if (error) console.error('Sign out error', error) // fixme:
-                window.location.href = '/login'
-              }}
-            >
-              Sign out
-            </HatButton>
-          </HatFlex.Row>
         </div>
+      </div>
+
+      <div className={styles.user}>
+        <HatFlex.Row align="center" gap="sm">
+          <HatAvatar name={user.email ?? '' /* fixme: */}></HatAvatar>
+
+          <HatButton
+            color="secondary"
+            onClick={async () => {
+              const { error } = await supabase.auth.signOut()
+              if (error) console.error('Sign out error', error) // fixme:
+              window.location.href = '/login' // fixme:
+            }}
+          >
+            Sign out
+          </HatButton>
+        </HatFlex.Row>
       </div>
     </nav>
   )
 
   function onNavigate() {
-    setOpen(false)
+    // setOpen(false)
   }
 }
