@@ -38,10 +38,14 @@ $space-sm-md: u.average(sizes.$space-sm, sizes.$space-md);
 // conditionals
 
 .sm {
-  padding: sizes.$space-xs sizes.$space-xs;
+  padding: sizes.$space-xs sizes.$space-sm;
   gap: sizes.$space-xs;
   font-size: sizes.$font-xs;
   line-height: sizes.$line-height-xs;
+
+  &.iconOnly {
+    padding: sizes.$space-xs;
+  }
 }
 
 .md {
@@ -49,6 +53,10 @@ $space-sm-md: u.average(sizes.$space-sm, sizes.$space-md);
   gap: sizes.$space-xs;
   font-size: sizes.$font-sm;
   line-height: sizes.$line-height-sm;
+
+  &.iconOnly {
+    padding: $space-sm-md;
+  }
 }
 
 .lg {
@@ -56,6 +64,10 @@ $space-sm-md: u.average(sizes.$space-sm, sizes.$space-md);
   gap: sizes.$space-sm;
   font-size: sizes.$font-md;
   line-height: sizes.$line-height-lg;
+
+  &.iconOnly {
+    padding: $space-sm-md;
+  }
 }
 
 .primary {

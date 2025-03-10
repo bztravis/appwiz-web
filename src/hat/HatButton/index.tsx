@@ -73,6 +73,7 @@ export function HatButton({
     styles[size],
     styles[color],
     [styles.disabled, disabled],
+    [styles.iconOnly, !!icon && !children],
   ])
 
   if (to) {

@@ -8,6 +8,7 @@ export declare const destructive: string;
 export declare const disabled: string;
 export declare const faint: string;
 export declare const hushed: string;
+export declare const iconOnly: string;
 export declare const justify: string;
 export declare const left: string;
 export declare const lg: string;
