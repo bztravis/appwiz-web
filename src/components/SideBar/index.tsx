@@ -69,6 +69,7 @@ export function SideBar() {
 
           <HatButton
             color="secondary"
+            size="sm"
             onClick={async () => {
               const { error } = await supabase.auth.signOut()
               if (error) console.error('Sign out error', error) // fixme:
