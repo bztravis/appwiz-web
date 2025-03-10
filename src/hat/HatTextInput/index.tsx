@@ -4,10 +4,11 @@ import styleBuilder from '@/utils/styleBuilder'
 import { HatFlex } from '../HatFlex'
 import { HatText } from '../HatText'
 import styles from './HatTextInput.module.scss'
-import { useId } from 'react'
+import { use, useId } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { HatPadding } from '../HatPadding'
 import { HatBaseProps } from '../utils'
+import { HatFormContext } from '../HatForm'
 
 type HatTextInputProps = {
   type?: 'text' | 'password' | 'email' | 'number'
@@ -38,8 +39,11 @@ HatTextInputProps) {
 
   const {
     register,
-    formState: { errors },
+    formState: { errors, isSubmitSuccessful },
   } = useFormContext()
+
+  const { disableAfterSuccess } = use(HatFormContext)
+  disabled = disabled || (isSubmitSuccessful && disableAfterSuccess)
 
   const error = errors[name]
 

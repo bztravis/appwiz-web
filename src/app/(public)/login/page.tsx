@@ -56,7 +56,11 @@ export default function Page() {
             <HatBreak paddingVertical="none" />
           </HatFlex.Row>
 
-          <HatForm<LoginFormFields> form={form} onSubmit={onSubmit}>
+          <HatForm<LoginFormFields>
+            form={form}
+            onSubmit={onSubmit}
+            disableAfterSuccess={true}
+          >
             <HatFlex.Col align="stretch" gap="lg">
               <HatFlex.Col gap="md">
                 <HatTextInput

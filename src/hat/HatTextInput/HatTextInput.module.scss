@@ -38,7 +38,8 @@ $space-sm-md: u.average(sizes.$space-sm, sizes.$space-md);
     }
 
     &:disabled {
-      opacity: 0.5
+      opacity: 0.5;
+      cursor: not-allowed;
     }
   }
 

@@ -65,7 +65,11 @@ export default function Page() {
             <HatBreak paddingVertical="none" />
           </HatFlex.Row>
 
-          <HatForm<SignUpFormFields> form={form} onSubmit={onSubmit}>
+          <HatForm<SignUpFormFields>
+            form={form}
+            onSubmit={onSubmit}
+            disableAfterSuccess={true}
+          >
             <HatFlex.Col align="stretch" gap="lg">
               <HatFlex.Col gap="md">
                 <HatTextInput
@@ -74,7 +78,6 @@ export default function Page() {
                   label="Email"
                   type="email"
                   required={true}
-                  disabled={form.formState.isSubmitSuccessful}
                 />
 
                 <HatTextInput
@@ -83,7 +86,6 @@ export default function Page() {
                   label="Password"
                   type="password"
                   required={true}
-                  disabled={form.formState.isSubmitSuccessful}
                 />
 
                 <HatTextInput
@@ -92,7 +94,6 @@ export default function Page() {
                   label="Confirm password"
                   type="password"
                   required={true}
-                  disabled={form.formState.isSubmitSuccessful}
                 />
               </HatFlex.Col>
 

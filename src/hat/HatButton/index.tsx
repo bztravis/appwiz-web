@@ -4,9 +4,10 @@ import styleBuilder from '@/utils/styleBuilder'
 import styles from './HatButton.module.scss'
 import Link from 'next/link'
 import { HatBaseProps } from '../utils'
-import { useState } from 'react'
+import { use, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { HatLoading } from '../HatLoading'
+import { HatFormContext } from '../HatForm'
 
 type HatButtonColor =
   | 'primary'
@@ -53,6 +54,7 @@ export function HatButton({
   const formSubmitting = formContext?.formState?.isSubmitting
   const formLoading = formContext?.formState?.isLoading
   const formDisabled = formContext?.formState?.disabled
+  const isSubmitSuccessful = formContext?.formState?.isSubmitSuccessful
 
   const [onClickPending, setOnClickPending] = useState<boolean>(false)
 
@@ -62,6 +64,9 @@ export function HatButton({
     formDisabled ||
     onClickPending
   disabled = disabled || loading
+
+  const { disableAfterSuccess } = use(HatFormContext)
+  disabled = disabled || (isSubmitSuccessful && disableAfterSuccess)
 
   const className = styleBuilder([
     styles.base,

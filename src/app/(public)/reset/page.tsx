@@ -38,7 +38,11 @@ export default function Page() {
           </HatText.p>
         </HatFlex.Col>
 
-        <HatForm<ResetPasswordFormFields> form={form} onSubmit={onSubmit}>
+        <HatForm<ResetPasswordFormFields>
+          form={form}
+          onSubmit={onSubmit}
+          disableAfterSuccess={true}
+        >
           <HatFlex.Col align="stretch" gap="md">
             <HatTextInput
               size="lg"
@@ -46,14 +50,9 @@ export default function Page() {
               name="email"
               type="email"
               required={true}
-              disabled={form.formState.isSubmitSuccessful}
             />
 
-            <FormSubmitButton
-              size="lg"
-              color="accent"
-              disabled={form.formState.isSubmitSuccessful}
-            >
+            <FormSubmitButton size="lg" color="accent">
               Send reset link
             </FormSubmitButton>
 
