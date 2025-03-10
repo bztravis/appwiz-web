@@ -35,7 +35,10 @@ export async function login(formData: FormData): ServerActionResponse {
   }
 
   revalidatePath('/', 'layout')
-  redirect(process.env.NEXT_PUBLIC_AUTHED_REDIRECT_URL!)
+
+  return {
+    success: true,
+  }
 }
 
 export async function signUp(formData: FormData): ServerActionResponse {
@@ -58,4 +61,8 @@ export async function signUp(formData: FormData): ServerActionResponse {
   }
 
   revalidatePath('/', 'layout')
+
+  return {
+    success: true,
+  }
 }

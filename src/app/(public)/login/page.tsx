@@ -16,6 +16,7 @@ import { objToFormData } from '@/utils/objToFormData'
 import { HatForm } from '@/Hat/HatForm'
 import { FormSubmitButton } from '@/components/FormSubmitButton'
 import { signInWithGoogle } from '@/utils/signInWithGoogle'
+import { useRouter, useSearchParams } from 'next/navigation'
 
 const LoginFormSchema = z.object({
   email: z.string().email(),
@@ -30,6 +31,9 @@ export default function Page() {
   const form = useForm<LoginFormFields>({
     resolver: zodResolver(LoginFormSchema),
   })
+
+  const searchParams = useSearchParams()
+  const router = useRouter()
 
   return (
     <>
@@ -103,11 +107,17 @@ export default function Page() {
   async function onSubmit(data: LoginFormFields) {
     const res = await login(objToFormData(data))
 
-    if (res && !res.success) {
+    if (!res) return
+
+    if (!res.success) {
       form.setError('root', {
         type: 'manual',
         message: res.message,
       })
+    }
+
+    if (searchParams.has('redirect')) {
+      router.replace(searchParams.get('redirect') as string)
     }
   }
 }
