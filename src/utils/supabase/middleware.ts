@@ -1,4 +1,5 @@
 import { createServerClient } from '@supabase/ssr'
+import { NextURL } from 'next/dist/server/web/next-url'
 import { NextResponse, type NextRequest } from 'next/server'
 
 const PUBLIC_ROUTES = ['/login', '/sign-up', '/reset']
@@ -56,12 +57,12 @@ export async function updateSession(request: NextRequest) {
     return NextResponse.redirect(url)
   }
 
+  // unauthed private path
   if (!user && !isPublicRoute(request)) {
     if (request.nextUrl.searchParams.has('code')) {
       return supabaseResponse
     }
 
-    // no user, respond by redirecting the user to the login page
     const url = request.nextUrl.clone()
 
     url.pathname = '/login'
@@ -70,10 +71,13 @@ export async function updateSession(request: NextRequest) {
     return NextResponse.redirect(url)
   }
 
+  // authed public path
   if (user && isPublicRoute(request)) {
-    // user, respond by redirecting the user to the dashboard page
     const url = request.nextUrl.clone()
+
     url.pathname = process.env.NEXT_PUBLIC_AUTHED_REDIRECT_URL!
+    url.searchParams.forEach((_, key) => url.searchParams.delete(key))
+
     return NextResponse.redirect(url)
   }
 

@@ -115,7 +115,9 @@ export default function Page() {
     }
 
     if (searchParams.has('redirect')) {
-      router.replace(searchParams.get('redirect') as string)
+      router.push(searchParams.get('redirect') as string) // push so that the Go back button works
+    } else {
+      router.push(process.env.NEXT_PUBLIC_AUTHED_REDIRECT_URL!)
     }
   }
 }
