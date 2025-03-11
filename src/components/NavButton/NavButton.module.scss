@@ -9,12 +9,12 @@
   align-items: center;
   gap: u.to-rem(8);
   padding: u.to-rem(6) u.to-rem(8);
-  color: colors.$faint;
+  color: var(--faint);
   text-decoration: none;
   overflow: hidden;
 
   &:hover {
-    background: colors.$spotlight;
+    background: var(--spotlight);
   }
 
   .block {
@@ -23,17 +23,17 @@
     position: absolute;
     top: 0;
     left: 0;
-    background: colors.$accent;
+    background: var(--accent);
     visibility: hidden;
   }
 
   &.active {
-    color: colors.$primary;
-    background: colors.$accent-background;
+    color: var(--primary);
+    background: var(--accent-background);
 
     &:hover {
-      color: colors.$primary;
-      background: colors.$accent-background;
+      color: var(--primary);
+      background: var(--accent-background);
     }
 
     .block {

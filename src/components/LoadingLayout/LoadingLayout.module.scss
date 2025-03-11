@@ -20,6 +20,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: colors.$faint;
+  color: var(--faint);
   animation: pulse 2s ease-in-out infinite;
 }

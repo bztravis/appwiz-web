@@ -67,23 +67,23 @@ h6 {
 }
 
 .primary {
-  color: colors.$primary;
+  color: var(--primary);
 }
 
 .hushed {
-  color: colors.$hushed;
+  color: var(--hushed);
 }
 
 .faint {
-  color: colors.$faint;
+  color: var(--faint);
 }
 
 .constructive {
-  color: colors.$constructive;
+  color: var(--constructive);
 }
 
 .destructive {
-  color: colors.$destructive;
+  color: var(--destructive);
 }
 
 .left {

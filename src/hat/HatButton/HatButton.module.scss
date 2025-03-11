@@ -71,12 +71,12 @@ $space-sm-md: u.average(sizes.$space-sm, sizes.$space-md);
 }
 
 .primary {
-  border-color: colors.$primary;
-  background: colors.$primary;
-  color: colors.$background;
+  border-color: var(--primary);
+  background: var(--primary);
+  color: var(--background);
 
   &:focus {
-    box-shadow: 0px 0px 0px 4px color.mix(colors.$accent, transparent, 30%);
+    box-shadow: 0px 0px 0px 4px color-mix(in hsl, var(--accent) 40%, transparent 60%);
   }
 
   &:hover {
@@ -85,13 +85,13 @@ $space-sm-md: u.average(sizes.$space-sm, sizes.$space-md);
 }
 
 .secondary {
-  border-color: colors.$input-border;
-  background: colors.$background;
-  color: colors.$primary;
+  border-color: var(--input-border);
+  background: var(--background);
+  color: var(--primary);
 
   &:focus {
-    border-color: colors.$accent;
-    box-shadow: 0px 0px 0px 4px color.mix(colors.$accent, transparent, 30%);
+    border-color: var(--accent);
+    box-shadow: 0px 0px 0px 4px color-mix(in hsl, var(--accent) 40%, transparent 60%);
   }
 
   &:hover {
@@ -100,12 +100,12 @@ $space-sm-md: u.average(sizes.$space-sm, sizes.$space-md);
 }
 
 .accent {
-  border-color: colors.$accent;
-  background: colors.$accent;
-  color: colors.$background;
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--background);
 
   &:focus {
-    box-shadow: 0px 0px 0px 4px color.mix(colors.$accent, transparent, 30%);
+    box-shadow: 0px 0px 0px 4px color-mix(in hsl, var(--accent) 40%, transparent 60%);
   }
 
   &:hover {
@@ -114,12 +114,12 @@ $space-sm-md: u.average(sizes.$space-sm, sizes.$space-md);
 }
 
 .destructive {
-  border-color: colors.$destructive;
-  background: colors.$destructive;
-  color: colors.$background;
+  border-color: var(--destructive);
+  background: var(--destructive);
+  color: var(--background);
 
   &:focus {
-    box-shadow: 0px 0px 0px 4px color.mix(colors.$destructive, transparent, 30%);
+    box-shadow: 0px 0px 0px 4px color-mix(in hsl, var(--destructive) 30%, transparent 70%);
   }
 
   &:hover {
@@ -128,12 +128,12 @@ $space-sm-md: u.average(sizes.$space-sm, sizes.$space-md);
 }
 
 .constructive {
-  border-color: colors.$constructive;
-  background: colors.$constructive;
-  color: colors.$background;
+  border-color: var(--constructive);
+  background: var(--constructive);
+  color: var(--background);
 
   &:focus {
-    box-shadow: 0px 0px 0px 4px color.mix(colors.$constructive, transparent, 30%);
+    box-shadow: 0px 0px 0px 4px color-mix(in hsl, var(--constructive) 30%, transparent 70%);
   }
 
   &:hover {

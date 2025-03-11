@@ -6,12 +6,12 @@
   height: 100dvh;
   border-style: solid;
   border-width: 0 u.to-rem(1) 0 0;
-  border-color: colors.$border;
+  border-color: var(--border);
   position: sticky;
   top: 0px;
   display: grid;
   grid-template-rows: 1fr auto;
-  background: colors.$background;
+  background: var(--background);
 
   .scroller {
     overflow: scroll;
@@ -21,7 +21,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: colors.$background;
+      background: var(--background);
 
       .menuButton {
         display: contents;
@@ -72,7 +72,7 @@
       .top {
         border-style: solid;
         border-width: 0 0 u.to-rem(1) 0;
-        border-color: colors.$border;
+        border-color: var(--border);
         position: sticky;
         top: 0;
         z-index: 1; // fixme: shouldn't be necessary
@@ -90,7 +90,7 @@
     .user {
       border-style: solid;
       border-width: u.to-rem(1) 0 0 0;
-      border-color: colors.$border;
+      border-color: var(--border);
     }
   }
 }

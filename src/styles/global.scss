@@ -2,9 +2,38 @@
 @use './colors.module';
 @use './utils.module' as u;
 
-
 :root {
-  font-size: u.$root-font-px + px;
+  --primary: #{colors.$primary};
+  --accent: #{colors.$accent};
+  --accent-background: #{colors.$accent-background};
+  --destructive: #{colors.$destructive};
+  --constructive: #{colors.$constructive};
+
+  --hushed: #{colors.$hushed};
+  --faint: #{colors.$faint};
+  --input-border: #{colors.$input-border};
+  --border: #{colors.$border};
+  --spotlight: #{colors.$spotlight};
+  --banner-fill: #{colors.$banner-fill};
+  --background: #{colors.$background};
+
+  @media(prefers-color-scheme: dark) {
+    --primary: #{colors.$primary-dark};
+    --accent: #{colors.$accent-dark};
+    --accent-background: #{colors.$accent-background-dark};
+    --destructive: #{colors.$destructive-dark};
+    --constructive: #{colors.$constructive-dark};
+
+    --hushed: #{colors.$hushed-dark};
+    --faint: #{colors.$faint-dark};
+    --input-border: #{colors.$input-border-dark};
+    --border: #{colors.$border-dark};
+    --spotlight: #{colors.$spotlight-dark};
+    --banner-fill: #{colors.$banner-fill-dark};
+    --background: #{colors.$background-dark};
+  }
+
+  font-size: u.$root-font-px +px;
 }
 
 html {
@@ -18,8 +47,8 @@ body {
 }
 
 body {
-  color: colors.$primary;
-  background: colors.$background;
+  color: var(--primary);
+  background: var(--background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -30,10 +59,10 @@ body {
   margin: 0;
   font-size: 1rem;
   font-family: unset;
-  outline-color: colors.$accent;
+  outline-color: var(--accent);
 
   &::selection {
-    background: color.mix(colors.$accent, transparent, 40%);
+    background: color-mix(in hsl, var(--accent) 40%, transparent 60%);
   }
 }
 

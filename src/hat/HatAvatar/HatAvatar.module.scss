@@ -6,13 +6,13 @@
   width: sizes.$space-xl;
   height: sizes.$space-xl;
   padding: u.to-rem(8);
-  border: u.to-rem(1) solid colors.$accent;
+  border: u.to-rem(1) solid var(--accent);
   border-radius: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: sizes.$font-xs;
-  color: colors.$accent;
-  background: colors.$accent-background;
+  color: var(--accent);
+  background: var(--accent-background);
   user-select: none;
 }
