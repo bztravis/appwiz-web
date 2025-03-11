@@ -1,3 +1,6 @@
+// useful for completing PKCE auth flow (handling the callback from Google OAuth and reset password)
+// from Supabase (https://supabase.com/docs/guides/auth/social-login/auth-google?queryGroups=environment&environment=client&queryGroups=framework&framework=nextjs)
+
 import { NextResponse } from 'next/server'
 // The client you created from the Server-Side Auth instructions
 import { createClient } from '@/utils/supabase/server'

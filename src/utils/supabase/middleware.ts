@@ -1,21 +1,11 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
-const PUBLIC_ROUTES = [
-  // pages
-  '/login',
-  '/sign-up',
-  '/reset',
-  '/error',
+const PUBLIC_ROUTES = ['/login', '/sign-up', '/reset', '/error']
+const EXCLUDED_ROUTES = ['/auth/callback']
 
-  // routes
-  '/auth/callback',
-]
-
-function isPublicRoute(request: NextRequest) {
-  return PUBLIC_ROUTES.some((route) =>
-    request.nextUrl.pathname.startsWith(route)
-  )
+function isRoute(routeList: string[], request: NextRequest) {
+  return routeList.some((route) => request.nextUrl.pathname.startsWith(route))
 }
 
 export async function updateSession(request: NextRequest) {
@@ -23,6 +13,11 @@ export async function updateSession(request: NextRequest) {
     request,
   })
 
+  if (isRoute(EXCLUDED_ROUTES, request)) {
+    return supabaseResponse
+  }
+
+  // If authorization cookies already exist, process them
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -64,7 +59,7 @@ export async function updateSession(request: NextRequest) {
   }
 
   // unauthed private path
-  if (!user && !isPublicRoute(request)) {
+  if (!user && !isRoute(PUBLIC_ROUTES, request)) {
     const url = request.nextUrl.clone()
 
     url.pathname = '/login'
@@ -74,7 +69,7 @@ export async function updateSession(request: NextRequest) {
   }
 
   // authed public path
-  if (user && isPublicRoute(request)) {
+  if (user && isRoute(PUBLIC_ROUTES, request)) {
     const url = request.nextUrl.clone()
 
     url.pathname = process.env.NEXT_PUBLIC_AUTHED_REDIRECT_URL!

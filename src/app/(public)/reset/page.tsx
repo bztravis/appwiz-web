@@ -74,7 +74,7 @@ export default function Page() {
 
   async function onSubmit(data: ResetPasswordFormFields) {
     const { error } = await supabase.auth.resetPasswordForEmail(data.email, {
-      redirectTo: getAppUrl('/change-password'),
+      redirectTo: getAppUrl('/auth/callback/?next=/change-password'),
     })
 
     if (error) {

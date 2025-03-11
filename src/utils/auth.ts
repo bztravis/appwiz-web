@@ -13,5 +13,8 @@ export function signInWithGoogle() {
 
 export async function signOut() {
   const { error } = await supabase.auth.signOut()
-  if (error) console.error('Sign out error', error)
+  if (error) {
+    console.error(error)
+    location.reload()
+  }
 }
