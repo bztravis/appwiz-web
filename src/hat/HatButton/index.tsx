@@ -9,12 +9,7 @@ import { useFormContext } from 'react-hook-form'
 import { HatLoading } from '../HatLoading'
 import { HatFormContext } from '../HatForm'
 
-type HatButtonColor =
-  | 'primary'
-  | 'secondary'
-  | 'accent'
-  | 'destructive'
-  | 'constructive'
+type HatButtonColor = 'primary' | 'secondary' | 'destructive' | 'constructive'
 
 export type HatButtonProps = {
   size?: 'sm' | 'md' | 'lg'

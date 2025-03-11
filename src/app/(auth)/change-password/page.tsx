@@ -56,7 +56,7 @@ export default function Page() {
 
             <FormSubmitButton
               size="lg"
-              color="accent"
+              color="primary"
               disabled={form.formState.isSubmitSuccessful}
             >
               Change password

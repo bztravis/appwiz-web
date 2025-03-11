@@ -52,7 +52,7 @@ export default function Page() {
               required={true}
             />
 
-            <FormSubmitButton size="lg" color="accent">
+            <FormSubmitButton size="lg" color="primary">
               Send reset link
             </FormSubmitButton>
 

@@ -1,4 +1,3 @@
-export declare const accent: string;
 export declare const base: string;
 export declare const billboard: string;
 export declare const center: string;

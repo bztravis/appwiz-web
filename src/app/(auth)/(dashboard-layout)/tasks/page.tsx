@@ -19,9 +19,12 @@ export default function Page() {
 
         <HatText.p>My Tasks</HatText.p>
 
-        <HatButton onClick={() => toast.success('Yahoo!')}>Toast</HatButton>
+        <HatButton color="secondary" onClick={() => toast.success('Yahoo!')}>
+          Toast
+        </HatButton>
 
         <HatButton
+          color="secondary"
           onClick={() => {
             throw new Error('uh oh')
           }}
