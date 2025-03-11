@@ -26,7 +26,6 @@ $space-sm-md: u.average(sizes.$space-sm, sizes.$space-md);
 
     @media (prefers-color-scheme: dark) {
       background: var(--banner-fill);
-      box-shadow: none;
     }
 
     &::placeholder {
