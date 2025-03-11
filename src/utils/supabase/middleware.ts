@@ -1,9 +1,16 @@
 import { createServerClient } from '@supabase/ssr'
-import { NextURL } from 'next/dist/server/web/next-url'
 import { NextResponse, type NextRequest } from 'next/server'
 
-const PUBLIC_ROUTES = ['/login', '/sign-up', '/reset']
-// const EXCLUDED_ROUTES = ['/change-password', '/']
+const PUBLIC_ROUTES = [
+  // pages
+  '/login',
+  '/sign-up',
+  '/reset',
+  '/error',
+
+  // routes
+  '/auth/callback',
+]
 
 function isPublicRoute(request: NextRequest) {
   return PUBLIC_ROUTES.some((route) =>
@@ -45,7 +52,6 @@ export async function updateSession(request: NextRequest) {
   // issues with users being randomly logged out.
 
   // IMPORTANT: DO NOT REMOVE auth.getUser()
-
   const {
     data: { user },
   } = await supabase.auth.getUser()
@@ -59,10 +65,6 @@ export async function updateSession(request: NextRequest) {
 
   // unauthed private path
   if (!user && !isPublicRoute(request)) {
-    if (request.nextUrl.searchParams.has('code')) {
-      return supabaseResponse
-    }
-
     const url = request.nextUrl.clone()
 
     url.pathname = '/login'

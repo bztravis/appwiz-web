@@ -15,7 +15,7 @@ import { signUp } from '../actions'
 import { objToFormData } from '@/utils/objToFormData'
 import { HatForm } from '@/Hat/HatForm'
 import { FormSubmitButton } from '@/components/FormSubmitButton'
-import { signInWithGoogle } from '@/utils/signInWithGoogle'
+import { signInWithGoogle } from '@/utils/auth'
 
 const SignUpFormSchema = z
   .object({

@@ -10,11 +10,11 @@ import ToggleLine from '../../assets/icons/ToggleLine.svg'
 import { HatAvatar } from '@/Hat/HatAvatar'
 import { useUser } from '@/hooks/useUser'
 import { HatButton } from '@/Hat/HatButton'
-import { supabase } from '@/utils/supabase/client'
 import MenuLine from '../../assets/icons/MenuLine.svg'
 import CloseLine from '../../assets/icons/CloseLine.svg'
 import { useState } from 'react'
 import styleBuilder from '@/utils/styleBuilder'
+import { signOut } from '@/utils/auth'
 
 export function SideBar() {
   const user = useUser()
@@ -67,15 +67,7 @@ export function SideBar() {
         <HatFlex.Row align="center" gap="sm">
           <HatAvatar name={user.email ?? '' /* fixme: */}></HatAvatar>
 
-          <HatButton
-            color="secondary"
-            size="sm"
-            onClick={async () => {
-              const { error } = await supabase.auth.signOut()
-              if (error) console.error('Sign out error', error) // fixme:
-              window.location.href = '/login' // fixme:
-            }}
-          >
+          <HatButton color="secondary" size="sm" onClick={signOut}>
             Sign out
           </HatButton>
         </HatFlex.Row>

@@ -15,7 +15,7 @@ import { login } from '../actions'
 import { objToFormData } from '@/utils/objToFormData'
 import { HatForm } from '@/Hat/HatForm'
 import { FormSubmitButton } from '@/components/FormSubmitButton'
-import { signInWithGoogle } from '@/utils/signInWithGoogle'
+import { signInWithGoogle } from '@/utils/auth'
 import { useRouter, useSearchParams } from 'next/navigation'
 
 const LoginFormSchema = z.object({
