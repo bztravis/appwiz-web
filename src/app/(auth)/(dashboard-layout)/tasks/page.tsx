@@ -1,11 +1,8 @@
 'use client'
 
-import { HatButton } from '@/Hat/HatButton'
-import { HatFlex } from '@/Hat/HatFlex'
-import { HatText } from '@/Hat/HatText'
-import { useUser } from '@/hooks/useUser'
+import { EmptyState } from '@/components/EmptyState'
 import { getPageTitle } from '@/utils/getPageTitle'
-import { toast } from 'sonner'
+import CheckDoubleLine from '../../../../assets/icons/CheckDoubleLine.svg'
 
 export default function Page() {
   return (
@@ -18,33 +15,10 @@ export default function Page() {
 }
 
 function PageImpl() {
-  const user = useUser()
-
   return (
-    <HatFlex.Col gap="sm">
-      {user.email}
-
-      <HatText.p>My Tasks</HatText.p>
-
-      <HatButton color="secondary" onClick={() => toast.success('Yahoo!')}>
-        Toast
-      </HatButton>
-
-      <HatButton
-        color="secondary"
-        onClick={() => {
-          throw new Error('uh oh')
-        }}
-      >
-        Error
-      </HatButton>
-
-      {Array(64)
-        .fill(null)
-        .map((_, i) => (
-          // eslint-disable-next-line @eslint-react/no-array-index-key
-          <HatText.p key={i}>My Tasks</HatText.p>
-        ))}
-    </HatFlex.Col>
+    <EmptyState
+      icon={<CheckDoubleLine />}
+      message="You don’t have any tasks to complete right now. Thanks for chipping in!"
+    />
   )
 }

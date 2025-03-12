@@ -11,6 +11,7 @@ import { HatFormContext } from '../HatForm'
 
 type HatButtonColor = 'primary' | 'secondary' | 'destructive' | 'constructive'
 
+// todo: add name
 export type HatButtonProps = {
   size?: 'sm' | 'md' | 'lg'
   color?: HatButtonColor
@@ -20,13 +21,13 @@ export type HatButtonProps = {
   children?: React.ReactNode
 } & (
   | {
-      to?: string
+      to: string
       type?: never
       onClick?: never
     }
   | {
       to?: never
-      type?: 'button' | 'submit' | 'reset'
+      type: 'button' | 'submit' | 'reset'
       onClick?: () => void
     }
 ) &
