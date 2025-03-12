@@ -1,4 +1,5 @@
 import { AriaRole } from 'react'
+import { HatButtonProps } from './HatButton'
 
 export type HatAccessibilityProps = {
   ariaLabel?: string
@@ -10,6 +11,24 @@ export type HatAccessibilityProps = {
 export type HatBaseProps = {
   id?: string
 } & HatAccessibilityProps
+
+export type HatActionProps = {
+  label: string
+  icon?: React.ReactNode
+  disabled?: boolean
+  buttonProps?: HatButtonProps
+} & (
+  | {
+      to?: string
+      type?: never
+      onClick?: never
+    }
+  | {
+      to?: never
+      type?: 'button' | 'submit' | 'reset'
+      onClick?: () => void
+    }
+)
 
 export const JUSTIFY = {
   start: 'justifyStart',

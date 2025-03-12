@@ -1,0 +1,15 @@
+@use '../../styles/sizes.module';
+
+.forehead {
+  width: 100%;
+  display: grid;
+  // grid-template-rows: auto auto;
+  grid-template-columns: 1fr auto;
+  gap: sizes.$space-sm;
+  align-items: center;
+
+  @media (min-wdith: sizes.$breakpoint-sm) {
+    grid-template-rows: unset;
+    grid-template-columns: 1fr auto;
+  }
+}

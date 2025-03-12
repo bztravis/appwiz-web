@@ -2,10 +2,15 @@
   width: fit-content;
   display: inline-flex;
   align-items: center;
-
   font-size: inherit;
   line-height: inherit;
   letter-spacing: inherit;
   font-weight: inherit;
   color: inherit;
+  text-decoration: none;
+}
+
+// conditionals
+.underline {
+  text-decoration: underline;
 }

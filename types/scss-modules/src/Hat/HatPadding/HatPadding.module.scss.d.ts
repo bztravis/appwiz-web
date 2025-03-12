@@ -1,4 +1,5 @@
 export declare const base: string;
+export declare const fitContent: string;
 export declare const paddingXLg: string;
 export declare const paddingXMd: string;
 export declare const paddingXNone: string;

@@ -13,10 +13,12 @@ export type SpaceSize =
   | 'xxl'
   | 'xxxl'
 
-type HatFlexProps = {
+export type HatFlexProps = {
   justify?: 'start' | 'end' | 'center' | 'between'
   align?: 'start' | 'end' | 'center' | 'stretch'
   gap?: SpaceSize
+  wrap?: boolean
+  fitContent?: boolean
   padding?: SpaceSize
   children?: React.ReactNode
 } & HatBaseProps
@@ -24,6 +26,8 @@ type HatFlexProps = {
 const DEFAULT_JUSTIFY: HatFlexProps['justify'] = 'start'
 const DEFAULT_ALIGN: HatFlexProps['align'] = 'start'
 const DEFAULT_GAP: HatFlexProps['gap'] = 'none'
+const DEFAULT_WRAP: HatFlexProps['wrap'] = false
+const DEFAULT_FIT_CONTENT: HatFlexProps['fitContent'] = false
 const DEFAULT_PADDING: HatFlexProps['padding'] = 'none'
 
 export const HatFlex = {
@@ -31,10 +35,12 @@ export const HatFlex = {
     justify = DEFAULT_JUSTIFY,
     align = DEFAULT_ALIGN,
     gap = DEFAULT_GAP,
+    wrap = DEFAULT_WRAP,
+    fitContent = DEFAULT_FIT_CONTENT,
     padding = DEFAULT_PADDING,
     children,
   }: HatFlexProps) => (
-    <HatPadding size={padding}>
+    <HatPadding _fitContent={fitContent} size={padding}>
       <div
         className={styleBuilder([
           styles.base,
@@ -42,6 +48,8 @@ export const HatFlex = {
           styles[JUSTIFY[justify]],
           styles[ALIGN[align]],
           styles[GAP[gap]],
+          [styles.wrap, wrap],
+          [styles.fitContent, fitContent],
         ])}
       >
         {children}
@@ -53,10 +61,12 @@ export const HatFlex = {
     justify = DEFAULT_JUSTIFY,
     align = DEFAULT_ALIGN,
     gap = DEFAULT_GAP,
+    wrap = DEFAULT_WRAP,
+    fitContent = DEFAULT_FIT_CONTENT,
     padding = DEFAULT_PADDING,
     children,
   }: HatFlexProps) => (
-    <HatPadding size={padding}>
+    <HatPadding _fitContent={fitContent} size={padding}>
       <div
         className={styleBuilder([
           styles.base,
@@ -64,6 +74,8 @@ export const HatFlex = {
           styles[JUSTIFY[justify]],
           styles[ALIGN[align]],
           styles[GAP[gap]],
+          [styles.wrap, wrap],
+          [styles.fitContent, fitContent],
         ])}
       >
         {children}

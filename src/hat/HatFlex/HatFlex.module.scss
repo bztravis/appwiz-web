@@ -77,3 +77,11 @@
 .gapXxxl {
   gap: sizes.$space-xxxl;
 }
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.fitContent {
+  width: fit-content;
+}
