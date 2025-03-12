@@ -15,7 +15,7 @@ export function HatBits({ bits }: HatBitsProps) {
     <BitDot />
   )
   return (
-    <HatFlex.Row align="center" gap="sm">
+    <HatFlex.Row align="center" gap="sm" wrap={true}>
       {components}
     </HatFlex.Row>
   )
