@@ -17,6 +17,16 @@ import { HatForm } from '@/Hat/HatForm'
 import { FormSubmitButton } from '@/components/FormSubmitButton'
 import { signInWithGoogle } from '@/utils/auth'
 
+export default function Page() {
+  return (
+    <>
+      <title>{getPageTitle('Sign Up')}</title>
+
+      <PageImpl />
+    </>
+  )
+}
+
 const SignUpFormSchema = z
   .object({
     email: z.string().email(),
@@ -37,89 +47,85 @@ const SignUpFormSchema = z
 
 type SignUpFormFields = z.infer<typeof SignUpFormSchema>
 
-export default function Page() {
+function PageImpl() {
   const form = useForm<SignUpFormFields>({
     resolver: zodResolver(SignUpFormSchema),
   })
 
   return (
-    <>
-      <title>{getPageTitle('Sign Up')}</title>
+    <HatFlex.Col gap="xl">
+      <HatText.h1 size="xl">Sign up for AppWiz</HatText.h1>
 
-      <HatFlex.Col gap="xl">
-        <HatText.h1 size="xl">Sign up for AppWiz</HatText.h1>
+      <HatFlex.Col align="stretch" gap="lg">
+        <HatButton size="lg" color="secondary" onClick={signInWithGoogle}>
+          <Google />
+          Continue with Google
+        </HatButton>
 
-        <HatFlex.Col align="stretch" gap="lg">
-          <HatButton size="lg" color="secondary" onClick={signInWithGoogle}>
-            <Google />
-            Continue with Google
-          </HatButton>
+        <HatFlex.Row align="center" gap="sm">
+          <HatBreak paddingVertical="none" />
 
-          <HatFlex.Row align="center" gap="sm">
-            <HatBreak paddingVertical="none" />
+          <HatText.p size="xs" color="faint">
+            OR
+          </HatText.p>
 
-            <HatText.p size="xs" color="faint">
-              OR
-            </HatText.p>
+          <HatBreak paddingVertical="none" />
+        </HatFlex.Row>
 
-            <HatBreak paddingVertical="none" />
-          </HatFlex.Row>
+        <HatForm<SignUpFormFields>
+          form={form}
+          onSubmit={onSubmit}
+          disableAfterSuccess={true}
+        >
+          <HatFlex.Col align="stretch" gap="lg">
+            <HatFlex.Col gap="md">
+              <HatTextInput
+                size="lg"
+                name="email"
+                label="Email"
+                type="email"
+                required={true}
+              />
 
-          <HatForm<SignUpFormFields>
-            form={form}
-            onSubmit={onSubmit}
-            disableAfterSuccess={true}
-          >
-            <HatFlex.Col align="stretch" gap="lg">
-              <HatFlex.Col gap="md">
-                <HatTextInput
-                  size="lg"
-                  name="email"
-                  label="Email"
-                  type="email"
-                  required={true}
-                />
+              <HatTextInput
+                size="lg"
+                name="password"
+                label="Password"
+                type="password"
+                required={true}
+              />
 
-                <HatTextInput
-                  size="lg"
-                  name="password"
-                  label="Password"
-                  type="password"
-                  required={true}
-                />
-
-                <HatTextInput
-                  size="lg"
-                  name="confirmPassword"
-                  label="Confirm password"
-                  type="password"
-                  required={true}
-                />
-              </HatFlex.Col>
-
-              <FormSubmitButton size="lg" color="primary">
-                Sign Up
-              </FormSubmitButton>
-
-              {form.formState.isSubmitSuccessful && (
-                <HatText color="constructive" ariaRole="alert">
-                  If this is the first time you’re signing up for AppWiz, an
-                  email with a confirmation link will be sent to{' '}
-                  <b>{form.getValues().email}</b>.
-                </HatText>
-              )}
+              <HatTextInput
+                size="lg"
+                name="confirmPassword"
+                label="Confirm password"
+                type="password"
+                required={true}
+              />
             </HatFlex.Col>
-          </HatForm>
-        </HatFlex.Col>
 
-        <HatText.p color="hushed">
-          Already have an account?{' '}
-          <HatLink to="/login" color="primary">
-            Login
-          </HatLink>
-        </HatText.p>
+            <FormSubmitButton size="lg" color="primary">
+              Sign Up
+            </FormSubmitButton>
+
+            {form.formState.isSubmitSuccessful && (
+              <HatText color="constructive" ariaRole="alert">
+                If this is the first time you’re signing up for AppWiz, an email
+                with a confirmation link will be sent to{' '}
+                <b>{form.getValues().email}</b>.
+              </HatText>
+            )}
+          </HatFlex.Col>
+        </HatForm>
       </HatFlex.Col>
-    </>
+
+      <HatText.p color="hushed">
+        Already have an account?{' '}
+        <HatLink to="/login" color="primary">
+          Login
+        </HatLink>
+      </HatText.p>
+    </HatFlex.Col>
   )
 
   async function onSubmit(data: SignUpFormFields) {
