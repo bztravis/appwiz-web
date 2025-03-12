@@ -3,6 +3,7 @@ import ArrowRightLine from '../../assets/icons/ArrowRightLine.svg'
 import styles from './BreadCrumbs.module.scss'
 import { HatLink } from '@/Hat/HatLink'
 import styleBuilder from '@/utils/styleBuilder'
+import { reactJoinWith } from '../utils'
 
 export type Crumb = {
   to: string
@@ -22,14 +23,11 @@ type BreadCrumbsProps = {
 }
 
 export function BreadCrumbs({ crumbs }: BreadCrumbsProps) {
-  const components = crumbs
-    .map((crumb, idx) => [
-      // eslint-disable-next-line @eslint-react/no-array-index-key
-      <Segment crumb={crumb} key={`segment${idx}`} />,
-      // eslint-disable-next-line @eslint-react/no-array-index-key
-      idx !== crumbs.length - 1 ? <ArrowRightLine key={`arrow${idx}`} /> : null,
-    ])
-    .flatMap((item) => item)
+  const components = reactJoinWith(
+    crumbs,
+    (crumb) => <Segment crumb={crumb} />,
+    <ArrowRightLine />
+  )
 
   return (
     <div className={styles.container}>

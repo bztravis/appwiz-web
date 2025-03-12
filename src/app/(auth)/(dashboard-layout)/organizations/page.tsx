@@ -1,6 +1,8 @@
 'use client'
 
-import { HatText } from '@/Hat/HatText'
+import { HatBits } from '@/Hat/HatBits'
+import { HatFlex } from '@/Hat/HatFlex'
+import { HatPane } from '@/Hat/HatPane'
 import { getPageTitle } from '@/utils/getPageTitle'
 
 export default function Page() {
@@ -14,5 +16,37 @@ export default function Page() {
 }
 
 function PageImpl() {
-  return <HatText.p>Organizations</HatText.p>
+  return (
+    <HatFlex.Col>
+      <HatPane
+        label={'MHacks'}
+        description={
+          <HatBits
+            bits={['661 applications', '23 readers', 'Dec 21st, 2024']}
+          />
+        }
+        actions={[{ label: 'View' }]}
+      />
+
+      <HatPane
+        label={'MHacks'}
+        description={
+          <HatBits
+            bits={['661 applications', '23 readers', 'Dec 21st, 2024']}
+          />
+        }
+        actions={[{ label: 'View' }]}
+      />
+
+      <HatPane
+        label={'MHacks'}
+        description={
+          <HatBits
+            bits={['661 applications', '23 readers', 'Dec 21st, 2024']}
+          />
+        }
+        actions={[{ label: 'View' }]}
+      />
+    </HatFlex.Col>
+  )
 }

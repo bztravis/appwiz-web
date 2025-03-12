@@ -3,7 +3,6 @@
 .forehead {
   width: 100%;
   display: grid;
-  // grid-template-rows: auto auto;
   grid-template-columns: 1fr auto;
   gap: sizes.$space-sm;
   align-items: center;

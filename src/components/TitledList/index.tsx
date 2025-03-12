@@ -31,38 +31,38 @@ export function TitledList({
   return (
     <HatFlex.Col gap="xl">
       <HatFlex.Col gap="md">
-        {/* <div className={styles.forehead}> */}
         <HatFlex.Row justify="between" align="center" gap="sm" wrap={true}>
           <HatText.h1 size="xxl">{title}</HatText.h1>
 
-          {renderActions && (
-            <HatFlex.Row gap="sm" wrap={true} fitContent={true}>
-              {actions?.others &&
-                actions.others.map((action, idx) => (
-                  <HatButton
-                    {...{ ...action.buttonProps, color: 'secondary' }}
-                    key={idx}
-                  >
-                    {action.label}
-                  </HatButton>
-                ))}
-
-              {actions?.primary && (
-                <HatButton
-                  {...{ ...actions.primary.buttonProps, color: 'primary' }}
-                >
-                  {actions.primary.label}
-                </HatButton>
-              )}
-            </HatFlex.Row>
-          )}
+          {renderActions && <Actions actions={actions} />}
         </HatFlex.Row>
-        {/* </div> */}
 
         <HatBreak paddingVertical="none" />
       </HatFlex.Col>
 
       {children}
     </HatFlex.Col>
+  )
+}
+
+function Actions({ actions }: { actions: TitledListProps['actions'] }) {
+  return (
+    <HatFlex.Row gap="sm" wrap={true} fitContent={true}>
+      {actions?.others &&
+        actions.others.map((action) => (
+          <HatButton
+            {...{ ...action.buttonProps, color: 'secondary' }}
+            key={action.label}
+          >
+            {action.label}
+          </HatButton>
+        ))}
+
+      {actions?.primary && (
+        <HatButton {...{ ...actions.primary.buttonProps, color: 'primary' }}>
+          {actions.primary.label}
+        </HatButton>
+      )}
+    </HatFlex.Row>
   )
 }

@@ -1,0 +1,18 @@
+@use '../../styles/sizes.module';
+@use '../../styles/utils.module' as u;
+
+$space-sm-md: u.average(sizes.$space-sm, sizes.$space-md);
+
+.container {
+  width: 100%;
+  padding: $space-sm-md;
+  border-radius: sizes.$space-sm;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: sizes.$space-md;
+
+  &:hover {
+    background: var(--spotlight);
+  }
+}

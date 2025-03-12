@@ -1,4 +1,4 @@
-'use client'
+// todo: use factory
 
 import styleBuilder from '@/utils/styleBuilder'
 import styles from './HatText.module.scss'
