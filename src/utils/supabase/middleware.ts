@@ -1,8 +1,13 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
-const PUBLIC_ROUTES = ['/login', '/sign-up', '/reset', '/error']
-const EXCLUDED_ROUTES = ['/auth/callback']
+const PUBLIC_ROUTES = ['/login', '/sign-up', '/reset']
+const EXCLUDED_ROUTES = [
+  // pages
+  '/error',
+  // api routes
+  '/auth/callback',
+]
 
 function isRoute(routeList: string[], request: NextRequest) {
   return routeList.some((route) => request.nextUrl.pathname.startsWith(route))
