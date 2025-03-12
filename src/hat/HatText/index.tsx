@@ -39,6 +39,7 @@ export function HatText({
     <span
       className={styleBuilder([
         styles.base,
+        styles.span,
         styles[size],
         styles[color],
         styles[align],
