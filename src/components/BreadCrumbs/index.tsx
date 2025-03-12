@@ -25,16 +25,15 @@ export function BreadCrumbs({ crumbs }: BreadCrumbsProps) {
   const components = crumbs
     .map((crumb, idx) => [
       // eslint-disable-next-line @eslint-react/no-array-index-key
-      <Segment crumb={crumb} key={idx} />,
-      idx !== crumbs.length - 1 ? (
-        <ArrowRightLine key={crumb.label + 'a'} />
-      ) : null,
+      <Segment crumb={crumb} key={`segment${idx}`} />,
+      // eslint-disable-next-line @eslint-react/no-array-index-key
+      idx !== crumbs.length - 1 ? <ArrowRightLine key={`arrow${idx}`} /> : null,
     ])
     .flatMap((item) => item)
 
   return (
     <div className={styles.container}>
-      <HatFlex.Row padding="md" align="center">
+      <HatFlex.Row align="center" wrap={true}>
         {components}
       </HatFlex.Row>
     </div>

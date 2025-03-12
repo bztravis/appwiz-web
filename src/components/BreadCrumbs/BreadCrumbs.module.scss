@@ -1,6 +1,10 @@
 @use '../../styles/sizes.module';
+@use '../../styles/utils.module' as u;
+
+$space-sm-md: u.average(sizes.$space-sm, sizes.$space-md);
 
 .container {
+  padding: $space-sm-md;
   color: var(--input-border);
 
   .segment {
@@ -12,6 +16,7 @@
     border-radius: sizes.$space-xs;
 
     &:hover {
+      color: black;
       background-color: var(--spotlight);
     }
   }
