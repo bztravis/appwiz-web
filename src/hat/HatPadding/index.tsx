@@ -29,7 +29,7 @@ export function HatPadding({
 }: HatPaddingBaseProps) {
   const className = styleBuilder([
     styles.base,
-    [styles.fitContent, _fitContent],
+    [styles.fitContent, !!_fitContent],
     ...(size ? [styles[PADDING_Y[size]], styles[PADDING_X[size]]] : []),
     ...(sizeVertical ? [styles[PADDING_Y[sizeVertical]]] : []),
     ...(sizeHorizontal ? [styles[PADDING_X[sizeHorizontal]]] : []),

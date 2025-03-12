@@ -12,6 +12,7 @@
   display: grid;
   grid-template-rows: 1fr auto;
   background: var(--background);
+  z-index: 1; // fixme: shouldn't be necessary
 
   .scroller {
     overflow: scroll;
