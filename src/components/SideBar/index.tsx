@@ -15,6 +15,7 @@ import CloseLine from '../../assets/icons/CloseLine.svg'
 import { useState } from 'react'
 import styleBuilder from '@/utils/styleBuilder'
 import { signOut } from '@/utils/auth'
+import { HatLink } from '@/Hat/HatLink'
 
 export function SideBar() {
   const user = useUser()
@@ -25,7 +26,9 @@ export function SideBar() {
     <nav className={styles.container}>
       <div className={styles.scroller}>
         <div className={styles.top}>
-          <Logo size="md" />
+          <HatLink to="/" aria-label="Home">
+            <Logo size="md" />
+          </HatLink>
 
           <span className={styles.menuButton}>
             <HatButton
@@ -39,25 +42,18 @@ export function SideBar() {
 
         <div className={styleBuilder([styles.groups, [styles.closed, !open]])}>
           <HatFlex.Col align="stretch">
-            <NavButton
-              label="My Tasks"
-              icon={<InboxLine />}
-              path="/tasks"
-              onNavigate={onNavigate}
-            />
+            <NavButton label="My Tasks" icon={<InboxLine />} path="/tasks" />
 
             <NavButton
               label="Organizations"
               icon={<OrganizationChartLine />}
               path="/organizations"
-              onNavigate={onNavigate}
             />
 
             <NavButton
               label="Preferences"
               icon={<ToggleLine />}
               path="/preferences"
-              onNavigate={onNavigate}
             />
           </HatFlex.Col>
         </div>
@@ -74,8 +70,4 @@ export function SideBar() {
       </div>
     </nav>
   )
-
-  function onNavigate() {
-    // setOpen(false)
-  }
 }

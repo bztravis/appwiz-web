@@ -10,10 +10,9 @@ type NavButtonProps = {
   label: string
   icon: React.ReactNode
   path: string
-  onNavigate: () => void
 }
 
-export function NavButton({ label, icon, path, onNavigate }: NavButtonProps) {
+export function NavButton({ label, icon, path }: NavButtonProps) {
   const pathname = usePathname()
 
   return (
@@ -23,7 +22,6 @@ export function NavButton({ label, icon, path, onNavigate }: NavButtonProps) {
         styles.container,
         [styles.active, pathname === path],
       ])}
-      onClick={onNavigate}
     >
       <div className={styles.block}></div>
 
