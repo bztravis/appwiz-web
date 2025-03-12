@@ -63,7 +63,7 @@ export default function Page() {
             </FormSubmitButton>
 
             {form.formState.isSubmitSuccessful && (
-              <HatText color="constructive">Password changed</HatText>
+              <HatText.p color="constructive">Password changed</HatText.p>
             )}
           </HatFlex.Col>
         </HatForm>

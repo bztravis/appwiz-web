@@ -20,32 +20,20 @@ function PageImpl() {
     <HatFlex.Col>
       <HatPane
         label={'MHacks'}
-        description={
-          <HatBits
-            bits={['661 applications', '23 readers', 'Dec 21st, 2024']}
-          />
-        }
-        actions={[{ label: 'View' }]}
+        description={<HatBits bits={['3 application cycles', '26 members']} />}
+        to="/organizations/mhacks"
       />
 
       <HatPane
-        label={'MHacks'}
-        description={
-          <HatBits
-            bits={['661 applications', '23 readers', 'Dec 21st, 2024']}
-          />
-        }
-        actions={[{ label: 'View' }]}
+        label={'MDST'}
+        description={<HatBits bits={['0 application cycles', '1 member']} />}
+        to="/organizations/mhacks"
       />
 
       <HatPane
-        label={'MHacks'}
-        description={
-          <HatBits
-            bits={['661 applications', '23 readers', 'Dec 21st, 2024']}
-          />
-        }
-        actions={[{ label: 'View' }]}
+        label={'Michigan Hackers'}
+        description={<HatBits bits={['10 application cycles', '5 members']} />}
+        to="/organizations/mhacks"
       />
     </HatFlex.Col>
   )

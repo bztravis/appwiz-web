@@ -6,7 +6,6 @@ import {
   HatText,
   HatTextColor,
   HatTextSize,
-  type HatTextProps,
 } from '../HatText'
 import ArrowRightUpLine from '../../assets/icons/ArrowRightUpLine.svg'
 import { HatBaseProps } from '../utils'
@@ -29,12 +28,13 @@ type HatLinkProps = {
 ) &
   HatBaseProps
 
-const DEFAULT_HAT_LINK_COLOR: HatTextProps['color'] = 'hushed'
+const DEFAULT_HAT_LINK_COLOR = 'hushed'
+const DEFAULT_HAT_LINK_UNDERLINE = true
 
 export function HatLink({
   size = DEFAULT_HAT_TEXT_SIZE,
   color = DEFAULT_HAT_LINK_COLOR,
-  underline = true,
+  underline = DEFAULT_HAT_LINK_UNDERLINE,
   to,
   href,
   children,
