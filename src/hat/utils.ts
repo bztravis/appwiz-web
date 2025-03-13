@@ -1,5 +1,6 @@
 import { AriaRole } from 'react'
 import { HatButtonProps } from './HatButton'
+import { removeKey, removeKeys } from '@/utils/removeKey'
 
 export type HatAccessibilityProps = {
   ariaLabel?: string
@@ -19,16 +20,35 @@ export type HatActionProps = {
   buttonProps?: HatButtonProps
 } & (
   | {
-      to: string
-      type?: never
+      to?: string
       onClick?: never
     }
   | {
       to?: never
-      type: 'button' | 'submit' | 'reset'
       onClick?: () => void
     }
 )
+
+export function hatActionToButtonPropsResolver(
+  action: HatActionProps
+): HatButtonProps {
+  return {
+    icon: action.icon,
+    disabled: action.disabled,
+    ...(action.to
+      ? {
+          to: action.to,
+          ...(action.buttonProps
+            ? removeKeys(action.buttonProps, ['type', 'onClick'])
+            : {}),
+        }
+      : {
+          type: 'button',
+          onClick: action.onClick,
+          ...(action.buttonProps ? removeKey(action.buttonProps, 'to') : {}),
+        }),
+  }
+}
 
 export const JUSTIFY = {
   start: 'justifyStart',

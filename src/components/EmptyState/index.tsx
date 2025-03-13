@@ -1,7 +1,7 @@
 import { HatButton } from '@/Hat/HatButton'
 import { HatFlex } from '@/Hat/HatFlex'
 import { HatText } from '@/Hat/HatText'
-import { HatActionProps } from '@/Hat/utils'
+import { HatActionProps, hatActionToButtonPropsResolver } from '@/Hat/utils'
 import styles from './EmptyState.module.scss'
 
 type EmptyStateProps = {
@@ -21,10 +21,10 @@ export function EmptyState({ icon, message, actions }: EmptyStateProps) {
 
       {actions &&
         actions.map((action) => (
-          // <HatButton {...action} {...action.buttonProps} key={action.label}>
-          //   {action.label}
-          // </HatButton>
-          <HatButton {...action.buttonProps} key={action.label}>
+          <HatButton
+            {...hatActionToButtonPropsResolver(action)}
+            key={action.label}
+          >
             {action.label}
           </HatButton>
         ))}

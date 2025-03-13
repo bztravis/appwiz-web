@@ -1,8 +1,10 @@
+'use client'
+
 import { HatBreak } from '@/Hat/HatBreak'
 import { HatButton } from '@/Hat/HatButton'
 import { HatFlex } from '@/Hat/HatFlex'
 import { HatText } from '@/Hat/HatText'
-import { HatActionProps } from '@/Hat/utils'
+import { HatActionProps, hatActionToButtonPropsResolver } from '@/Hat/utils'
 
 // type Tab = {
 //   title: string
@@ -50,7 +52,8 @@ function Actions({ actions }: { actions: TitledListProps['actions'] }) {
       {actions?.others &&
         actions.others.map((action) => (
           <HatButton
-            {...{ ...action.buttonProps, color: 'secondary' }}
+            {...hatActionToButtonPropsResolver(action)}
+            {...{ color: 'secondary' }}
             key={action.label}
           >
             {action.label}
@@ -58,7 +61,10 @@ function Actions({ actions }: { actions: TitledListProps['actions'] }) {
         ))}
 
       {actions?.primary && (
-        <HatButton {...{ ...actions.primary.buttonProps, color: 'primary' }}>
+        <HatButton
+          {...hatActionToButtonPropsResolver(actions.primary)}
+          {...{ color: 'primary' }}
+        >
           {actions.primary.label}
         </HatButton>
       )}
