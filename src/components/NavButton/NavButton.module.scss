@@ -7,8 +7,8 @@
   position: relative;
   display: flex;
   align-items: center;
-  gap: u.to-rem(8);
-  padding: u.to-rem(6) u.to-rem(8);
+  gap: sizes.$space-sm;
+  padding: sizes.$space-xs sizes.$space-sm;
   color: var(--faint);
   text-decoration: none;
   overflow: hidden;
@@ -18,7 +18,7 @@
   }
 
   .block {
-    width: u.to-rem(4);
+    width: sizes.$space-xs;
     height: 100%;
     position: absolute;
     top: 0;
@@ -42,6 +42,6 @@
   }
 
   @media (max-width: sizes.$breakpoint-sm) {
-    padding: u.to-rem(12) u.to-rem(8);
+    padding: sizes.$space-sm sizes.$space-sm;
   }
 }

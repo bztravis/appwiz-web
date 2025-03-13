@@ -5,7 +5,7 @@
 .container {
   width: sizes.$space-xl;
   height: sizes.$space-xl;
-  padding: u.to-rem(8);
+  padding: sizes.$space-sm;
   border: u.to-rem(1) solid var(--accent);
   border-radius: 100%;
   display: flex;
