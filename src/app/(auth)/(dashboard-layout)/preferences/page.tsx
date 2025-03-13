@@ -21,7 +21,7 @@ function PageImpl() {
   const user = useUser()
 
   return (
-    <HatFlex.Col gap="sm">
+    <HatFlex.Col gap="sm" align="start">
       {user.email}
 
       <HatButton color="secondary" onClick={() => toast.success('Yahoo!')}>

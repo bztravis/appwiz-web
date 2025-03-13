@@ -24,7 +24,7 @@ export type HatFlexProps = {
 } & HatBaseProps
 
 const DEFAULT_JUSTIFY: HatFlexProps['justify'] = 'start'
-const DEFAULT_ALIGN: HatFlexProps['align'] = 'start'
+const DEFAULT_ALIGN: HatFlexProps['align'] = 'stretch'
 const DEFAULT_GAP: HatFlexProps['gap'] = 'none'
 const DEFAULT_WRAP: HatFlexProps['wrap'] = false
 const DEFAULT_FIT_CONTENT: HatFlexProps['fitContent'] = false

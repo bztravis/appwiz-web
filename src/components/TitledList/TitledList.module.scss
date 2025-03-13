@@ -1,0 +1,8 @@
+@use '../../styles/sizes.module';
+
+.contents {
+
+  @media (max-width: sizes.$breakpoint-sm) {
+    margin: 0 - sizes.$space-sm;
+  }
+}

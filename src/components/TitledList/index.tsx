@@ -5,6 +5,7 @@ import { HatButton } from '@/Hat/HatButton'
 import { HatFlex } from '@/Hat/HatFlex'
 import { HatText } from '@/Hat/HatText'
 import { HatActionProps, hatActionToButtonPropsResolver } from '@/Hat/utils'
+import styles from './TitledList.module.scss'
 
 // type Tab = {
 //   title: string
@@ -41,7 +42,7 @@ export function TitledList({
         <HatBreak paddingVertical="none" />
       </HatFlex.Col>
 
-      {children}
+      <div className={styles.contents}>{children}</div>
     </HatFlex.Col>
   )
 }
