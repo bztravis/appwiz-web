@@ -23,10 +23,10 @@ function PageImpl() {
       message={
         <HatFlex.Col>
           <HatText.p size="md" align="center">
-            You don’t have any tasks to complete right now.
+            You don’t have any applications to read right now.
           </HatText.p>
           <HatText.p size="md" align="center">
-            Thanks for chipping in!
+            Once your organization assigns you some, they’ll appear here.
           </HatText.p>
         </HatFlex.Col>
       }

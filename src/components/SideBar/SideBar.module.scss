@@ -15,7 +15,7 @@
   z-index: 1; // fixme: shouldn't be necessary
 
   .scroller {
-    overflow: scroll;
+    overflow: auto;
 
     .top {
       padding: sizes.$space-md;
@@ -37,7 +37,7 @@
       justify-content: space-between;
       align-items: stretch;
       gap: sizes.$space-xxl;
-      overflow: scroll;
+      overflow: auto;
     }
   }
 
