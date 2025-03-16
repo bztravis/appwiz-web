@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { AuthProvider } from '@/utils/AuthProvider'
 import { Toaster } from 'sonner'
 import { HatModal } from '@/Hat/HatModal'
-import { ModalQueueProvider } from '@/Hat/HatModal/HatModalContext'
+import { HatModalProvider } from '@/Hat/HatModal/HatModalContext'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(true)
@@ -12,7 +12,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <AuthProvider>
-      <ModalQueueProvider>
+      <HatModalProvider>
         <Toaster expand={true} />
 
         <HatModal
@@ -46,7 +46,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </HatModal>
 
         {children}
-      </ModalQueueProvider>
+      </HatModalProvider>
     </AuthProvider>
   )
 }

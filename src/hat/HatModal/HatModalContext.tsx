@@ -10,7 +10,7 @@ type ModalQueueContextType = {
 
 const ModalQueueContext = createContext<ModalQueueContextType | null>(null)
 
-export const ModalQueueProvider = ({
+export const HatModalProvider = ({
   children,
 }: {
   children: React.ReactNode
