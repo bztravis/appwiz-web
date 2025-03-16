@@ -1,45 +1,7 @@
 'use client'
 
-import { use, useMemo, useRef, useState } from 'react'
+import { use, useMemo, useRef } from 'react'
 import { createContext } from 'react'
-
-// export type HatModalContextState = {
-//   isModalOpen: boolean
-//   setIsModalOpen: (value: boolean) => void
-// }
-
-// export const HatModalContext = createContext<HatModalContextState>({
-//   isModalOpen: false,
-//   setIsModalOpen: undefined!,
-// })
-
-// export function HatModalProvider({ children }: { children: React.ReactNode }) {
-//   const isModalOpen = useRef(false)
-
-//   // const modalState = useMemo(
-//   //   () => ({
-//   //     isModalOpen: isModalOpen.current,
-//   //     setIsModalOpen,
-//   //   }),
-//   //   [isModalOpen.current]
-//   // )
-
-//   const modalState = {
-//     isModalOpen: isModalOpen.current,
-//     setIsModalOpen,
-//   }
-
-//   return <HatModalContext value={modalState}>{children}</HatModalContext>
-
-//   function setIsModalOpen(value: boolean) {
-//     if (value === isModalOpen.current) return
-
-//     console.log('before', isModalOpen.current)
-//     console.log('being set to', value)
-//     isModalOpen.current = value
-//     console.log('after', isModalOpen.current)
-//   }
-// }
 
 type ModalQueueContextType = {
   registerModal: (id: string) => boolean // Returns whether modal should open
@@ -53,15 +15,10 @@ export const ModalQueueProvider = ({
 }: {
   children: React.ReactNode
 }) => {
-  // const [queue, setQueue] = useState<string[]>([])
   const queue = useRef<string[]>([])
-  console.log({ queue })
 
   function registerModal(id: string) {
     if (!queue.current.includes(id))
-      // setQueue((prevQueue) =>
-      //   prevQueue.includes(id) ? prevQueue : [...prevQueue, id]
-      // )
       queue.current = queue.current.includes(id)
         ? queue.current
         : [...queue.current, id]
@@ -69,7 +26,6 @@ export const ModalQueueProvider = ({
   }
 
   function unregisterModal(id: string) {
-    // setQueue((prevQueue) => prevQueue.filter((modalId) => modalId !== id))
     queue.current = queue.current.filter((modalId) => modalId !== id)
   }
 
@@ -84,20 +40,14 @@ export const ModalQueueProvider = ({
     [memoKey]
   )
 
-  return (
-    <ModalQueueContext
-      // value={{ registerModal, unregisterModal }}
-      value={value}
-      // key={queue.current.length}
-    >
-      {children}
-    </ModalQueueContext>
-  )
+  return <ModalQueueContext value={value}>{children}</ModalQueueContext>
 }
 
 export const useModalQueue = () => {
   const context = use(ModalQueueContext)
+
   if (!context)
     throw new Error('useModalQueue must be used within a ModalQueueProvider')
+
   return context
 }

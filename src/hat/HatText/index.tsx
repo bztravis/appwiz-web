@@ -249,7 +249,6 @@ HatText.p = ({
   ariaRole,
   ...restProps
 }: HatTextProps) => {
-  console.log('rendering p')
   return (
     <p
       className={styleBuilder([

@@ -13,8 +13,7 @@ import { HatText } from '../HatText'
 import { HatActionProps, hatActionToButtonPropsResolver } from '../utils'
 import { HatButton } from '../HatButton'
 import styleBuilder from '@/utils/styleBuilder'
-import { use, useContext, useEffect, useState } from 'react'
-import { /* HatModalContext,  */ useModalQueue } from './HatModalContext'
+import { useModalQueue } from './HatModalContext'
 
 type HatModalProps = {
   size?: 'md' | 'lg'
@@ -33,17 +32,6 @@ export function HatModal({
   actions,
   children,
 }: HatModalProps) {
-  // const { isModalOpen, setIsModalOpen } = useContext(HatModalContext)
-
-  // let renderModal = false
-
-  // if (!isModalOpen) {
-  //   console.log({ isModalOpen })
-  //   console.log({ title })
-  //   renderModal = open
-  //   setIsModalOpen(true)
-  // }
-
   const { registerModal, unregisterModal } = useModalQueue()
 
   let shouldOpen = false
@@ -53,24 +41,11 @@ export function HatModal({
     unregisterModal(title as string)
   }
 
-  // const [canOpen, setCanOpen] = useState(false)
-
-  // useEffect(() => {
-  //   if (open) {
-  //     const shouldOpen = registerModal(title as string)
-  //     setCanOpen(shouldOpen)
-  //   } else {
-  //     unregisterModal(title as string)
-  //     setCanOpen(false)
-  //   }
-  // }, [open])
-
   if (actions.length === 0) {
     throw new Error('No actions were passed to HatModal')
   }
 
   return (
-    // <Root open={renderModal} modal={true}>
     <Root open={shouldOpen} modal={true}>
       <Portal container={document.getElementById('modal-root')!}>
         <Overlay className={styles.overlay} />

@@ -6,7 +6,7 @@ import { HatModal } from '@/Hat/HatModal'
 import { HatText } from '@/Hat/HatText'
 import { useUser } from '@/hooks/useUser'
 import { getPageTitle } from '@/utils/getPageTitle'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { toast } from 'sonner'
 
 export default function Page() {
@@ -23,11 +23,6 @@ function PageImpl() {
   const user = useUser()
 
   const [open, setOpen] = useState(true)
-
-  useEffect(() => {
-    console.log('mounting preferences')
-  }, [])
-  console.log('rendering preferences')
 
   return (
     <>
