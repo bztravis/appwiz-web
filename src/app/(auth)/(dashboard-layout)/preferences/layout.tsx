@@ -1,12 +1,10 @@
 import { PageLayout } from '@/components/PageLayout'
+import { TitledPage } from '@/components/TitledPage'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <PageLayout
-      title="Preferences"
-      crumbs={[{ label: 'Preferences', to: '/preferences' }]}
-    >
-      {children}
+    <PageLayout crumbs={[{ label: 'Preferences', to: '/preferences' }]}>
+      <TitledPage title="Preferences">{children}</TitledPage>
     </PageLayout>
   )
 }

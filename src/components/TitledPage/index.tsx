@@ -5,13 +5,12 @@ import { HatButton } from '@/Hat/HatButton'
 import { HatFlex } from '@/Hat/HatFlex'
 import { HatText } from '@/Hat/HatText'
 import { HatActionProps, hatActionToButtonPropsResolver } from '@/Hat/utils'
-import styles from './TitledList.module.scss'
 
 // type Tab = {
 //   title: string
 // }
 
-type TitledListProps = {
+export type TitledPageProps = {
   title: string
   // tabs?: Tab[]
   actions?: {
@@ -21,11 +20,11 @@ type TitledListProps = {
   children?: React.ReactNode
 }
 
-export function TitledList({
+export function TitledPage({
   title,
   /* tabs, */ actions,
   children,
-}: TitledListProps) {
+}: TitledPageProps) {
   const renderActions =
     actions &&
     (actions.primary || (actions.others && actions.others.length > 0))
@@ -42,12 +41,12 @@ export function TitledList({
         <HatBreak paddingVertical="none" />
       </HatFlex.Col>
 
-      <div className={styles.contents}>{children}</div>
+      {children}
     </HatFlex.Col>
   )
 }
 
-function Actions({ actions }: { actions: TitledListProps['actions'] }) {
+function Actions({ actions }: { actions: TitledPageProps['actions'] }) {
   return (
     <HatFlex.Row gap="sm" wrap={true} fitContent={true}>
       {actions?.others &&
