@@ -10,6 +10,9 @@
 .content {
   width: 95vw;
   max-height: 85vh;
+  border-width: u.to-rem(1);
+  border-style: solid;
+  border-color: var(--input-border);
   border-radius: sizes.$space-sm-md;
   position: fixed;
   top: 50%;
@@ -19,6 +22,7 @@
   grid-template-rows: 1fr auto;
   background: var(--background);
   box-shadow: var(--modal-shadow);
+  overflow: hidden;
 
   // required, dialog auto-focuses
   &:focus {
@@ -26,7 +30,7 @@
   }
 
   @media (prefers-color-scheme: dark) {
-    border: 1px solid var(--border);
+    border-color: var(--border);
     background: var(--banner-fill);
     box-shadow: none;
   }

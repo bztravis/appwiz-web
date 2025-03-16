@@ -6,6 +6,7 @@ import { HatModal } from '@/Hat/HatModal'
 import { HatText } from '@/Hat/HatText'
 import { useUser } from '@/hooks/useUser'
 import { getPageTitle } from '@/utils/getPageTitle'
+import { useState } from 'react'
 import { toast } from 'sonner'
 
 export default function Page() {
@@ -20,6 +21,8 @@ export default function Page() {
 
 function PageImpl() {
   const user = useUser()
+
+  const [open, setOpen] = useState(true)
 
   return (
     <>
@@ -48,13 +51,13 @@ function PageImpl() {
       </HatFlex.Col>
 
       <HatModal
-        size="lg"
-        open={true}
+        // size="lg"
+        open={open}
         title={'Edit profile'}
         cancelAction={{
           label: 'Nevermind',
           onClick() {
-            alert('onclick')
+            setOpen(false)
           },
         }}
         actions={[
