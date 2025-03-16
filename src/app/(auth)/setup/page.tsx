@@ -31,7 +31,7 @@ export default function Page() {
           onSubmit={onSubmit}
           disableAfterSuccess={true}
         >
-          <HatFlex.Col align="stretch" gap="lg">
+          <HatFlex.Col align="stretch" gap="md">
             <HatFlex.Col gap="md">
               <HatTextInput
                 size="lg"

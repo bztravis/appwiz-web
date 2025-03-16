@@ -26,8 +26,8 @@
   --background: #{colors.$background};
 
   // mixes
-  --backdrop: color-mix(in hsl, var(--hushed) 10%, transparent 90%);
-  --shadow: color-mix(in hsl, var(--primary) 10%, transparent 90%);
+  --backdrop: color-mix(in hsl, var(--primary) 20%, transparent 80%);
+  --shadow: color-mix(in hsl, var(--primary) 15%, transparent 85%);
 
   // filters
   --accent-hover: brightness(1.2);
@@ -57,7 +57,7 @@
     --background: #{colors.$background-dark};
 
     // mixes
-    --backdrop: color-mix(in hsl, var(--background) 50%, transparent 50%);
+    --backdrop: color-mix(in hsl, var(--background) 60%, transparent 40%);
 
     // filters
     --accent-hover: brightness(1.05);
