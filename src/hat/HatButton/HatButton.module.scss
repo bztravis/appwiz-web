@@ -140,6 +140,8 @@
   border-color: transparent;
   background: none;
   color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 
   &:focus {
     border-color: var(--accent);
@@ -147,6 +149,6 @@
   }
 
   &:hover {
-    filter: none;
+    backdrop-filter: var(--minimal-hover);
   }
 }

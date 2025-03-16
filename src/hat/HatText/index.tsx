@@ -248,21 +248,24 @@ HatText.p = ({
   ariaDescribedBy,
   ariaRole,
   ...restProps
-}: HatTextProps) => (
-  <p
-    className={styleBuilder([
-      styles.base,
-      styles[size],
-      styles[color],
-      styles[align],
-    ])}
-    id={id}
-    aria-label={ariaLabel}
-    aria-labelledby={ariaLabelledBy}
-    aria-describedby={ariaDescribedBy}
-    role={ariaRole}
-    {...restProps}
-  >
-    {children}
-  </p>
-)
+}: HatTextProps) => {
+  console.log('rendering p')
+  return (
+    <p
+      className={styleBuilder([
+        styles.base,
+        styles[size],
+        styles[color],
+        styles[align],
+      ])}
+      id={id}
+      aria-label={ariaLabel}
+      aria-labelledby={ariaLabelledBy}
+      aria-describedby={ariaDescribedBy}
+      role={ariaRole}
+      {...restProps}
+    >
+      {children}
+    </p>
+  )
+}
