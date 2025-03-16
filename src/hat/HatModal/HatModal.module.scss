@@ -1,0 +1,79 @@
+@use '../../styles/sizes.module';
+@use '../../styles/utils.module' as u;
+
+.overlay {
+  background-color: var(--backdrop);
+  position: fixed;
+  inset: 0;
+}
+
+.content {
+  width: 95vw;
+  max-height: 85vh;
+  border-radius: sizes.$space-sm-md;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-rows: 1fr auto;
+  background: var(--background);
+  box-shadow: var(--modal-shadow);
+
+  // required, dialog auto-focuses
+  &:focus {
+    outline: none;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    border: 1px solid var(--border);
+    background: var(--banner-fill);
+    box-shadow: none;
+  }
+
+  .title {
+    font-size: unset;
+    padding: sizes.$space-lg;
+    position: sticky;
+    top: 0;
+    background: var(--backgorund);
+  }
+
+  .scroller {
+    padding: 0 sizes.$space-lg sizes.$space-lg sizes.$space-lg;
+    display: flex;
+    flex-direction: column;
+    gap: sizes.$space-lg;
+    overflow: auto;
+  }
+
+  .footer {
+    border-top: 1px solid var(--border);
+    padding: sizes.$space-sm-md;
+    display: flex;
+    justify-content: flex-end;
+    gap: sizes.$space-sm;
+    flex-wrap: wrap;
+    background: var(--spotlight);
+
+    &.hasCancelAction {
+      justify-content: space-between;
+    }
+
+    .actions {
+      width: fit-content;
+      display: flex;
+      gap: sizes.$space-sm;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+// conditionals 
+.md {
+  max-width: sizes.$breakpoint-xs;
+}
+
+.lg {
+  max-width: sizes.$breakpoint-md;
+}

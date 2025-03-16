@@ -1,15 +1,13 @@
 @use '../../styles/sizes.module';
 @use '../../styles/utils.module' as u;
 
-$space-sm-md: u.average(sizes.$space-sm, sizes.$space-md);
-
 .link {
   display: contents;
 }
 
 .container {
   width: 100%;
-  padding: $space-sm-md;
+  padding: sizes.$space-sm-md;
   border-radius: sizes.$space-sm;
   display: flex;
   justify-content: space-between;

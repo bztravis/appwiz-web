@@ -4,8 +4,6 @@
 @use '../../styles/utils.module' as u;
 @use '../HatText/HatText.module.scss';
 
-$space-sm-md: u.average(sizes.$space-sm, sizes.$space-md);
-
 .base {
   width: 100%;
 
@@ -22,7 +20,7 @@ $space-sm-md: u.average(sizes.$space-sm, sizes.$space-md);
     border-color: var(--input-border);
     background: var(--background);
     color: var(--primary);
-    box-shadow: 0px 1px 2px 0px color-mix(in hsl, var(--primary) 10%, transparent 90%);
+    box-shadow: var(--input-shadow);
 
     @media (prefers-color-scheme: dark) {
       background: var(--banner-fill);
@@ -58,7 +56,7 @@ $space-sm-md: u.average(sizes.$space-sm, sizes.$space-md);
 
 .md {
   input {
-    padding: sizes.$space-sm $space-sm-md;
+    padding: sizes.$space-sm sizes.$space-sm-md;
     font-size: sizes.$font-sm;
     line-height: sizes.$line-height-sm;
   }
@@ -66,7 +64,7 @@ $space-sm-md: u.average(sizes.$space-sm, sizes.$space-md);
 
 .lg {
   input {
-    padding: $space-sm-md $space-sm-md;
+    padding: sizes.$space-sm-md sizes.$space-sm-md;
     font-size: sizes.$font-md;
     line-height: sizes.$line-height-lg;
   }

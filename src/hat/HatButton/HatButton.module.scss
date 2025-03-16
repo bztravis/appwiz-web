@@ -4,8 +4,6 @@
 @use '../../styles/utils.module' as u;
 @use '../HatText/HatText.module.scss';
 
-$space-sm-md: u.average(sizes.$space-sm, sizes.$space-md);
-
 .base {
   @include HatText.condensed;
   border-width: u.maintain-px(1);
@@ -49,24 +47,24 @@ $space-sm-md: u.average(sizes.$space-sm, sizes.$space-md);
 }
 
 .md {
-  padding: sizes.$space-sm $space-sm-md;
+  padding: sizes.$space-sm sizes.$space-sm-md;
   gap: sizes.$space-xs;
   font-size: sizes.$font-sm;
   line-height: sizes.$line-height-sm;
 
   &.iconOnly {
-    padding: $space-sm-md;
+    padding: sizes.$space-sm-md;
   }
 }
 
 .lg {
-  padding: $space-sm-md $space-sm-md;
+  padding: sizes.$space-sm-md sizes.$space-sm-md;
   gap: sizes.$space-sm;
   font-size: sizes.$font-md;
   line-height: sizes.$line-height-lg;
 
   &.iconOnly {
-    padding: $space-sm-md;
+    padding: sizes.$space-sm-md;
   }
 }
 
@@ -87,11 +85,7 @@ $space-sm-md: u.average(sizes.$space-sm, sizes.$space-md);
   }
 
   &:hover {
-    filter: brightness(1.2);
-
-    @media (prefers-color-scheme: dark) {
-      filter: brightness(0.95);
-    }
+    filter: var(--accent-hover);
   }
 }
 
@@ -106,7 +100,11 @@ $space-sm-md: u.average(sizes.$space-sm, sizes.$space-md);
   }
 
   &:hover {
-    filter: brightness(0.98);
+    filter: var(--secondary-hover);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background: none;
   }
 }
 
@@ -120,7 +118,7 @@ $space-sm-md: u.average(sizes.$space-sm, sizes.$space-md);
   }
 
   &:hover {
-    filter: brightness(0.95);
+    filter: var(--destructive-hover);
   }
 }
 
@@ -134,6 +132,21 @@ $space-sm-md: u.average(sizes.$space-sm, sizes.$space-md);
   }
 
   &:hover {
-    filter: brightness(0.95);
+    filter: var(--constructive-hover);
+  }
+}
+
+._minimal {
+  border-color: transparent;
+  background: none;
+  color: var(--primary);
+
+  &:focus {
+    border-color: var(--accent);
+    box-shadow: 0px 0px 0px 4px color-mix(in hsl, var(--accent) 40%, transparent 60%);
+  }
+
+  &:hover {
+    filter: none;
   }
 }

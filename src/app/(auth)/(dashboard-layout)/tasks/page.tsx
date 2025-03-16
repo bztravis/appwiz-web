@@ -18,18 +18,20 @@ export default function Page() {
 
 function PageImpl() {
   return (
-    <EmptyState
-      icon={<CheckDoubleLine />}
-      message={
-        <HatFlex.Col>
-          <HatText.p size="md" align="center">
-            You don’t have any applications to read right now.
-          </HatText.p>
-          <HatText.p size="md" align="center">
-            Once your organization assigns you some, they’ll appear here.
-          </HatText.p>
-        </HatFlex.Col>
-      }
-    />
+    <>
+      <EmptyState
+        icon={<CheckDoubleLine />}
+        message={
+          <HatFlex.Col>
+            <HatText.p size="md" align="center">
+              You don’t have any applications to read right now.
+            </HatText.p>
+            <HatText.p size="md" align="center">
+              Once your organization assigns you some, they’ll appear here.
+            </HatText.p>
+          </HatFlex.Col>
+        }
+      />
+    </>
   )
 }

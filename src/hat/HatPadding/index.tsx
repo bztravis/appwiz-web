@@ -26,6 +26,7 @@ export function HatPadding({
   sizeVertical,
   sizeHorizontal,
   children,
+  ...restProps
 }: HatPaddingBaseProps) {
   const className = styleBuilder([
     styles.base,
@@ -35,5 +36,9 @@ export function HatPadding({
     ...(sizeHorizontal ? [styles[PADDING_X[sizeHorizontal]]] : []),
   ])
 
-  return <div className={className}>{children}</div>
+  return (
+    <div className={className} {...restProps}>
+      {children}
+    </div>
+  )
 }

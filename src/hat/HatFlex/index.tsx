@@ -39,8 +39,9 @@ export const HatFlex = {
     fitContent = DEFAULT_FIT_CONTENT,
     padding = DEFAULT_PADDING,
     children,
+    ...restProps
   }: HatFlexProps) => (
-    <HatPadding _fitContent={fitContent} size={padding}>
+    <HatPadding _fitContent={fitContent} size={padding} {...restProps}>
       <div
         className={styleBuilder([
           styles.base,
@@ -65,8 +66,9 @@ export const HatFlex = {
     fitContent = DEFAULT_FIT_CONTENT,
     padding = DEFAULT_PADDING,
     children,
+    ...restProps
   }: HatFlexProps) => (
-    <HatPadding _fitContent={fitContent} size={padding}>
+    <HatPadding _fitContent={fitContent} size={padding} {...restProps}>
       <div
         className={styleBuilder([
           styles.base,

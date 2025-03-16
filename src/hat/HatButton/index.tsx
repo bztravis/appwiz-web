@@ -14,7 +14,7 @@ type HatButtonColor = 'primary' | 'secondary' | 'destructive' | 'constructive'
 // todo: add name
 export type HatButtonProps = {
   size?: 'sm' | 'md' | 'lg'
-  color?: HatButtonColor
+  color?: HatButtonColor | '_minimal'
   icon?: React.ReactNode
   iconSide?: 'left' | 'right'
   disabled?: boolean
@@ -44,6 +44,7 @@ export function HatButton({
   onClick,
   children,
   id,
+  ...restProps
 }: HatButtonProps) {
   const formContext = useFormContext()
 
@@ -91,6 +92,7 @@ export function HatButton({
       type={type}
       disabled={disabled}
       id={id}
+      {...restProps}
     >
       {iconSide === 'left' && (loading ? <HatLoading /> : icon ?? null)}
 

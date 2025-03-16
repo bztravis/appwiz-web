@@ -34,6 +34,7 @@ export function HatText({
   ariaLabelledBy,
   ariaDescribedBy,
   ariaRole,
+  ...restProps
 }: HatTextProps) {
   return (
     <span
@@ -49,6 +50,7 @@ export function HatText({
       aria-labelledby={ariaLabelledBy}
       aria-describedby={ariaDescribedBy}
       role={ariaRole}
+      {...restProps}
     >
       {children}
     </span>
@@ -65,6 +67,7 @@ HatText.h1 = ({
   ariaLabelledBy,
   ariaDescribedBy,
   ariaRole,
+  ...restProps
 }: HatTextProps) => (
   <h1
     className={styleBuilder([
@@ -78,6 +81,7 @@ HatText.h1 = ({
     aria-labelledby={ariaLabelledBy}
     aria-describedby={ariaDescribedBy}
     role={ariaRole}
+    {...restProps}
   >
     {children}
   </h1>
@@ -93,6 +97,7 @@ HatText.h2 = ({
   ariaLabelledBy,
   ariaDescribedBy,
   ariaRole,
+  ...restProps
 }: HatTextProps) => (
   <h2
     className={styleBuilder([
@@ -106,6 +111,7 @@ HatText.h2 = ({
     aria-labelledby={ariaLabelledBy}
     aria-describedby={ariaDescribedBy}
     role={ariaRole}
+    {...restProps}
   >
     {children}
   </h2>
@@ -121,6 +127,7 @@ HatText.h3 = ({
   ariaLabelledBy,
   ariaDescribedBy,
   ariaRole,
+  ...restProps
 }: HatTextProps) => (
   <h3
     className={styleBuilder([
@@ -134,6 +141,7 @@ HatText.h3 = ({
     aria-labelledby={ariaLabelledBy}
     aria-describedby={ariaDescribedBy}
     role={ariaRole}
+    {...restProps}
   >
     {children}
   </h3>
@@ -149,6 +157,7 @@ HatText.h4 = ({
   ariaLabelledBy,
   ariaDescribedBy,
   ariaRole,
+  ...restProps
 }: HatTextProps) => (
   <h4
     className={styleBuilder([
@@ -162,6 +171,7 @@ HatText.h4 = ({
     aria-labelledby={ariaLabelledBy}
     aria-describedby={ariaDescribedBy}
     role={ariaRole}
+    {...restProps}
   >
     {children}
   </h4>
@@ -177,6 +187,7 @@ HatText.h5 = ({
   ariaLabelledBy,
   ariaDescribedBy,
   ariaRole,
+  ...restProps
 }: HatTextProps) => (
   <h5
     className={styleBuilder([
@@ -190,6 +201,7 @@ HatText.h5 = ({
     aria-labelledby={ariaLabelledBy}
     aria-describedby={ariaDescribedBy}
     role={ariaRole}
+    {...restProps}
   >
     {children}
   </h5>
@@ -205,6 +217,7 @@ HatText.h6 = ({
   ariaLabelledBy,
   ariaDescribedBy,
   ariaRole,
+  ...restProps
 }: HatTextProps) => (
   <h6
     className={styleBuilder([
@@ -218,6 +231,7 @@ HatText.h6 = ({
     aria-labelledby={ariaLabelledBy}
     aria-describedby={ariaDescribedBy}
     role={ariaRole}
+    {...restProps}
   >
     {children}
   </h6>
@@ -233,6 +247,7 @@ HatText.p = ({
   ariaLabelledBy,
   ariaDescribedBy,
   ariaRole,
+  ...restProps
 }: HatTextProps) => (
   <p
     className={styleBuilder([
@@ -246,6 +261,7 @@ HatText.p = ({
     aria-labelledby={ariaLabelledBy}
     aria-describedby={ariaDescribedBy}
     role={ariaRole}
+    {...restProps}
   >
     {children}
   </p>

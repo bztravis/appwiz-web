@@ -28,7 +28,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={AppWizSatoshi.className}>{children}</body>
+      <body className={AppWizSatoshi.className}>
+        {children}
+        <div id="modal-root"></div>
+      </body>
     </html>
   )
 }
