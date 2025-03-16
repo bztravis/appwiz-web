@@ -6,6 +6,7 @@ import { HatButton } from '@/Hat/HatButton'
 import { HatFlex } from '@/Hat/HatFlex'
 import { HatModal } from '@/Hat/HatModal'
 import { HatText } from '@/Hat/HatText'
+import { HatTextInput } from '@/Hat/HatTextInput'
 import { useUser } from '@/hooks/useUser'
 import { getPageTitle } from '@/utils/getPageTitle'
 import { useState } from 'react'
@@ -62,6 +63,7 @@ function PageImpl() {
       <HatModal
         open={open}
         title="Welcome to AppWiz!"
+        cancelAction={{ label: 'Nevermind', onClick: () => setOpen(false) }}
         actions={[
           {
             label: 'Continue',
@@ -71,10 +73,14 @@ function PageImpl() {
           },
         ]}
       >
-        <HatText.p>
-          We’re excited to have you here! Please take a moment to set up your
-          preferences.
-        </HatText.p>
+        <HatFlex.Col gap="md">
+          <HatText.p>
+            We’re excited to have you here! Please take a moment to set up your
+            preferences.
+          </HatText.p>
+
+          <HatTextInput placeholder="Name" name="name" size="lg" />
+        </HatFlex.Col>
       </HatModal>
     </>
   )

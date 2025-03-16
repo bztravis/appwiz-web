@@ -1,7 +1,12 @@
 import { GENERIC_ERROR_MESSAGE } from '@/utils/errorMessages'
 import { HatBaseProps } from '../utils'
-import { FieldValues, FormProvider, UseFormReturn } from 'react-hook-form'
-import { createContext } from 'react'
+import {
+  FieldValues,
+  FormProvider,
+  useFormContext,
+  UseFormReturn,
+} from 'react-hook-form'
+import { createContext, use } from 'react'
 
 type HatFormProps<FormFields extends FieldValues> = {
   form: UseFormReturn<FormFields>
@@ -49,4 +54,15 @@ export function HatForm<FormFields extends FieldValues>({
       })
     }
   }
+}
+
+export function useHatFormContext() {
+  const reactHookFormContext = useFormContext()
+  const hatFormContext = use(HatFormContext)
+
+  if (!reactHookFormContext || !hatFormContext) {
+    return undefined
+  }
+
+  return { ...reactHookFormContext, ...hatFormContext }
 }

@@ -4,11 +4,10 @@ import styleBuilder from '@/utils/styleBuilder'
 import { HatFlex } from '../HatFlex'
 import { HatText } from '../HatText'
 import styles from './HatTextInput.module.scss'
-import { use, useId } from 'react'
-import { useFormContext } from 'react-hook-form'
+import { useId } from 'react'
 import { HatPadding } from '../HatPadding'
 import { HatBaseProps } from '../utils'
-import { HatFormContext } from '../HatForm'
+import { useHatFormContext } from '../HatForm'
 
 type HatTextInputProps = {
   type?: 'text' | 'password' | 'email' | 'number'
@@ -37,15 +36,16 @@ HatTextInputProps) {
   const errorId = useId()
   const hintId = useId()
 
-  const {
-    register,
-    formState: { errors, isSubmitSuccessful },
-  } = useFormContext()
+  const formContext = useHatFormContext()
 
-  const { disableAfterSuccess } = use(HatFormContext)
-  disabled = disabled || (isSubmitSuccessful && disableAfterSuccess)
+  const register = formContext?.register
+  const errors = formContext?.formState?.errors
+  const isSubmitSuccessful = formContext?.formState?.isSubmitSuccessful
 
-  const error = errors[name]
+  const disableAfterSuccess = formContext?.disableAfterSuccess
+  disabled = disabled || (!!isSubmitSuccessful && !!disableAfterSuccess)
+
+  const error = errors?.[name]
 
   return (
     <div
@@ -70,7 +70,7 @@ HatTextInputProps) {
             required={required}
             id={inputId}
             aria-describedby={`${hintId} ${errorId}`}
-            {...register(name)}
+            {...(register && register(name))}
           />
 
           {error && (

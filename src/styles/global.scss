@@ -26,8 +26,9 @@
   --background: #{colors.$background};
 
   // mixes
-  --backdrop: color-mix(in hsl, var(--primary) 20%, transparent 80%);
-  --shadow: color-mix(in hsl, var(--primary) 15%, transparent 85%);
+  --backdrop: color-mix(in hsl, var(--primary) 10%, transparent 90%);
+  --shadow: color-mix(in hsl, var(--primary) 10%, transparent 90%);
+  --dark-shadow: color-mix(in hsl, var(--primary) 20%, transparent 80%);
 
   // filters
   --accent-hover: brightness(1.2);
@@ -38,7 +39,7 @@
 
   //shadows
   --input-shadow: 0px 1px 2px 0px var(--shadow);
-  --modal-shadow: 0 #{sizes.$space-sm} #{sizes.$space-lg} 0 var(--shadow),
+  --modal-shadow: 0 #{sizes.$space-sm} #{sizes.$space-lg} 0 var(--dark-shadow),
   0 #{sizes.$space-xl} #{u.to-rem(128)} 0 var(--shadow);
 
   @media(prefers-color-scheme: dark) {
