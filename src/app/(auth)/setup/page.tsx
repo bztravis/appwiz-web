@@ -52,6 +52,6 @@ export default function Page() {
   )
 
   function onSubmit(data: SetupFormFields) {
-    console.log(data)
+    // console.log(data)
   }
 }
