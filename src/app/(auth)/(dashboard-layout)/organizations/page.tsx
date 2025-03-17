@@ -4,8 +4,12 @@ import { PageLayout } from '@/components/PageLayout'
 import { TitledListPage } from '@/components/TitledListPage'
 import { HatBits } from '@/Hat/HatBits'
 import { HatFlex } from '@/Hat/HatFlex'
+import { HatModal } from '@/Hat/HatModal'
 import { HatPane } from '@/Hat/HatPane'
+import { HatText } from '@/Hat/HatText'
+import { HatTextInput } from '@/Hat/HatTextInput'
 import { getPageTitle } from '@/utils/getPageTitle'
+import { useState } from 'react'
 
 export default function Page() {
   return (
@@ -18,53 +22,71 @@ export default function Page() {
 }
 
 function PageImpl() {
+  const [joinOpen, setJoinOpen] = useState(false)
+
   return (
-    <PageLayout crumbs={[{ label: 'Organizations', to: '/organizations' }]}>
-      <TitledListPage
-        title="Organizations"
-        actions={{
-          primary: {
-            label: 'Join organization',
+    <>
+      <PageLayout crumbs={[{ label: 'Organizations', to: '/organizations' }]}>
+        <TitledListPage
+          title="Organizations"
+          actions={{
+            primary: {
+              label: 'Join organization',
+              onClick: () => setJoinOpen(true),
+            },
+            others: [
+              {
+                label: 'Create organization',
+                onClick: () => {
+                  alert('Create organization')
+                },
+              },
+            ],
+          }}
+        >
+          <HatFlex.Col>
+            <HatPane
+              label={'MHacks'}
+              description={
+                <HatBits bits={['3 application cycles', '26 members']} />
+              }
+              to="/organizations/mhacks"
+            />
+
+            <HatPane
+              label={'MDST'}
+              description={
+                <HatBits bits={['0 application cycles', '1 member']} />
+              }
+              to="/organizations/mhacks"
+            />
+
+            <HatPane
+              label={'Michigan Hackers'}
+              description={
+                <HatBits bits={['10 application cycles', '5 members']} />
+              }
+              to="/organizations/mhacks"
+            />
+          </HatFlex.Col>
+        </TitledListPage>
+      </PageLayout>
+
+      <HatModal
+        open={joinOpen}
+        title="Join an organization"
+        cancelAction={{ label: 'Nevermind', onClick: () => setJoinOpen(false) }}
+        actions={[
+          {
+            label: 'Join',
             onClick: () => {
-              prompt('Enter the organization’s join code')
+              setJoinOpen(false)
             },
           },
-          others: [
-            {
-              label: 'Create organization',
-              onClick: () => {
-                alert('Create organization')
-              },
-            },
-          ],
-        }}
+        ]}
       >
-        <HatFlex.Col>
-          <HatPane
-            label={'MHacks'}
-            description={
-              <HatBits bits={['3 application cycles', '26 members']} />
-            }
-            to="/organizations/mhacks"
-          />
-
-          <HatPane
-            label={'MDST'}
-            description={
-              <HatBits bits={['0 application cycles', '1 member']} />
-            }
-            to="/organizations/mhacks"
-          />
-
-          <HatPane
-            label={'Michigan Hackers'}
-            description={
-              <HatBits bits={['10 application cycles', '5 members']} />
-            }
-            to="/organizations/mhacks"
-          />
-        </HatFlex.Col>
-      </TitledListPage>
-    </PageLayout>
+        <HatTextInput size="lg" name="code" placeholder="Join code" />
+      </HatModal>
+    </>
   )
 }

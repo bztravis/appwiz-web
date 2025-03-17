@@ -1,11 +1,25 @@
 @use '../../styles/sizes.module';
 @use '../../styles/utils.module' as u;
 
+@keyframes overlayEnter {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0);
+  }
+
+  to {
+    opacity: 1;
+    backdrop-filter: blur(2px);
+  }
+}
+
 .overlay {
   background-color: var(--backdrop);
   position: fixed;
   inset: 0;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(0);
+  opacity: 0;
+  animation: overlayEnter 0.2s ease-out forwards;
 }
 
 .content {
@@ -44,7 +58,7 @@
   }
 
   .scroller {
-    padding: 0 sizes.$space-lg sizes.$space-lg sizes.$space-lg;
+    padding: sizes.$space-xs sizes.$space-lg sizes.$space-lg sizes.$space-lg;
     display: flex;
     flex-direction: column;
     gap: sizes.$space-lg;
@@ -75,7 +89,7 @@
 
 // conditionals 
 .md {
-  max-width: sizes.$breakpoint-xs;
+  max-width: u.to-rem(400);
 }
 
 .lg {

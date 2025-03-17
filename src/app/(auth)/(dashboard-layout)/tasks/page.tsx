@@ -34,6 +34,13 @@ function PageImpl() {
               </HatText.p>
             </HatFlex.Col>
           }
+          actions={[
+            {
+              label: 'Join an organization',
+              to: '/organizations',
+              buttonProps: { color: 'secondary' },
+            },
+          ]}
         />
       </TitledPage>
     </PageLayout>

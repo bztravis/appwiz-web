@@ -23,31 +23,29 @@ export default function Page() {
 
   return (
     <FullPageLayout>
-      <HatFlex.Col gap="xl">
-        <HatText.h1 size="xl">Let’s finish setting up your account</HatText.h1>
+      <HatForm<SetupFormFields>
+        form={form}
+        onSubmit={onSubmit}
+        disableAfterSuccess={true}
+      >
+        <HatFlex.Col gap="lg">
+          <HatText.h1 size="xl">
+            Let’s finish setting up your account
+          </HatText.h1>
 
-        <HatForm<SetupFormFields>
-          form={form}
-          onSubmit={onSubmit}
-          disableAfterSuccess={true}
-        >
-          <HatFlex.Col align="stretch" gap="md">
-            <HatFlex.Col gap="md">
-              <HatTextInput
-                size="lg"
-                name="name"
-                label="What’s your name?"
-                placeholder="First and last"
-                required={true}
-              />
-            </HatFlex.Col>
+          <HatTextInput
+            size="lg"
+            name="name"
+            label="What’s your name?"
+            placeholder="First and last"
+            required={true}
+          />
 
-            <FormSubmitButton size="lg" color="primary">
-              Continue
-            </FormSubmitButton>
-          </HatFlex.Col>
-        </HatForm>
-      </HatFlex.Col>
+          <FormSubmitButton size="lg" color="primary">
+            Continue
+          </FormSubmitButton>
+        </HatFlex.Col>
+      </HatForm>
     </FullPageLayout>
   )
 
