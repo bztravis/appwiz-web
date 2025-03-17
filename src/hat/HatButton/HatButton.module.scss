@@ -79,9 +79,13 @@
     color: var(--primary);
   }
 
-
-  &:focus {
+  &:focus:not(:active) {
     box-shadow: 0px 0px 0px 4px color-mix(in hsl, var(--accent) 40%, transparent 60%);
+
+    &:active {
+      border-color: var(--primary);
+      box-shadow: none;
+    }
   }
 
   &:hover {
@@ -94,9 +98,14 @@
   background: var(--background);
   color: var(--primary);
 
-  &:focus {
+  &:focus:not(:active) {
     border-color: var(--accent);
     box-shadow: 0px 0px 0px 4px color-mix(in hsl, var(--accent) 40%, transparent 60%);
+
+    &:active {
+      border-color: var(--input-border);
+      box-shadow: none;
+    }
   }
 
   &:hover {
@@ -113,8 +122,13 @@
   background: var(--destructive);
   color: var(--background);
 
-  &:focus {
+  &:focus:not(:active) {
     box-shadow: 0px 0px 0px 4px color-mix(in hsl, var(--destructive) 30%, transparent 70%);
+
+    &:active {
+      border-color: var(--input-border);
+      box-shadow: none;
+    }
   }
 
   &:hover {
@@ -127,7 +141,7 @@
   background: var(--constructive);
   color: var(--background);
 
-  &:focus {
+  &:focus:not(:active) {
     box-shadow: 0px 0px 0px 4px color-mix(in hsl, var(--constructive) 30%, transparent 70%);
   }
 
@@ -143,7 +157,7 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 
-  &:focus {
+  &:focus:not(:active) {
     border-color: var(--accent);
     box-shadow: 0px 0px 0px 4px color-mix(in hsl, var(--accent) 40%, transparent 60%);
   }
