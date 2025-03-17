@@ -1,25 +1,4 @@
-@use '../../styles/colors.module';
-
-@keyframes pulse {
-  0% {
-    opacity: 0.5;
-  }
-
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0.5;
-  }
-}
-
 .container {
   width: 100dvw;
   height: 100dvh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--faint);
-  animation: pulse 2s ease-in-out infinite;
 }

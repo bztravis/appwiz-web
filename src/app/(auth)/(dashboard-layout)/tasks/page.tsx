@@ -7,6 +7,7 @@ import { HatText } from '@/Hat/HatText'
 import { HatFlex } from '@/Hat/HatFlex'
 import { PageLayout } from '@/components/PageLayout'
 import { TitledPage } from '@/components/TitledPage'
+import { PrefectchQueries } from '../../PrefetchQueries'
 
 export default function Page() {
   return (
@@ -32,6 +33,7 @@ function PageImpl() {
               <HatText.p size="md" align="center">
                 Once your organization assigns you some, they’ll appear here.
               </HatText.p>
+              <PrefectchQueries />
             </HatFlex.Col>
           }
           actions={[

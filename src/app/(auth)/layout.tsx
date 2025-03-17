@@ -6,6 +6,7 @@ import { Toaster } from 'sonner'
 import { HatModalProvider } from '@/Hat/HatModal/HatModalContext'
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClient } from '@/utils/tanstackQuery'
+import { PrefectchQueries } from './PrefetchQueries'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
