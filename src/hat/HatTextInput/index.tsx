@@ -16,18 +16,20 @@ type HatTextInputProps = {
   label?: string | React.ReactNode
   placeholder?: string
   hint?: string
+  autoFocus?: boolean
   required?: boolean
   disabled?: boolean
   // error?: string | FieldErrors<FormFields>
 } & HatBaseProps
 
 export function HatTextInput({
+  type = 'text',
   size = 'md',
   name,
   label,
   placeholder,
   hint,
-  type = 'text',
+  autoFocus = false,
   disabled = false,
   required = false,
 }: // error,
@@ -66,6 +68,7 @@ HatTextInputProps) {
           <input
             type={type}
             placeholder={placeholder}
+            autoFocus={autoFocus}
             disabled={disabled}
             required={required}
             id={inputId}

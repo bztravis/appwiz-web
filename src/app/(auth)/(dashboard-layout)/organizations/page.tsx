@@ -6,7 +6,6 @@ import { HatBits } from '@/Hat/HatBits'
 import { HatFlex } from '@/Hat/HatFlex'
 import { HatModal } from '@/Hat/HatModal'
 import { HatPane } from '@/Hat/HatPane'
-import { HatText } from '@/Hat/HatText'
 import { HatTextInput } from '@/Hat/HatTextInput'
 import { getPageTitle } from '@/utils/getPageTitle'
 import { useState } from 'react'
@@ -85,7 +84,7 @@ function PageImpl() {
           },
         ]}
       >
-        <HatTextInput size="lg" name="code" placeholder="Join code" />
+        <HatTextInput size="lg" name="code" placeholder="Join code" autoFocus />
       </HatModal>
     </>
   )
