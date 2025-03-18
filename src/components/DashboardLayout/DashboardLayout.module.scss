@@ -2,6 +2,7 @@
 @use '../../styles/utils.module' as u;
 
 .container {
+  min-height: 100dvh;
   display: grid;
   grid-template-columns: 18rem 1fr;
 
