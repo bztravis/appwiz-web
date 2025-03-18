@@ -10,7 +10,7 @@ export function PrefectchQueries() {
       setTimeout(() => {
         done = true
         resolve('done')
-      }, 20000)
+      }, 5000)
     )
 
   // const { data, isError } = useSuspenseQuery({
