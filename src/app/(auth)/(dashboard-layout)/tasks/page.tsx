@@ -38,7 +38,7 @@ function PageImpl() {
         actions={[
           {
             label: 'Join an organization',
-            to: '/organizations',
+            to: '/organizations/?join=',
             buttonProps: { color: 'secondary' },
           },
         ]}

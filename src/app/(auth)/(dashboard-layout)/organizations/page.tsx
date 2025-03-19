@@ -8,6 +8,7 @@ import { HatModal } from '@/Hat/HatModal'
 import { HatPane } from '@/Hat/HatPane'
 import { HatTextInput } from '@/Hat/HatTextInput'
 import { getPageTitle } from '@/utils/getPageTitle'
+import { useSearchParams } from 'next/navigation'
 import { useState } from 'react'
 
 export default function Page() {
@@ -23,7 +24,10 @@ export default function Page() {
 }
 
 function PageImpl() {
-  const [joinOpen, setJoinOpen] = useState(false)
+  const params = useSearchParams()
+  const hasJoinCode = params.has('join')
+
+  const [joinOpen, setJoinOpen] = useState(hasJoinCode)
 
   return (
     <>

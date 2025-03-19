@@ -57,7 +57,9 @@ function HatPaneImpl({
         <HatText.h2 size="lg">{label}</HatText.h2>
 
         {description && typeof description === 'string' ? (
-          <HatText size="sm">{description}</HatText>
+          <HatText size="sm" color="hushed">
+            {description}
+          </HatText>
         ) : (
           description
         )}
