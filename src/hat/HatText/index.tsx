@@ -20,12 +20,11 @@ export type HatTextProps = {
   children?: React.ReactNode
 } & HatBaseProps
 
-export const DEFAULT_HAT_TEXT_SIZE = 'sm'
 const DEFAULT_HAT_TEXT_COLOR = 'primary'
 const DEFAULT_HAT_TEXT_ALIGN = 'left'
 
 export function HatText({
-  size = DEFAULT_HAT_TEXT_SIZE,
+  size,
   color = DEFAULT_HAT_TEXT_COLOR,
   align = DEFAULT_HAT_TEXT_ALIGN,
   children,
@@ -41,7 +40,7 @@ export function HatText({
       className={styleBuilder([
         styles.base,
         styles.span,
-        styles[size],
+        size ? styles[size] : undefined,
         styles[color],
         styles[align],
       ])}
@@ -58,7 +57,7 @@ export function HatText({
 }
 
 HatText.h1 = ({
-  size = DEFAULT_HAT_TEXT_SIZE,
+  size,
   color = DEFAULT_HAT_TEXT_COLOR,
   align = DEFAULT_HAT_TEXT_ALIGN,
   children,
@@ -72,7 +71,7 @@ HatText.h1 = ({
   <h1
     className={styleBuilder([
       styles.base,
-      styles[size],
+      size ? styles[size] : undefined,
       styles[color],
       styles[align],
     ])}
@@ -88,7 +87,7 @@ HatText.h1 = ({
 )
 
 HatText.h2 = ({
-  size = DEFAULT_HAT_TEXT_SIZE,
+  size,
   color = DEFAULT_HAT_TEXT_COLOR,
   align = DEFAULT_HAT_TEXT_ALIGN,
   children,
@@ -102,7 +101,7 @@ HatText.h2 = ({
   <h2
     className={styleBuilder([
       styles.base,
-      styles[size],
+      size ? styles[size] : undefined,
       styles[color],
       styles[align],
     ])}
@@ -118,7 +117,7 @@ HatText.h2 = ({
 )
 
 HatText.h3 = ({
-  size = DEFAULT_HAT_TEXT_SIZE,
+  size,
   color = DEFAULT_HAT_TEXT_COLOR,
   align = DEFAULT_HAT_TEXT_ALIGN,
   children,
@@ -132,7 +131,7 @@ HatText.h3 = ({
   <h3
     className={styleBuilder([
       styles.base,
-      styles[size],
+      size ? styles[size] : undefined,
       styles[color],
       styles[align],
     ])}
@@ -148,7 +147,7 @@ HatText.h3 = ({
 )
 
 HatText.h4 = ({
-  size = DEFAULT_HAT_TEXT_SIZE,
+  size,
   color = DEFAULT_HAT_TEXT_COLOR,
   align = DEFAULT_HAT_TEXT_ALIGN,
   children,
@@ -162,7 +161,7 @@ HatText.h4 = ({
   <h4
     className={styleBuilder([
       styles.base,
-      styles[size],
+      size ? styles[size] : undefined,
       styles[color],
       styles[align],
     ])}
@@ -178,7 +177,7 @@ HatText.h4 = ({
 )
 
 HatText.h5 = ({
-  size = DEFAULT_HAT_TEXT_SIZE,
+  size,
   color = DEFAULT_HAT_TEXT_COLOR,
   align = DEFAULT_HAT_TEXT_ALIGN,
   children,
@@ -192,7 +191,7 @@ HatText.h5 = ({
   <h5
     className={styleBuilder([
       styles.base,
-      styles[size],
+      size ? styles[size] : undefined,
       styles[color],
       styles[align],
     ])}
@@ -208,7 +207,7 @@ HatText.h5 = ({
 )
 
 HatText.h6 = ({
-  size = DEFAULT_HAT_TEXT_SIZE,
+  size,
   color = DEFAULT_HAT_TEXT_COLOR,
   align = DEFAULT_HAT_TEXT_ALIGN,
   children,
@@ -222,7 +221,7 @@ HatText.h6 = ({
   <h6
     className={styleBuilder([
       styles.base,
-      styles[size],
+      size ? styles[size] : undefined,
       styles[color],
       styles[align],
     ])}
@@ -238,7 +237,7 @@ HatText.h6 = ({
 )
 
 HatText.p = ({
-  size = DEFAULT_HAT_TEXT_SIZE,
+  size,
   color = DEFAULT_HAT_TEXT_COLOR,
   align = DEFAULT_HAT_TEXT_ALIGN,
   children,
@@ -253,7 +252,7 @@ HatText.p = ({
     <p
       className={styleBuilder([
         styles.base,
-        styles[size],
+        size ? styles[size] : undefined,
         styles[color],
         styles[align],
       ])}

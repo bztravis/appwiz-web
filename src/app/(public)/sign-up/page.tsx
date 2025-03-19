@@ -109,7 +109,7 @@ function PageImpl() {
             </FormSubmitButton>
 
             {form.formState.isSubmitSuccessful && (
-              <HatText color="constructive" ariaRole="alert">
+              <HatText size="sm" color="constructive" ariaRole="alert">
                 If this is the first time you’re signing up for AppWiz, an email
                 with a confirmation link will be sent to{' '}
                 <b>{form.getValues().email}</b>.
@@ -119,9 +119,9 @@ function PageImpl() {
         </HatForm>
       </HatFlex.Col>
 
-      <HatText.p color="hushed">
+      <HatText.p size="sm" color="hushed">
         Already have an account?{' '}
-        <HatLink to="/login" color="primary">
+        <HatLink to="/login" size="sm" color="primary">
           Login
         </HatLink>
       </HatText.p>

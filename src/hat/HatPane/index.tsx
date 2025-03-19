@@ -1,5 +1,6 @@
 'use client'
 
+import styleBuilder from '@/utils/styleBuilder'
 import { HatFlex } from '../HatFlex'
 import { HatText } from '../HatText'
 import { HatActionProps } from '../utils'
@@ -12,23 +13,54 @@ type HatPaneProps = {
   actions?: HatActionProps[]
 } & HatActionProps
 
-export function HatPane({ label, description, actions, to }: HatPaneProps) {
+export function HatPane({
+  label,
+  description,
+  actions,
+  to,
+  onClick,
+  ...restProps
+}: HatPaneProps) {
   if (!to) return <HatPaneImpl {...{ label, description, actions }} />
 
   return (
-    <Link href={to!} aria-label={label} className={styles.link}>
-      <HatPaneImpl {...{ label, description, actions }} />
+    <Link
+      href={to!}
+      aria-label={label}
+      className={styleBuilder([
+        styles.link,
+        [styles.clickable, !!to || !!onClick],
+      ])}
+    >
+      <HatPaneImpl
+        {...{ label, description, actions, to, onClick, ...restProps }}
+      />
     </Link>
   )
 }
 
-function HatPaneImpl({ label, description, actions }: HatPaneProps) {
+function HatPaneImpl({
+  label,
+  description,
+  actions,
+  to,
+  onClick, // TODO: implement onClick and actions
+}: HatPaneProps) {
   return (
-    <div className={styles.container}>
+    <div
+      className={styleBuilder([
+        styles.container,
+        [styles.clickable, !!to || !!onClick],
+      ])}
+    >
       <HatFlex.Col gap="xs">
         <HatText.h2 size="lg">{label}</HatText.h2>
 
-        {description && <HatText size="sm">{description}</HatText>}
+        {description && typeof description === 'string' ? (
+          <HatText size="sm">{description}</HatText>
+        ) : (
+          description
+        )}
       </HatFlex.Col>
 
       {actions?.map((action) => action.label)}

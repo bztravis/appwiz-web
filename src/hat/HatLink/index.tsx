@@ -1,12 +1,7 @@
 import Link from 'next/link'
 
 import styles from './HatLink.module.scss'
-import {
-  DEFAULT_HAT_TEXT_SIZE,
-  HatText,
-  HatTextColor,
-  HatTextSize,
-} from '../HatText'
+import { HatText, HatTextColor, HatTextSize } from '../HatText'
 import ArrowRightUpLine from '../../assets/icons/ArrowRightUpLine.svg'
 import { HatBaseProps } from '../utils'
 import styleBuilder from '@/utils/styleBuilder'
@@ -32,7 +27,7 @@ const DEFAULT_HAT_LINK_COLOR = 'hushed'
 const DEFAULT_HAT_LINK_UNDERLINE = true
 
 export function HatLink({
-  size = DEFAULT_HAT_TEXT_SIZE,
+  size,
   color = DEFAULT_HAT_LINK_COLOR,
   underline = DEFAULT_HAT_LINK_UNDERLINE,
   to,
@@ -44,15 +39,15 @@ export function HatLink({
   }
 
   return (
-    <HatText size={size} color={color}>
-      <Link
-        href={to !== undefined ? to : href}
-        className={styleBuilder([styles.base, [styles.underline, underline]])}
-      >
+    <Link
+      href={to !== undefined ? to : href}
+      className={styleBuilder([styles.base, [styles.underline, underline]])}
+    >
+      <HatText size={size} color={color}>
         {children}
 
         {href && <ArrowRightUpLine />}
-      </Link>
-    </HatText>
+      </HatText>
+    </Link>
   )
 }

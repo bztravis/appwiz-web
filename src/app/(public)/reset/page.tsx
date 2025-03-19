@@ -39,7 +39,7 @@ function PageImpl() {
       <HatFlex.Col gap="md">
         <HatText.h1 size="xl">Reset your password</HatText.h1>
 
-        <HatText.p color="hushed">
+        <HatText.p size="sm" color="hushed">
           Enter the email address associated with your account and we’ll send
           you a link to reset your password.
         </HatText.p>
@@ -64,7 +64,7 @@ function PageImpl() {
           </FormSubmitButton>
 
           {form.formState.isSubmitSuccessful && (
-            <HatText color="constructive" ariaRole="alert">
+            <HatText size="sm" color="constructive" ariaRole="alert">
               An email with a reset link was sent to{' '}
               <b>{form.getValues().email}</b>. Follow the instructions there.
             </HatText>
@@ -72,7 +72,7 @@ function PageImpl() {
         </HatFlex.Col>
       </HatForm>
 
-      <HatLink to="/login" color="primary">
+      <HatLink to="/login" size="sm" color="primary">
         Back to login
       </HatLink>
     </HatFlex.Col>

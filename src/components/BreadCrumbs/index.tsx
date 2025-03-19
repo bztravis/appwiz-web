@@ -42,11 +42,7 @@ function Segment({ crumb }: { crumb: Crumb }) {
   return (
     <span className={styleBuilder([styles.segment])}>
       <HatLink size="md" color="faint" underline={false} to={crumb.to}>
-        {crumb.icon ? (
-          <span style={{ display: 'contents' }}>{crumb.icon}</span>
-        ) : (
-          crumb.label
-        )}
+        {crumb.icon ? crumb.icon : crumb.label}
       </HatLink>
     </span>
   )

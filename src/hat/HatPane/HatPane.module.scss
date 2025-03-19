@@ -14,7 +14,9 @@
   align-items: center;
   gap: sizes.$space-md;
 
-  &:hover {
-    background: var(--spotlight);
+  &.clickable {
+    &:hover {
+      background: var(--spotlight);
+    }
   }
 }

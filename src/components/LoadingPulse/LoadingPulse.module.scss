@@ -1,18 +1,5 @@
 @use '../../styles/colors.module';
-
-@keyframes pulse {
-  0% {
-    opacity: 0.5;
-  }
-
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0.5;
-  }
-}
+@use '../../styles/animations.module';
 
 .container {
   width: 100%;
@@ -21,5 +8,5 @@
   justify-content: center;
   align-items: center;
   color: var(--faint);
-  animation: pulse 2s ease-in-out infinite;
+  animation: animations.$pulse 2s ease-in-out infinite;
 }

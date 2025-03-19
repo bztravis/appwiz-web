@@ -91,16 +91,16 @@ function PageImpl() {
       </HatFlex.Col>
 
       <HatFlex.Col gap="xs">
-        <HatText.p color="hushed">
+        <HatText.p size="sm" color="hushed">
           Forgot your password?{' '}
-          <HatLink to="/reset" color="primary">
+          <HatLink to="/reset" size="sm" color="primary">
             Reset password
           </HatLink>
         </HatText.p>
 
-        <HatText.p color="hushed">
+        <HatText.p size="sm" color="hushed">
           Don’t have an account?{' '}
-          <HatLink to="/sign-up" color="primary">
+          <HatLink to="/sign-up" size="sm" color="primary">
             Sign up
           </HatLink>
         </HatText.p>

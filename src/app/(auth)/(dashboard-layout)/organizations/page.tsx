@@ -15,7 +15,9 @@ export default function Page() {
     <>
       <title>{getPageTitle('Organizations')}</title>
 
-      <PageImpl />
+      <PageLayout crumbs={[{ label: 'Organizations', to: '/organizations' }]}>
+        <PageImpl />
+      </PageLayout>
     </>
   )
 }
@@ -25,51 +27,49 @@ function PageImpl() {
 
   return (
     <>
-      <PageLayout crumbs={[{ label: 'Organizations', to: '/organizations' }]}>
-        <TitledListPage
-          title="Organizations"
-          actions={{
-            primary: {
-              label: 'Join organization',
-              onClick: () => setJoinOpen(true),
-            },
-            others: [
-              {
-                label: 'Create organization',
-                onClick: () => {
-                  alert('Create organization')
-                },
+      <TitledListPage
+        title="Organizations"
+        actions={{
+          primary: {
+            label: 'Join organization',
+            onClick: () => setJoinOpen(true),
+          },
+          others: [
+            {
+              label: 'Create organization',
+              onClick: () => {
+                alert('Create organization')
               },
-            ],
-          }}
-        >
-          <HatFlex.Col>
-            <HatPane
-              label={'MHacks'}
-              description={
-                <HatBits bits={['3 application cycles', '26 members']} />
-              }
-              to="/organizations/mhacks"
-            />
+            },
+          ],
+        }}
+      >
+        <HatFlex.Col>
+          <HatPane
+            label={'MHacks'}
+            description={
+              <HatBits bits={['3 application cycles', '26 members']} />
+            }
+            to="/organizations/mhacks"
+          />
 
-            <HatPane
-              label={'MDST'}
-              description={
-                <HatBits bits={['0 application cycles', '1 member']} />
-              }
-              to="/organizations/mhacks"
-            />
+          <HatPane
+            label={'MDST'}
+            description={
+              <HatBits bits={['0 application cycles', '1 member']} />
+            }
+            to="/organizations/mhacks"
+          />
 
-            <HatPane
-              label={'Michigan Hackers'}
-              description={
-                <HatBits bits={['10 application cycles', '5 members']} />
-              }
-              to="/organizations/mhacks"
-            />
-          </HatFlex.Col>
-        </TitledListPage>
-      </PageLayout>
+          <HatPane
+            label={'Michigan Hackers'}
+            description={
+              <HatBits bits={['10 application cycles', '5 members']} />
+            }
+            to="/organizations/mhacks"
+          />
+        </HatFlex.Col>
+      </TitledListPage>
 
       <HatModal
         open={joinOpen}

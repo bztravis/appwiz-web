@@ -7,44 +7,42 @@ import { HatText } from '@/Hat/HatText'
 import { HatFlex } from '@/Hat/HatFlex'
 import { PageLayout } from '@/components/PageLayout'
 import { TitledPage } from '@/components/TitledPage'
-import { PrefectchQueries } from '../../PrefetchQueries'
 
 export default function Page() {
   return (
     <>
       <title>{getPageTitle('My Tasks')}</title>
 
-      <PageImpl />
+      <PageLayout crumbs={[{ label: 'My Tasks', to: '/tasks' }]}>
+        <PageImpl />
+      </PageLayout>
     </>
   )
 }
 
 function PageImpl() {
   return (
-    <PageLayout crumbs={[{ label: 'My Tasks', to: '/tasks' }]}>
-      <TitledPage title={'My tasks'}>
-        <EmptyState
-          icon={<CheckDoubleLine />}
-          message={
-            <HatFlex.Col>
-              <HatText.p size="md" align="center">
-                You don’t have any applications to read right now.
-              </HatText.p>
-              <HatText.p size="md" align="center">
-                Once your organization assigns you some, they’ll appear here.
-              </HatText.p>
-              <PrefectchQueries />
-            </HatFlex.Col>
-          }
-          actions={[
-            {
-              label: 'Join an organization',
-              to: '/organizations',
-              buttonProps: { color: 'secondary' },
-            },
-          ]}
-        />
-      </TitledPage>
-    </PageLayout>
+    <TitledPage title={'My tasks'}>
+      <EmptyState
+        icon={<CheckDoubleLine />}
+        message={
+          <HatFlex.Col>
+            <HatText.p size="md" align="center">
+              You don’t have any applications to read right now.
+            </HatText.p>
+            <HatText.p size="md" align="center">
+              Once your organization assigns you some, they’ll appear here.
+            </HatText.p>
+          </HatFlex.Col>
+        }
+        actions={[
+          {
+            label: 'Join an organization',
+            to: '/organizations',
+            buttonProps: { color: 'secondary' },
+          },
+        ]}
+      />
+    </TitledPage>
   )
 }

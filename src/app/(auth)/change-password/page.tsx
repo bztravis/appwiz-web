@@ -37,7 +37,7 @@ export default function Page() {
         <HatFlex.Col gap="md">
           <HatText.h1 size="xl">Change your password</HatText.h1>
 
-          <HatText.p color="hushed">
+          <HatText.p size="sm" color="hushed">
             Enter a new password for your account
             {user.email ? ` (${user.email})` : ''}.
           </HatText.p>
@@ -63,12 +63,14 @@ export default function Page() {
             </FormSubmitButton>
 
             {form.formState.isSubmitSuccessful && (
-              <HatText.p color="constructive">Password changed</HatText.p>
+              <HatText.p size="sm" color="constructive">
+                Password changed
+              </HatText.p>
             )}
           </HatFlex.Col>
         </HatForm>
 
-        <HatLink to="/" color="primary">
+        <HatLink to="/" size="sm" color="primary">
           Go home
         </HatLink>
       </HatFlex.Col>

@@ -1,0 +1,12 @@
+@use '../../styles/animations.module';
+@use '../../styles/sizes.module';
+
+.pulse {
+  background: var(--border);
+  animation: animations.$pulse 2s ease-in-out infinite;
+}
+
+.basic {
+  height: sizes.$space-lg;
+  border-radius: sizes.$space-xs;
+}
