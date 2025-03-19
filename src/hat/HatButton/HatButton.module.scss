@@ -6,6 +6,7 @@
 
 .base {
   @include HatText.condensed;
+  flex-shrink: 0;
   border-width: u.maintain-px(1);
   border-radius: sizes.$space-sm;
   border-style: solid;

@@ -6,8 +6,8 @@ import { HatButton } from '@/Hat/HatButton'
 import { HatFlex } from '@/Hat/HatFlex'
 import { HatText } from '@/Hat/HatText'
 import { useUser } from '@/hooks/useUser'
+import { signOut } from '@/utils/auth'
 import { getPageTitle } from '@/utils/getPageTitle'
-import { toast } from 'sonner'
 
 export default function Page() {
   return (
@@ -26,31 +26,21 @@ function PageImpl() {
 
   return (
     <TitledPage title="Preferences">
-      <HatFlex.Col gap="sm" align="start">
-        {user.email}
+      <HatFlex.Row gap="md" justify="between" align="center" wrap={true}>
+        <HatFlex.Col fitContent={true}>
+          <HatText.p size="md">
+            <b>Brian Travis</b>
+          </HatText.p>
 
-        <HatButton color="secondary" onClick={() => toast.success('Yahoo!')}>
-          Toast
+          <HatText.p size="sm" color="hushed">
+            {user.email}
+          </HatText.p>
+        </HatFlex.Col>
+
+        <HatButton color="secondary" size="md" onClick={signOut}>
+          Sign out
         </HatButton>
-
-        <HatButton
-          color="secondary"
-          onClick={() => {
-            throw new Error('uh oh')
-          }}
-        >
-          Error
-        </HatButton>
-
-        {Array(64)
-          .fill(null)
-          .map((_, i) => (
-            // eslint-disable-next-line @eslint-react/no-array-index-key
-            <HatText.p size="sm" key={i}>
-              Preferences
-            </HatText.p>
-          ))}
-      </HatFlex.Col>
+      </HatFlex.Row>
     </TitledPage>
   )
 }
