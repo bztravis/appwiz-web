@@ -11,6 +11,7 @@ type HatAvatarProps = {
 export function HatAvatar({ name }: HatAvatarProps) {
   const initials = name
     .split(' ')
+    .filter((elem) => !!elem[0])
     .map((n, index) => (index < 2 ? n[0].toUpperCase() : ''))
 
   return <div className={styles.container}>{initials}</div>

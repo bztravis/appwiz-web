@@ -5,7 +5,7 @@ import { TitledPage } from '@/components/TitledPage'
 import { HatButton } from '@/Hat/HatButton'
 import { HatFlex } from '@/Hat/HatFlex'
 import { HatText } from '@/Hat/HatText'
-import { useUser } from '@/hooks/useUser'
+import { useProfile, useUser } from '@/hooks/useUser'
 import { signOut } from '@/utils/auth'
 import { getPageTitle } from '@/utils/getPageTitle'
 
@@ -23,13 +23,14 @@ export default function Page() {
 
 function PageImpl() {
   const user = useUser()
+  const profile = useProfile()
 
   return (
     <TitledPage title="Preferences">
       <HatFlex.Row gap="md" justify="between" align="center" wrap={true}>
         <HatFlex.Col fitContent={true}>
           <HatText.p size="md">
-            <b>Brian Travis</b>
+            <b>{profile.name}</b>
           </HatText.p>
 
           <HatText.p size="sm" color="hushed">

@@ -8,7 +8,7 @@ import InboxLine from '../../assets/icons/InboxLine.svg'
 import OrganizationChartLine from '../../assets/icons/OrganizationChartLine.svg'
 import ToggleLine from '../../assets/icons/ToggleLine.svg'
 import { HatAvatar } from '@/Hat/HatAvatar'
-import { useUser } from '@/hooks/useUser'
+import { useProfile } from '@/hooks/useUser'
 import { HatButton } from '@/Hat/HatButton'
 import MenuLine from '../../assets/icons/MenuLine.svg'
 import CloseLine from '../../assets/icons/CloseLine.svg'
@@ -18,7 +18,7 @@ import { signOut } from '@/utils/auth'
 import { HatLink } from '@/Hat/HatLink'
 
 export function SideBar() {
-  const user = useUser()
+  const profile = useProfile()
 
   const [open, setOpen] = useState(false)
 
@@ -61,7 +61,7 @@ export function SideBar() {
 
       <div className={styles.user}>
         <HatFlex.Row align="center" gap="sm">
-          <HatAvatar name={user.email ?? '' /* fixme: */}></HatAvatar>
+          <HatAvatar name={profile.name}></HatAvatar>
 
           <HatButton color="secondary" size="sm" onClick={signOut}>
             Sign out
