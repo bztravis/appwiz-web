@@ -6,7 +6,13 @@ import { HatFlex } from '@/Hat/HatFlex'
 import { HatForm } from '@/Hat/HatForm'
 import { HatText } from '@/Hat/HatText'
 import { HatTextInput } from '@/Hat/HatTextInput'
+import { useUser } from '@/hooks/useUser'
+import { supabase } from '@/utils/supabase/client'
+import { queryClient } from '@/utils/tanstackQuery'
+import { toast } from '@/utils/toast'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useMutation } from '@tanstack/react-query'
+import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
@@ -21,11 +27,34 @@ export default function Page() {
     resolver: zodResolver(SetupFormSchema),
   })
 
+  const router = useRouter()
+  const user = useUser()
+
+  const { mutateAsync } = useMutation({
+    mutationFn: async (data: SetupFormFields) => {
+      const { error } = await supabase
+        .from('profiles')
+        .update({ name: data.name })
+        .eq('id', user.id)
+
+      if (error) {
+        throw error
+      }
+    },
+    onError: (error) => {
+      toast.error(error.message)
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['profile'] })
+      router.push('/')
+    },
+  })
+
   return (
     <FullPageLayout>
       <HatForm<SetupFormFields>
         form={form}
-        onSubmit={onSubmit}
+        onSubmit={mutateAsync}
         disableAfterSuccess={true}
       >
         <HatFlex.Col gap="lg">
@@ -48,8 +77,4 @@ export default function Page() {
       </HatForm>
     </FullPageLayout>
   )
-
-  function onSubmit(data: SetupFormFields) {
-    // console.log(data)
-  }
 }

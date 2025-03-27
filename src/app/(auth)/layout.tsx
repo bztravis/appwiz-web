@@ -17,7 +17,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <AuthProvider>
       <QueryClientProvider client={queryClient}>
         <HatModalProvider>
-          <Toaster expand={true} />
+          <Toaster expand={true} richColors={true} />
 
           <Prefetch>
             <AccountSetupGuard key={pathname}>{children}</AccountSetupGuard>
