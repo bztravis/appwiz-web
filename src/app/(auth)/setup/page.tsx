@@ -17,7 +17,7 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 const SetupFormSchema = z.object({
-  name: z.string(),
+  name: z.string().regex(/[a-zA-Z]/, { message: 'Must be a valid name' }),
 })
 
 type SetupFormFields = z.infer<typeof SetupFormSchema>
